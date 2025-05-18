@@ -1,0 +1,362 @@
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 4rem ;
+}
+
+body {
+    margin: 0;
+    /*background-color: red;*/
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    font-family: 'DM Sans', sans-serif;
+    text-decoration: none;
+}
+
+/*! Top bar */
+
+.my-name, 
+#about {
+    color: black;
+    font-weight: 600;
+    padding: 1rem;
+    padding-bottom: 1rem;
+    font-size: 1rem;
+    text-decoration: none !important;
+}
+
+#about {
+    justify-self: end;
+}
+
+.container-top {
+    position: sticky;
+    top: 0px;
+    background: linear-gradient(to top, rgba(255,255,255,0.1), white);
+    box-shadow: 0 0 10px 10px rgba(255,255,255,0.1);
+    height: 100%;
+    display: grid;
+    grid-template-columns: 8fr 2fr 2fr;
+    z-index: 10;
+}
+
+.container-top-overlay {
+    height: 100%;
+    display: grid;
+}
+
+/*! carousel home */
+
+.carousel-home {
+    height: 20rem;
+}
+
+.carousel-home h1 {
+    padding-top: 1rem;
+    font-size: 3rem;
+    padding-left: 1rem;
+    
+}
+
+/*! carousel container GENERAL */
+
+.main-container {
+    position: relative;
+}
+
+.carousel-container {
+    width: 100%;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    gap: 20rem;
+    z-index: 5;
+    position: relative;
+}
+
+.carousel-container:last-child {
+    padding-bottom: 15rem;
+}
+
+.carousel {
+    scroll-snap-align: start;
+    display: grid;
+    grid-template-columns: auto;
+    margin: 1rem;
+}
+
+.carousel-inner {
+    
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    height: 55vh;
+    justify-content: center;
+}
+
+.carousel-item {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/*! OVERLAY BOTTOM BAR */
+
+.overlay {
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.1), rgb(255, 255, 255));
+    box-shadow: 0 0 15px 15px rgba(255,255,255,0.1);
+    padding: 1rem;
+    padding-bottom: 2.5rem; /* change dist description from bottom page */ 
+    padding-top: 0;
+    position: fixed;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: 6fr 6fr;
+    z-index: 200;
+    align-items: end;
+}
+
+.content-container {
+    height: 12rem;
+    align-content: center;
+}
+
+.container-projects {
+    text-align: end;
+}
+
+.prj-description {
+    align-self: flex-start;
+    text-align: center;
+}
+
+/* disapearing description */
+div.prj-description .title h4,
+div.prj-description .text-description p {
+    display: none !important;
+}
+
+.text-description {
+    margin-top: 0;
+    font-size: smaller;
+}
+
+#title {
+    font-size: 1rem;
+}
+
+
+/*! NAV BUTTONS OVERLAY */
+
+.carousel-button-container-prev {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#prev {
+    position: fixed;
+    top: 40rem;
+    height: 7rem;
+    /*background-color: chocolate;*/
+}
+
+#next {
+    height: 7rem;
+    /*background-color: aqua;*/
+}
+
+.carousel-button-container-next {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.carousel-control-prev {
+    width: 51%;
+}
+
+.carousel-control-next {
+    width: 51%;
+}
+
+.carousel-control-prev:hover {
+    cursor: url(../resources/images/cursors/Arrow-30x30-left.png), auto;
+}
+
+.carousel-control-next:hover {
+    cursor: url(../resources/images/cursors/Arrow-30x30-right.png), auto;
+}
+
+
+
+/*! Pulsing animation */
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(79, 241, 200, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+
+.pulse {
+    animation: pulse 1s ease-out;
+}
+
+/*! cursors */
+
+div.cursors div {
+    height: 300px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+
+div.cursors div span {
+    will-change: transform;
+    width: 100px;
+    position: absolute;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    font-weight: 500;
+    z-index: 10000;
+    pointer-events: none;
+    transform: translate(0%, 100%);
+}
+
+div.cursors div span#image-count {
+    will-change: transform;
+    position: absolute;
+    transform: translate(0%, 180%);
+}
+
+/*! clist */
+/* !(PART A) REMOVE BULLETS */
+
+.collapsible,
+.collapsible ol,
+.collapsible ul {
+    list-style-type: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+/*! (PART B) COLLAPSIBLE LIST CONTAINER */
+.collapsible {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
+/*! (PART C) CONTROL SPACING & INDENTATION */
+.collapsible ol,
+.collapsible ul {
+    padding-left: 0px;
+}
+
+.toggle + ol,
+.toggle + ul {
+    margin-top: 10px;
+}
+
+.collapsible li {
+    padding: 10px;
+    padding-bottom: 0;
+    padding-left: 0;
+    font-size: 1rem;
+}
+
+/*! (PART D) SHOW & HIDE CHILDREN */
+.collapsible ol,
+.collapsible ul {
+    display: none;
+}
+
+.toggle.open + ol,
+.toggle.open + ul {
+    display: block;
+}
+
+/*! (PART E) ADD TOGGLE ARROW */
+.toggle {
+    cursor: pointer;
+}
+
+.toggle::after {
+    content: "\2B";
+    font-size: 2rem;
+    line-height: 20px;
+    margin-left: 1rem;
+    font-weight: 400;
+    transition: all 1s;
+}
+
+.toggle.open::after {
+    transform: rotate(360deg);
+    content: "\2D";
+}
+
+#sub-list {
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px dotted black;
+}
+
+#sub-list > li {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    padding-left: 1rem;
+}
+
+li#head-list {
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+
+
+
+
+
+/*! showreel */
+
+#cg-showReel {
+    width: 100%;
+    height: 100%;
+}

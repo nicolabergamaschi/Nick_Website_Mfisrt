@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <head> 
+        <!-- Required meta tags -->         
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <!-- Bootstrap CSS -->         
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> 
+        <!-- Goggle Fonts -->         
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <!-- CSS file -->         
+        <link rel="stylesheet" type="text/css" href="./style/fonts.css"> 
+        <link rel="stylesheet" type="text/css" href="./style/normalize.css"> 
+        <link rel="stylesheet" type="text/css" href="./style/style.css"> 
+        <link rel="stylesheet" type="text/css" href="./style/media.css">
+        <link rel="stylesheet" type="text/css" href="./style/mobile-nav-buttons.css"> 
+        <!-- JS files -->         
+        <link rel="preload" href="./script.js" as="script"/> 
+        <link rel="preload" href="./clist.js" as="script"/> 
+        <link rel="preload" href="./bottom-prj-descr.js" as="script"/> 
+        <link rel="preload" href="./cursor.js" as="script"/> 
+        <link rel="preload" href="./highlight-menu.js" as="script"/>
+        <link rel="preload" href="./mobile-nav-button.js" as="script"> 
+        <title>Nicola Bergamaschi</title>         
+    </head>  
+    <body>
+        <div class="main-container">
+            <div class="overlay">
+                <!-- ! BOTTOM PANE-->
+                <div class="content-container">
+                    <ul id="menu" class="collapsible">
+                        <li id="head-list">
+                            <a href="#carouselExampleDarkAi" class="collapsible-text"><h5>Ai</h5></a>
+                            <div class="toggle"></div>
+                            <ul id="sub-list">
+                                <li><a id="ai-Vogue" class="sub-list-link" href="#carouselExampleDarkAi">Vogue</a></li>
+                                <li><a id="ai-VogueBES" class="sub-list-link" href="#carouselExampleDarkAi">Vogue BES</a></li>
+                                <li><a id="ai-Rombaut"class="sub-list-link" href="#carouselExampleDarkAi">Rombaut</a></li>
+                                <li><a id="ai-RickOwens"class="sub-list-link" href="#carouselExampleDarkAi">RickOwens</a></li>
+                                <li><a id="ai-Experiments" class="sub-list-link" href="#carouselExampleDarkAi">Experiments</a></li>
+                            </ul>
+                        </li>
+                        <li id="head-list">
+                            <a href="#carouselExampleDarkCgi" class="collapsible-text"><h5>Cgi</h5></a>
+                            <div class="toggle"></div>
+                            <ul id="sub-list">
+                                <li><a id="cg-ShowReel" class="sub-list-link" href="#carouselExampleDarkCgi">Show Reel</a></li>
+                                <li><a id="cg-DMP" class="sub-list-link" href="#carouselExampleDarkCgi">Digital Matte</a></li>
+                                <li><a id="cg-LANVIN"class="sub-list-link" href="#carouselExampleDarkCgi">Lanvin</a></li>
+                                <li><a id="cg-Rolex" class="sub-list-link" href="#carouselExampleDarkCgi">Rolex</a></li>
+                                <li><a id="cg-Salomon"class="sub-list-link" href="#carouselExampleDarkCgi">Salomon</a></li>
+                                <li><a id="cg-Experiments" class="sub-list-link" href="#carouselExampleDarkCgi">Experiments</a></li>
+                            </ul>
+                        </li>
+                        <li id="head-list">
+                            <a href="#carouselExampleDarkPhoto" class="collapsible-text"><h5>Photo</h5></a>
+                            <div class="toggle"></div>
+                            <ul id="sub-list">
+                                <li><a id="ph-VitalSigns" class="sub-list-link" href="#carouselExampleDarkPhoto">Vital Signs</a></li>
+                                <li><a id="ph-Personal" class="sub-list-link" href="#carouselExampleDarkPhoto">Stills</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content-container prj-description">
+                    <div data-prj="ai-Vogue">
+                        <h4 class="title" id="title" style="display: none;">VOGUE</h4>
+                        <p class="text-description paragraph" style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda deleniti ut soluta, eos aut labore nemo impedit! Alias aut temporibus, officiis, rem iusto officia, sunt facilis quam aperiam tempore quos.</p>
+                    </div>
+                    <div data-prj="ai-VogueBES">
+                        <h4 class="title" id="title" style="display: none;">Vogue Annual BES Report 2023</h4>
+                        <p class="text-description paragraph" style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda deleniti ut soluta, eos aut labore nemo impedit! Alias aut temporibus, officiis, rem iusto officia, sunt facilis quam aperiam tempore quos.</p>
+                    </div>
+                    <div data-prj="ai-Rombaut">
+                        <h4 class="title" id="title" style="display: none;">Rombaut Case Study</h4>
+                        <p class="text-description paragraph" style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda deleniti ut soluta, eos aut labore nemo impedit! Alias aut temporibus, officiis, rem iusto officia, sunt facilis quam aperiam tempore quos.</p>
+                    </div>
+                    <div data-prj="ai-RickOwens">
+                        <h4 class="title" id="title" style="display: none;">Rick Owens Case Study</h4>
+                        <p class="text-description paragraph" style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda deleniti ut soluta, eos aut labore nemo impedit! Alias aut temporibus, officiis, rem iusto officia, sunt facilis quam aperiam tempore quos.</p>
+                    </div>
+                    <div data-prj="ai-Experiments">
+                        <h4 class="title" id="title" style="display: none;">Experiments</h4>
+                        <p class="text-description paragraph" style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda deleniti ut soluta, eos aut labore nemo impedit! Alias aut temporibus, officiis, rem iusto officia, sunt facilis quam aperiam tempore quos.</p>
+                    </div>
+                    <div data-prj="cg-Experiments">
+                        <h4 class="title" id="title" style="display: none;">Experiments</h4>
+                        <p class="text-description paragraph" style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda deleniti ut soluta, eos aut labore nemo impedit! Alias aut temporibus, officiis, rem iusto officia, sunt facilis quam aperiam tempore quos.</p>
+                    </div>
+                    <div data-prj="cg-ShowReel">
+                        <h4 class="title" id="title" style="display: none;">Show Reel 24/25</h4>
+                        <p class="text-description paragraph" style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda deleniti ut soluta, eos aut labore nemo impedit! Alias aut temporibus, officiis, rem iusto officia, sunt facilis quam aperiam tempore quos.</p>
+                    </div>
+                    <div data-prj="cg-DMP">
+                        <h4 class="title" id="title" style="display: none;">Digital Matte Painting</h4>
+                        <p class="text-description paragraph" style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda deleniti ut soluta, eos aut labore nemo impedit! Alias aut temporibus, officiis, rem iusto officia, sunt facilis quam aperiam tempore quos.</p>
+                    </div>
+                    <div data-prj="cg-Salomon">
+                        <h4 class="title" id="title" style="display: none;">Salomon</h4>
+                        <p class="text-description paragraph" style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda deleniti ut soluta, eos aut labore nemo impedit! Alias aut temporibus, officiis, rem iusto officia, sunt facilis quam aperiam tempore quos.</p>
+                    </div>
+                    <div data-prj="cg-LANVIN">
+                        <h4 class="title" id="title" style="display: none;">LANVIN</h4>
+                        <p class="text-description paragraph" style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda deleniti ut soluta, eos aut labore nemo impedit! Alias aut temporibus, officiis, rem iusto officia, sunt facilis quam aperiam tempore quos.</p>
+                    </div>
+                    <div data-prj="cg-Rolex">
+                        <h4 class="title" id="title" style="display: none;">Rolex</h4>
+                        <p class="text-description paragraph" style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda deleniti ut soluta, eos aut labore nemo impedit! Alias aut temporibus, officiis, rem iusto officia, sunt facilis quam aperiam tempore quos.</p>
+                    </div>
+                    <div data-prj="ph-VitalSigns">
+                        <h4 class="title" id="title" style="display: none;">Vital Signs - SGL - King's College</h4>
+                        <p class="text-description paragraph" style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda deleniti ut soluta, eos aut labore nemo impedit! Alias aut temporibus, officiis, rem iusto officia, sunt facilis quam aperiam tempore quos.</p>
+                    </div>          
+                    <div data-prj="ph-Personal">
+                        <h4 class="title" id="title" style="display: none;">Personal - Stills</h4>
+                        <p class="text-description paragraph" style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda deleniti ut soluta, eos aut labore nemo impedit! Alias aut temporibus, officiis, rem iusto officia, sunt facilis quam aperiam tempore quos.</p>
+                    </div>
+                    <div data-prj="page-home">
+                        <h4 class="title" id="title" style="display: none;">HOME</h4>
+                        <p class="text-description paragraph" style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda deleniti ut soluta, eos aut labore nemo impedit! Alias aut temporibus, officiis, rem iusto officia, sunt facilis quam aperiam tempore quos.</p>
+                    </div>
+
+                </div>
+            </div>
+            <!-- ! TOP PANE-->             
+            <div class="container-top"> 
+                <div class="name top-bar-elements"> <a href="#page-home"><h3 class="my-name">Nicola Bergamaschi</h3></a> 
+                </div>                 
+                <div class="mid-content top-bar-elements"></div>                 
+                <div class="page-options top-bar-elements"> <a href="#page-about"><h3 id="about" class="my-name">About</h3></a> 
+                </div>                 
+            </div>  
+            <!-- ! THIS IS THE BEGINING OF THE CAROUSEL SECTION-->             
+            <div class="carousel-container central-pane"> 
+                <!-- ! Page HOME -->                 
+                <div id="page-home" class="carousel carousel-dark carousel-home" data-bs-pause="false"> 
+                <h1 class="carousel-inner">Research&<br>Development&<br>Creativity.</h1> 
+                </div>  
+                <!-- ! Carousel AI -->                 
+                <div id="carouselExampleDarkAi" class="carousel carousel-dark" data-bs-pause="false"> 
+                    <div class="carousel-button-container-prev"> 
+                        <button id="prev" class="carousel-control-prev z-2" type="button" data-bs-target="#carouselExampleDarkAi" data-bs-slide="prev"></button>                         
+                    </div>                     
+                    <div class="carousel-button-container-next"> 
+                        <button id="next" class="carousel-control-next z-2" type="button" data-bs-target="#carouselExampleDarkAi" data-bs-slide="next"></button>                         
+                    </div>                     
+                    <div class="carousel-inner"> 
+                        <div id="ai-Vogue" class="carousel-item ai active"> 
+                            <img src="./resources/images/AI/AI_05-vogue-magazine.webp" id="ai-Vogue" class="d-block" data-index="1" data-hover="ai-Vogue" alt="..."> 
+                        </div>                         
+                        <div id="ai-Vogue" class="carousel-item ai"> 
+                            <img src="./resources/images/AI/AI_02.webp" id="ai-Vogue" class="d-block" data-index="2" data-hover="ai-Vogue" alt="..."> 
+                        </div>                         
+                        <div id="ai-Vogue" class="carousel-item ai"> 
+                            <img src="./resources/images/AI/AI_20-voguealien.webp" id="ai-Vogue" class="d-block" data-index="3" data-hover="ai-Vogue" alt="..."> 
+                        </div>                         
+                        <div id="ai-VogueBES" class="carousel-item ai"> 
+                            <img src="./resources/images/AI/AI_14-VogueBusiness.webp" id="ai-VogueBES" class="d-block" data-index="60" data-hover="ai-VogueBES" alt="..."> 
+                        </div>                         
+                        <div id="ai-VogueBES" class="carousel-item ai"> 
+                            <img src="./resources/images/AI/AI_14a-VogueBusiness.webp" id="ai-VogueBES" class="d-block" data-index="60" data-hover="ai-VogueBES" alt="..."> 
+                        </div>                         
+                        <div id="ai-VogueBES" class="carousel-item ai"> 
+                            <img src="./resources/images/AI/AI_23-VogueBusiness.webp" id="ai-VogueBES" class="d-block" data-index="61" data-hover="ai-VogueBES" alt="..."> 
+                        </div>                         
+                        <div id="ai-VogueBES" class="carousel-item ai"> 
+                            <img src="./resources/images/AI/AI_23a-VogueBusiness.webp" id="ai-VogueBES" class="d-block" data-index="61" data-hover="ai-VogueBES" alt="..."> 
+                        </div>                         
+                        <div id="ai-Rombaut" class="carousel-item ai"> 
+                            <img src="./resources/images/AI/AI_04.webp" id="ai-Rombaut" class="d-block" data-index="4" data-hover="ai-Rombaut" alt="..."> 
+                        </div>                         
+                        <div id="ai-Rombaut" class="carousel-item ai"> 
+                            <img src="./resources/images/AI/AI_08-rombaut.webp" id="ai-Rombaut" class="d-block" data-index="56" data-hover="ai-Rombaut" alt="..."> 
+                        </div>                         
+                        <div id="ai-Rombaut" class="carousel-item ai"> 
+                            <img src="./resources/images/AI/AI_22-Rombautblack.webp" id="ai-Rombaut" class="d-block" data-index="57" data-hover="ai-Rombaut" alt="..."> 
+                        </div>                         
+                        <div id="ai-Rombaut" class="carousel-item ai"> 
+                            <img src="./resources/images/AI/AI_09-rombaut.webp" id="ai-Rombaut" class="d-block" data-index="58" data-hover="ai-Rombaut" alt="..."> 
+                        </div>                         
+                        <div id="ai-Rombaut" class="carousel-item ai"> 
+                            <img src="./resources/images/AI/AI_19-rombautblack.webp" id="ai-Rombaut" class="d-block" data-index="59" data-hover="ai-Rombaut" alt="..."> 
+                        </div>                         
+                        <div id="ai-RickOwens" class="carousel-item ai"> 
+                            <img src="./resources/images/AI/AI_21-rickowens_boots.webp" id="ai-RickOwens" class="d-block" data-index="62" data-hover="ai-RickOwens" alt="..."> 
+                        </div>                         
+                        <div id="ai-Experiments" class="carousel-item ai"> 
+                            <img src="./resources/images/AI/AI_12-experSkin.webp" id="ai-Experiments" class="d-block" data-index="63" data-hover="ai-Experiments" alt="..."> 
+                        </div>                         
+                        <div id="ai-Experiments" class="carousel-item ai"> 
+                            <img src="./resources/images/AI/AI_13-expskin2.webp" id="ai-Experiments" class="d-block" data-index="64" data-hover="ai-Experiments" alt="..."> 
+                        </div>                         
+                        <div id="ai-Experiments" class="carousel-item ai"> 
+                            <img src="./resources/images/AI/AI_16-shirt1.webp" id="ai-Experiments" class="d-block" data-index="65" data-hover="ai-Experiments" alt="..."> 
+                        </div>                         
+                        <div id="ai-Experiments" class="carousel-item ai"> 
+                            <img src="./resources/images/AI/AI_17-shirt.webp" id="ai-Experiments" class="d-block" data-index="66" data-hover="ai-Experiments" alt="..."> 
+                        </div>                         
+                        <div id="ai-Experiments" class="carousel-item ai"> 
+                            <img src="./resources/images/AI/AI_18-exprock.webp" id="ai-Experiments" class="d-block" data-index="67" data-hover="ai-Experiments" alt="..."> 
+                        </div>                         
+                        <div id="ai-Experiments" class="carousel-item ai"> 
+                            <img src="./resources/images/AI/AI_06.webp" id="ai-Experiments" class="d-block" data-index="68" data-hover="ai-Experiments" alt="..."> 
+                        </div>                         
+                        <div id="ai-Experiments" class="carousel-item ai"> 
+                            <img src="./resources/images/AI/AI_11-ExpShoes.webp" id="ai-Experiments" class="d-block" data-index="6" data-hover="ai-Experiments" alt="..."> 
+                        </div>                         
+                        <div id="ai-Experiments" class="carousel-item ai"> 
+                            <img src="./resources/images/AI/AI_07.webp" id="ai-Experiments" class="d-block" data-index="7" data-hover="ai-Experiments" alt="..."> 
+                        </div>                         
+                    </div>                     
+                </div>
+                <!-- ! Carousel CGI -->                 
+                <div id="carouselExampleDarkCgi" class="carousel carousel-dark" data-bs-pause="false"> 
+                    <div class="carousel-button-container-prev"> 
+                        <button id="prev" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDarkCgi" data-bs-slide="prev"></button>                         
+                    </div>                     
+                    <div class="carousel-button-container-next"> 
+                        <button id="next" class="carousel-control-next" type="button" data-bs-target="#carouselExampleDarkCgi" data-bs-slide="next"></button>                         
+                    </div>                     
+                    <div class="carousel-inner"> 
+                        <div id="cg-ShowReel" class="carousel-item cg active"> 
+                            <iframe id="cg-ShowReel" data-hover="cg-ShowReel" data-index="200" src="https://player.vimeo.com/video/1034925899?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="100%" height="100%" frameborder="1" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" vimeo-logo="false" title="Show Reel 2024-2025"></iframe>                             
+                        </div>                         
+                        <div id="cg-DMP" class="carousel-item cg"> 
+                            <img src="./resources/images/CGI/CGI_01.webp" id="cg-DMP" class="d-block" data-index="8" data-hover="cg-DMP" alt="..."> 
+                        </div>                         
+                        <div id="cg-DMP" class="carousel-item cg"> 
+                            <img src="./resources/images/CGI/CGI_06.webp" id="cg-DMP" class="d-block" data-index="9" data-hover="cg-DMP" alt="..."> 
+                        </div>                          
+                        <div id="cg-DMP" class="carousel-item cg"> 
+                            <img src="./resources/images/CGI/CGI_11-dmp-forn.webp" id="cg-DMP" class="d-block" data-index="10" data-hover="cg-DMP" alt="..."> 
+                        </div>                         
+                        <div id="cg-DMP" class="carousel-item cg"> 
+                            <img src="./resources/images/CGI/CGI_12-dmplake.webp" id="cg-DMP" class="d-block" data-index="11" data-hover="cg-DMP" alt="..."> 
+                        </div>                         
+                        <div id="cg-LANVIN" class="carousel-item cg"> 
+                            <img src="./resources/images/CGI/CGI_010-Lanvin.webp" id="cg-LANVIN" class="d-block" data-index="12" data-hover="cg-LANVIN" alt="..."> 
+                        </div>                         
+                        <div id="cg-Rolex" class="carousel-item cg"> 
+                            <img src="./resources/images/CGI/CGI_02.webp" id="cg-Rolex" class="d-block" data-index="13" data-hover="cg-Rolex" alt="..."> 
+                        </div>                         
+                        <div id="cg-Salomon" class="carousel-item cg"> 
+                            <img src="./resources/images/CGI/CGI_09-Salomon_GI_effect_01.webp" id="cg-Salomon" class="d-block" data-index="14" data-hover="cg-Salomon" alt="..."> 
+                        </div>                         
+                        <div id="cg-Experiments" class="carousel-item cg"> 
+                            <img src="./resources/images/CGI/CGI_07-fluidSim.webp" id="cg-Experiments" class="d-block" data-index="15" data-hover="cg-Experiments" alt="..."> 
+                        </div>                         
+                        <div id="cg-Experiments" class="carousel-item cg"> 
+                            <img src="./resources/images/CGI/CGI_08-fluidSim.webp" id="cg-Experiments" class="d-block" data-index="16" data-hover="cg-Experiments" alt="..."> 
+                        </div>                         
+                        <div id="cg-Experiments" class="carousel-item cg"> 
+                            <img src="./resources/images/CGI/CGI_15-smokeSim.webp" id="cg-Experiments" class="d-block" data-index="17" data-hover="cg-Experiments" alt="..."> 
+                        </div>                         
+                        <div id="cg-Experiments" class="carousel-item cg"> 
+                            <img src="./resources/images/CGI/CGI_16-smokeSim.webp" id="cg-Experiments" class="d-block" data-index="18" data-hover="cg-Experiments" alt="..."> 
+                        </div>                         
+                        <div id="cg-Experiments" class="carousel-item cg"> 
+                            <img src="./resources/images/CGI/CGI_13-partSim.webp" id="cg-Experiments" class="d-block" data-index="19" data-hover="cg-Experiments" alt="..."> 
+                        </div>                         
+                        <div id="cg-Experiments" class="carousel-item cg"> 
+                            <img src="./resources/images/CGI/CGI_17-photgram.webp" id="cg-Experiments" class="d-block" data-index="20" data-hover="cg-Experiments" alt="..."> 
+                        </div>                         
+                        <div id="cg-Experiments" class="carousel-item cg"> 
+                            <img src="./resources/images/CGI/CGI_14-Tiara.webp" id="cg-Experiments" class="d-block" data-index="38" data-hover="cg-Experiments" alt="..."> 
+                        </div>                         
+                        <div id="cg-Experiments" class="carousel-item cg"> 
+                            <img src="./resources/images/CGI/CGI_05.webp" id="cg-Experiments"   class="d-block" data-index="21" data-hover="cg-Experiments" alt="..."> 
+                        </div>                         
+                    </div>                     
+                </div>                 
+                <!-- ! Carousel PHOTO -->                 
+                <div id="carouselExampleDarkPhoto" class="carousel carousel-dark" data-bs-pause="false"> 
+                    <div class="carousel-button-container-prev"> 
+                        <button id="prev" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDarkPhoto" data-bs-slide="prev"></button>                         
+                    </div>                     
+                    <div class="carousel-button-container-next"> 
+                        <button id="next" class="carousel-control-next" type="button" data-bs-target="#carouselExampleDarkPhoto" data-bs-slide="next"></button>                         
+                    </div>                     
+                    <div class="carousel-inner pht"> 
+                        <div id="ph-VitalSigns" class="carousel-item ph active"> 
+                            <img src="./resources/images/PHOTO/PHOTO_01-vitalcolour.webp" id="ph-VitalSigns" class="d-block" data-index="22" data-hover="ph-VitalSigns" alt="..."> 
+                        </div>                         
+                        <div id="ph-VitalSigns" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_01a-vitalcolour.webp" id="ph-VitalSigns" class="d-block" data-index="23" data-hover="ph-VitalSigns" alt="..."> 
+                        </div>                         
+                        <div id="ph-VitalSigns" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_01b-vitalcolour.webp" id="ph-VitalSigns" class="d-block" data-index="24" data-hover="ph-VitalSigns" alt="..."> 
+                        </div>                         
+                        <div id="ph-VitalSigns" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_02-vitalbw.webp" id="ph-VitalSigns" class="d-block" data-index="25" data-hover="ph-VitalSigns" alt="..."> 
+                        </div>                         
+                        <div id="ph-VitalSigns" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_02a-vitalbw.webp" id="ph-VitalSigns" class="d-block" data-index="26" data-hover="ph-VitalSigns" alt="..."> 
+                        </div>                         
+                        <div id="ph-VitalSigns" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_28-vitalbw.webp" id="ph-VitalSigns" class="d-block" data-index="27" data-hover="ph-VitalSigns" alt="..."> 
+                        </div>                         
+                        <div id="ph-VitalSigns" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_29-vitalbw.webp" id="ph-VitalSigns" class="d-block" data-index="28" data-hover="ph-VitalSigns" alt="..."> 
+                        </div>                         
+                        <div id="ph-VitalSigns" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_30-SGL_Sepia_3.webp" id="ph-VitalSigns" class="d-block" data-index="29" data-hover="ph-VitalSigns" alt="..."> 
+                        </div>                         
+                        <div id="ph-VitalSigns" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_31-SGL_Sepia_7.webp" id="ph-VitalSigns" class="d-block" data-index="30" data-hover="ph-VitalSigns" alt="..."> 
+                        </div>                         
+                        <div id="ph-VitalSigns" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_32-SGL_Sepia_11.webp" id="ph-VitalSigns" class="d-block" data-index="31" data-hover="ph-VitalSigns" alt="..."> 
+                        </div>                         
+                        <div id="ph-VitalSigns" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_33-SGL_Sepia_5.webp" id="ph-VitalSigns" class="d-block" data-index="32" data-hover="ph-VitalSigns" alt="..."> 
+                        </div>                         
+                        <div id="ph-Personal" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_06-personal.webp" id="ph-Personal" class="d-block" data-index="33" data-hover="ph-Personal" alt="..."> 
+                        </div>                         
+                        <div id="ph-Personal" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_07-personal.webp" id="ph-Personal" class="d-block" data-index="34" data-hover="ph-Personal" alt="..."> 
+                        </div>                         
+                        <div id="ph-Personal" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_07b-personal.webp" id="ph-Personal" class="d-block" data-index="35" data-hover="ph-Personal" alt="..."> 
+                        </div>                         
+                        <div id="ph-Personal" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_08-personal.webp" id="ph-Personal" class="d-block" data-index="36" data-hover="ph-Personal" alt="..."> 
+                        </div>                         
+                        <div id="ph-Personal" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_09-personal.webp" id="ph-Personal" class="d-block" data-index="37" data-hover="ph-Personal" alt="..."> 
+                        </div>                         
+                        <div id="ph-Personal" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_11-personal.webp" id="ph-Personal" class="d-block" data-index="39" data-hover="ph-Personal" alt="..."> 
+                        </div>                         
+                        <div id="ph-Personal" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_12-personal.webp" id="ph-Personal" class="d-block" data-index="40" data-hover="ph-Personal" alt="..."> 
+                        </div>                         
+                        <div id="ph-Personal" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_13-personal.webp" id="ph-Personal" class="d-block" data-index="41" data-hover="ph-Personal" alt="..."> 
+                        </div>                         
+                        <div id="ph-Personal" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_14-personal.webp" id="ph-Personal" class="d-block" data-index="42" data-hover="ph-Personal" alt="..."> 
+                        </div>                         
+                        <div id="ph-Personal" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_15-personal.webp" id="ph-Personal" class="d-block" data-index="43" data-hover="ph-Personal" alt="..."> 
+                        </div>                         
+                        <div id="ph-Personal" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_16-personal.webp" id="ph-Personal" class="d-block" data-index="44" data-hover="ph-Personal" alt="..."> 
+                        </div>                         
+                        <div id="ph-Personal" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_17-personal.webp" id="ph-Personal" class="d-block" data-index="45" data-hover="ph-Personal" alt="..."> 
+                        </div>                         
+                        <div id="ph-Personal" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_18-personal.webp" id="ph-Personal" class="d-block" data-index="46" data-hover="ph-Personal" alt="..."> 
+                        </div>                         
+                        <div id="ph-Personal" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_19-personal.webp" id="ph-Personal" class="d-block" data-index="47" data-hover="ph-Personal" alt="..."> 
+                        </div>                         
+                        <div id="ph-Personal" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_20-personal.webp" id="ph-Personal" class="d-block" data-index="48" data-hover="ph-Personal" alt="..."> 
+                        </div>                         
+                        <div id="ph-Personal" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_21-personal.webp" id="ph-Personal" class="d-block" data-index="49" data-hover="ph-Personal" alt="..."> 
+                        </div>                         
+                        <div id="ph-Personal" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_22-personal.webp" id="ph-Personal" class="d-block" data-index="50" data-hover="ph-Personal" alt="..."> 
+                        </div>                         
+                        <div id="ph-Personal" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_23-personal.webp" id="ph-Personal" class="d-block" data-index="51" data-hover="ph-Personal" alt="..."> 
+                        </div>                         
+                        <div id="ph-Personal" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_24-personal.webp" id="ph-Personal" class="d-block" data-index="52" data-hover="ph-Personal" alt="..."> 
+                        </div>                         
+                        <div id="ph-Personal" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_25-personal.webp" id="ph-Personal" class="d-block" data-index="53" data-hover="ph-Personal" alt="..."> 
+                        </div>                         
+                        <div id="ph-Personal" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_26-personal.webp" id="ph-Personal" class="d-block" data-index="54" data-hover="ph-Personal" alt="..."> 
+                        </div>                         
+                        <div id="ph-Personal" class="carousel-item ph"> 
+                            <img src="./resources/images/PHOTO/PHOTO_27-personal.webp" id="ph-Personal" class="d-block" data-index="55" data-hover="ph-Personal" alt="..."> 
+                        </div>                         
+                    </div>                     
+                </div>                   
+            </div> 
+            </div>
+            <div class="cursors"> 
+            <div> 
+                <div>
+                    <span id="cursor-text"></span>
+                </div>                 
+                <div>
+                    <span id="image-count"></span>
+                </div>                 
+            </div>             
+        </div>         
+        <!-- Mobile Nav Buttons -->
+        <div class="mobile-nav-buttons">
+            <button id="mobile-prev" aria-label="Previous">
+                <span class="arrow arrow-left">&#8592;</span>
+            </button>
+            <button id="mobile-next" aria-label="Next">
+                <span class="arrow arrow-right">&#8594;</span>
+            </button>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>         
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>         
+        <script src="./script.js"></script>         
+        <script src="./highlight-menu.js"></script>         
+        <script src="./cursor.js"></script>         
+        <script src="./bottom-prj-descr.js"></script>         
+        <script src="clist.js"></script>       
+        <script src="mobile-nav-button.js"></script>             
+    </body>
+</html>
