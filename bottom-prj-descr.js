@@ -35,6 +35,7 @@ function turnDescriptionsOn(locationDescriptions, carousel) {
       title.style.display = 'block';
       paragraph.style.display = 'block';
       updateMobileImageCount(carousel); // <-- Add this line
+      turnOnArrows();
     }
   });
 }
@@ -116,6 +117,7 @@ window.addEventListener('scroll', function() {
     turnDescriptionsOff(projectDescriptions);
     closeCategoryMenus(toggleElements);
     removeImageCount();
+    turnOffArrows();
     
 
   } else if (isElementInViewport(aiCarousel)) {
@@ -148,6 +150,7 @@ window.addEventListener('scroll', function() {
     console.log('Unusual carousel in the viewport!!');
   }
 })
+
 
 document.addEventListener('DOMContentLoaded', function () {
   if (window.matchMedia('(max-width: 414px)').matches) {
@@ -206,4 +209,12 @@ function updateMobileImageCount(carousel) {
 function removeImageCount() {
     // Remove any previous injected count
   document.querySelectorAll('.mobile-image-count').forEach(el => el.remove());
+}
+
+function turnOffArrows() {
+  document.querySelectorAll('.mobile-nav-buttons').forEach(el => el.style.display = 'none');
+}
+
+function turnOnArrows() {
+  document.querySelectorAll('.mobile-nav-buttons').forEach(el => el.style.display = 'flex');
 }
