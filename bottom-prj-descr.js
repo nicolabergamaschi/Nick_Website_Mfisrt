@@ -151,7 +151,6 @@ window.addEventListener('scroll', function() {
   }
 })
 
-
 document.addEventListener('DOMContentLoaded', function () {
   if (window.matchMedia('(max-width: 414px)').matches) {
     const imageCount = document.getElementById('image-count');
@@ -184,7 +183,7 @@ function updateMobileImageCount(carousel) {
   // Remove any previous injected count
   document.querySelectorAll('.mobile-image-count').forEach(el => el.remove());
 
-  // Find the active carousel item and its index
+  // Find all carousel items and the active one
   const items = Array.from(carousel.querySelectorAll('.carousel-item'));
   const activeIndex = items.findIndex(item => item.classList.contains('active'));
 
@@ -193,16 +192,27 @@ function updateMobileImageCount(carousel) {
     .find(title => title.style.display !== 'none');
 
   if (visibleTitle && items.length > 0 && activeIndex !== -1) {
-    // Create the count string (e.g., "2 / 5")
+    // --- General carousel count (above title) ---
     const countDiv = document.createElement('div');
     countDiv.className = 'mobile-image-count';
     countDiv.textContent = `${activeIndex + 1} / ${items.length}`;
     countDiv.style.textAlign = 'center';
     countDiv.style.fontWeight = 'bold';
     countDiv.style.marginBottom = '0.5em';
-
-    // Insert above the title
     visibleTitle.parentNode.insertBefore(countDiv, visibleTitle);
+
+    // --- Inline project image count ---
+    // Get the project id of the active item
+    const activeProjectId = items[activeIndex].id;
+    // Get all items with the same project id (i.e., same project)
+    const projectItems = items.filter(item => item.id === activeProjectId);
+    // Find the index of the active item within its project group
+    const projectIndex = projectItems.indexOf(items[activeIndex]);
+
+    // Remove any previous inline count (split at ' | ')
+    visibleTitle.textContent = visibleTitle.textContent.split(' | ')[0];
+    // Add the count inline
+    visibleTitle.textContent += ` | ${projectIndex + 1} / ${projectItems.length}`;
   }
 }
 
