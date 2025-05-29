@@ -32,7 +32,7 @@ p {
 }
 
 #about {
-    justify-self: end;
+    text-align: right;
 }
 
 .container-top {
@@ -200,18 +200,6 @@ div.prj-description .text-description p {
     grid-row-end: 2;
 }
 
-#prev {
-    position: fixed;
-    top: 40rem;
-    height: 7rem;
-    /*background-color: chocolate;*/
-}
-
-#next {
-    height: 7rem;
-    /*background-color: aqua;*/
-}
-
 .carousel-button-container-next {
     grid-column-start: 2;
     grid-column-end: 3;
@@ -233,6 +221,10 @@ div.prj-description .text-description p {
 
 .carousel-control-next:hover {
     cursor: url(../resources/images/cursors/Arrow-30x30-right.png), auto;
+}
+
+.mobile-nav-buttons {
+    display: flex;
 }
 
 
@@ -303,7 +295,7 @@ a {
     display: flex;
     flex-direction: column;
     padding: 0;
-    margin: 0;
+    margin-bottom: 1rem;
 }
 
 /*! (PART C) CONTROL SPACING & INDENTATION */
@@ -341,6 +333,7 @@ a {
 }
 
 .toggle::after {
+    color:  #a6a6a6;
     content: "\2B";
     font-size: 2rem;
     line-height: 20px;
@@ -357,12 +350,10 @@ a {
 #sub-list {
     margin: 0;
     padding: 0;
-    border-bottom: 1px dotted black;
 }
 
 #sub-list > li {
     display: inline;
-    margin: 0;
     padding: 0;
     padding-left: 1rem;
 }

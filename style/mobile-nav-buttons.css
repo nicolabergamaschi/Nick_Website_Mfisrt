@@ -9,13 +9,13 @@
   justify-content: space-between;
   align-items: center;
   width: 100vw;
-  padding: 1rem 1rem;
+  padding: 1rem 1rem 0.5rem 0.5rem;
   pointer-events: none;
   gap: 1rem;
 }
 
 .mobile-nav-buttons button {
-  background: rgba(255, 255, 255, 0);
+  background: rgba(190, 190, 190, 0);
   color: #fff;
   border: none;
   width: 50%;
@@ -29,7 +29,7 @@
 }
 
 .mobile-nav-buttons button:active {
-  background: black;
+  filter: invert();
 }
 
 .arrow {
@@ -38,9 +38,3 @@
   pointer-events: none;
 }
 
-/* Show only on small screens */
-@media (max-width: 414px) {
-  .mobile-nav-buttons {
-    display: flex;
-  }
-}

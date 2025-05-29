@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   // Only enable on mobile
-  if (window.matchMedia('(max-width: 414px)').matches) {
+  if (window.matchMedia('(max-width: 768px)').matches) {
     const prevBtn = document.getElementById('mobile-prev');
     const nextBtn = document.getElementById('mobile-next');
     const descriptionTitle = document.getElementById('title');

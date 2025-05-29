@@ -1,7 +1,11 @@
-@media (max-width: 414px) {
+@media (max-width: 768px) {
 
     html, body {
         touch-action: manipulation; /* disables double-tap zoom, allows gestures like scrolling */
+    }
+
+    #about {
+        align-self: end;
     }
 
     .overlay {
@@ -51,132 +55,167 @@
 
 }
 
-@media (min-width: 415px) and (max-width: 768px) {
-    html {
-        overflow: scroll;
-        overflow-x: hidden;
-        scroll-snap-type: y mandatory;
-        scroll-padding-top: 4rem ;
-        font-size: 13px;
+@media (min-width: 512px) and (max-width: 768px) {
+    
+    .overlay {
+        width: 100%;
+        background: linear-gradient(to bottom, rgba(255,255,255,0.1), rgb(255, 255, 255));
+        box-shadow: 0 0 15px 15px rgba(255,255,255,0.1);
+        position: fixed;
+        z-index: 8;
+        display: flex;
+        justify-content: center;
     }
-
-    html, body {
-        touch-action: manipulation; /* disables double-tap zoom, allows gestures like scrolling */
-    }
-
-    .my-name,
-    #about {
-        font-size: large;
+    
+    .prj-description {
+        width: 450px;
     }
 
     .carousel-inner {
-        border: 2px solid greenyellow;
-        height: 60vh;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        height: 65vh;
+        justify-content: center;
     }
 
-    .carousel-container {
-        gap: 70rem;
-    }
+}
 
-    .carousel-container:last-child {
-        padding-bottom: 21rem;
-    }
-
-    .overlay {
-        bottom: 5rem;
-    }
-
+@media (min-width: 768px) and (max-width: 2500px) {
     .mobile-nav-buttons {
         display: none;
     }
 
-}
-
-
-
-@media (min-width: 768px) and (max-width: 1200px) {
-    html {
-        font-size: 12px;
+    #mobile-prev, 
+    #mobile-next {
+        display: none;
     }
 
     .carousel-home h1 {
-        padding-top: 2rem;
+        padding-top: 4rem;
         font-size: 7rem;
-        padding-left: 4rem;
-        line-height: 9rem;
+
+    }
+
+    .overlay {
+        width: 100%;
+        background: linear-gradient(to bottom, rgba(255,255,255,0.1), rgb(255, 255, 255));
+        box-shadow: 0 0 15px 15px rgba(255,255,255,0.1);
+        position: fixed;
+        display: grid;
+        grid-template-columns:auto;
+        z-index: 8;
+        align-items: end;
+        justify-items: center;
+        height: 12rem;
+    }
+
+    .collapsible {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    #head-list h5{
+        color: #a6a6a6;
+        font-size: medium;
+        font-weight: 600;
+        margin-bottom: 0.2rem;
+    }
+    
+    #head-list a {
+        color: #b4b4b4;
+        font-size: smaller;
+    }
+    
+    .collapsible-text {
+        align-content: center;
+        padding-left: 2rem;
+    }
+
+
+    .content-container {
+        max-height: 2rem;
+    }
+
+    .prj-description {
+        grid-column: 1;
+        grid-row: 1;
+        max-width: 650px;
+        max-height: 5.8rem;
+        align-self: flex-end;
     }
 
     .carousel-inner {
-        height: 55rem;
-    }
-
-    .container {
-        padding: 10px;
-    }
-
-    #page-about {
-        margin-bottom: 15rem;
-        background-color: rgb(26, 232, 78);
-        height: 55rem;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        height: 70vh;
+        justify-content: center;
     }
 
     #sub-list {
-        margin: 0;
-        padding: 0;
-        border-bottom: 0px solid black;
+        border-bottom: 0px;
     }
+
+    #sub-list li{
+        padding-left: 0.5rem;
+    }
+
+    .open {
+        align-content: start;
+    }
+
+    .toggle::after {
+        content: "\2B";
+        font-size: 2rem;
+        line-height: 20px;
+        margin-left: 0.5rem;
+        font-weight: 400;
+        transition: all 1s;
+    }
+
+
 }
 
-@media (min-width: 1200px) and (max-width: 1560px) {
-    html {
-        font-size: 12px;
+@media (min-width: 768px) and (max-width: 1200px) {
+    #head-list h5{
+        color: #a6a6a6;
+        font-size: small;
+        font-weight: 600;
+        margin-bottom: 0.2rem;
+    }
+    
+    #head-list a {
+        color: #b4b4b4;
+        font-size: 0.8rem;
+    }
+    
+    .collapsible-text {
+        align-content: center;
+        padding-left: 0.5rem;
     }
 
-
-    .carousel-inner {
-        height: 55rem;
+    .prj-description {
+        grid-column: 1;
+        grid-row: 1;
+        max-width: 650px;
+        max-height: 5.8rem;
+        align-self: flex-start;
     }
 
-    .container {
-        padding: 10px;
-    }
-
-    #page-about {
-        margin-bottom: 15rem;
-        background-color: rgb(26, 232, 78);
-        height: 55rem;
+    .collapsible-text {
+        align-content: initial;
+        padding-top: 0.3rem;
     }
 
     #sub-list {
-        margin: 0;
-        padding: 0;
-        border-bottom: 0px solid black;
+        max-width: 220px;
     }
+
+
 }
-
-@media (min-width: 1560px) and (max-width: 1920px) {
-    html {
-        font-size: 12px;
-    }
-
-    .carousel-inner {
-        height: 55rem;
-    }
-
-    .container {
-        padding: 10px;
-    }
-
-    #page-about {
-        margin-bottom: 15rem;
-        background-color: rgb(26, 232, 78);
-        height: 55rem;
-    }
-
-    #sub-list {
-        margin: 0;
-        padding: 0;
-        border-bottom: 0px solid black;
-    }
-}
-
