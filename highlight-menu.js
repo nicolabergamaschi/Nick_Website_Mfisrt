@@ -42,14 +42,7 @@ function updateSublistHighlight(carouselId) {
     });
 
     // Highlight the corresponding sublist link
-    const activeLink = document.querySelector(`.sub-list-link#${activeId}`);
-    if (activeLink) {
-      activeLink.style.backgroundColor = 'rgb(125, 233, 152)'; // Set background color
-      activeLink.style.color = 'white'; // Set font color to white
-      activeLink.style.fontWeight = '600';
-      activeLink.style.padding = '0.1rem 0.5rem'; // Add space around the text
-      activeLink.classList.add('pulse'); // Add pulsing animation
-    }
+    highlightSelectedLink(activeId)
   }
 }
 
@@ -67,14 +60,7 @@ function updateSublistHighlightFromClick(subListId) {
   });
 
   // Highlight the clicked sublist link
-  const activeLink = document.querySelector(`.sub-list-link#${subListId}`);
-  if (activeLink) {
-    activeLink.style.backgroundColor = 'rgb(125, 233, 152)'; // Set background color
-    activeLink.style.color = 'white'; // Set font color to white
-    activeLink.style.fontWeight = '600'; // Set font weight
-    activeLink.style.padding = '0.1rem 0.5rem'; // Add space around the text
-    activeLink.classList.add('pulse'); // Add pulsing animation
-  }
+  highlightSelectedLink(subListId)
 }
 
 // Function to update the highlight when scrolling to a project
@@ -91,14 +77,7 @@ function updateSublistHighlightFromScroll(projectId) {
   });
 
   // Highlight the corresponding sublist link
-  const activeLink = document.querySelector(`.sub-list-link#${projectId}`);
-  if (activeLink) {
-    activeLink.style.backgroundColor = 'rgb(125, 233, 152)';
-    activeLink.style.color = 'white';
-    activeLink.style.fontWeight = '600';
-    activeLink.style.padding = '0.1rem 0.5rem';
-    activeLink.classList.add('pulse');
-  }
+  highlightSelectedLink(projectId)
 }
 
 // Add event listeners to all carousel controls
@@ -127,3 +106,15 @@ document.querySelectorAll('#menu > li > a').forEach(mainCategory => {
   });
 });
 
+
+function highlightSelectedLink(projectId) {
+  const activeLink = document.querySelector(`.sub-list-link#${projectId}`);
+  if (activeLink) {
+    activeLink.style.backgroundColor = 'rgba(125, 233, 152, 0.7)';
+    activeLink.style.color = 'white';
+    activeLink.style.fontWeight = '600';
+    activeLink.style.borderRadius = '12px'
+    activeLink.style.padding = '0.1rem 0.5rem 0.2rem 0.5rem';
+    activeLink.classList.add('pulse');
+  }
+}

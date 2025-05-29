@@ -5,4 +5,12 @@ function updateImageCountInTitle() {
   navBtns.forEach((button) => {button.display = 'none'})
 }
 
-//!
+const OverlayButtons = document.querySelectorAll('.carousel-button-container-next .carousel-button-container-prev')
+
+function navButtonsOverlayOff(elements) {
+  elements.forEach((el) => {
+    el.style.display = 'none';
+  })
+}
+
+navButtonsOverlayOff(OverlayButtons);
