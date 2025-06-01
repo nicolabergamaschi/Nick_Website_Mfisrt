@@ -50,6 +50,25 @@ function closeCategoryMenus(elementToClose) {
   })
 }
 
+//! visualise references logic ---- TO BE TRIGGERED BY CLICKS ON NAV ARROWS RATHER THAN PAGE SCROLL -- as page scroll triggers functions just when scrolled and it is usefull in order to understand the active carousel but for active element/image we will need to eventListener for clicks of nav buttons
+
+function visualiseReferences(carousel) {
+  // I should divide it in 4 steps
+  // 1. select active CAROUSEL
+  // 2. select img through active DIV
+  // 3. add reference button to active image descriptions
+  // 4. when clicking visualise overlay ref images on screen preferably using 'div.carousel-inner'
+
+  const activeImage = carousel.querySelector('.active').children[0]
+  console.log(activeImage)
+  if (activeImage.className.includes('ref')) {
+    console.log('this image has a reference attribute.')
+  } else {
+    console.log('This image has no ref attribute')
+  }
+}
+
+
 //! make sure the menus are off when launchin the web-page
 
 window.onload = function() {
@@ -104,6 +123,7 @@ function changeHighligthedPrjOnScroll(carousel) {
 
 
 //! enable/disable descriptions while scrolling between projects and update it if scrolling to a different category
+//* This area acts as a sort of router and its the main brain of the all logic, it is based on what is visible on the screen so to enable/disable features based of navigation location
 
 window.addEventListener('scroll', function() {
   const homeCarousel = document.querySelector('div#page-home'); 
@@ -126,6 +146,7 @@ window.addEventListener('scroll', function() {
     openCategoryMenus(toggleElements)
     changeHighligthedPrjOnScroll(aiCarousel)
     console.log('AI')
+    visualiseReferences(aiCarousel)
 
   } else if (isElementInViewport(cgiCarousel)) {
     /*console.log('Cgi carousel is in the viewport')*/
@@ -152,7 +173,7 @@ window.addEventListener('scroll', function() {
 })
 
 document.addEventListener('DOMContentLoaded', function () {
-  if (window.matchMedia('(max-width: 414px)').matches) {
+  if (window.matchMedia('(max-width: 768px)').matches) {
     const imageCount = document.getElementById('image-count');
     const title = document.getElementById('title');
     if (imageCount && title) {
@@ -165,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function updateImageCountInTitle() {
-  if (!window.matchMedia('(max-width: 414px)').matches) return;
+  if (!window.matchMedia('(max-width: 768px)').matches) return;
   const imageCount = document.getElementById('image-count');
   // Find the currently visible project title
   const visibleTitle = Array.from(document.querySelectorAll('h4.title#title'))

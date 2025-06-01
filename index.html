@@ -22,6 +22,7 @@
         <link rel="preload" href="./highlight-menu.js" as="script">
         <link rel="preload" href="./mobile-nav-button.js" as="script">
         <link rel="preload" href="./mobile-settings.js" as="script">
+        <link rel="preload" href="./references-visualiser.js" as="script">
         <!-- Meta part -->
          <link rel="apple-touch-icon" sizes="180x180" href="#">
          <link rel="icon" type="image/png" sizes="32x32" href="#">
@@ -78,7 +79,7 @@
                 </div>
                 <div class="content-container prj-description">
                     <div data-prj="ai-Vogue">
-                        <h4 class="title" id="title" style="display: none;">VOGUE</h4>
+                        <h4 class="title" id="title" style="display: none;">VOGUE - <button id="references" style="border-radius: 10px;">ref</button></h4> 
                         <p class="text-description paragraph" style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda deleniti ut soluta, eos aut labore nemo impedit! Alias aut temporibus, officiis, rem iusto officia, sunt facilis quam aperiam tempore quos.</p>
                     </div>
                     <div data-prj="ai-VogueBES">
@@ -131,6 +132,8 @@
                     </div>
                 </div>
             </div>
+            <!-- ! BLURRING FILTER LAYER-->
+            <div id="blurringLayer" ></div>
             <!-- ! TOP PANE-->             
             <div class="container-top"> 
                 <div class="name top-bar-elements"> <a href="#page-home"><h3 class="my-name">Nicola Bergamaschi</h3></a> 
@@ -161,10 +164,10 @@
                     </div>                     
                     <div class="carousel-inner"> 
                         <div id="ai-Vogue" class="carousel-item ai active"> 
-                            <img src="./resources/images/AI/AI_05-vogue-magazine.webp" id="ai-Vogue" class="d-block" data-index="1" data-hover="ai-Vogue" alt="..."> 
+                            <img src="./resources/images/AI/AI_05-vogue-magazine.webp" id="ai-Vogue" class="d-block" data-index="1" data-hover="ai-Vogue" alt="...">
                         </div>                         
                         <div id="ai-Vogue" class="carousel-item ai"> 
-                            <img src="./resources/images/AI/AI_02.webp" id="ai-Vogue" class="d-block main-img" data-index="2" data-hover="ai-Vogue" alt="..."> 
+                            <img src="./resources/images/AI/AI_02.webp" id="ai-Vogue" class="d-block main-img ref" data-index="2" data-hover="ai-Vogue" alt="..."> 
                         </div>                         
                         <div id="ai-Vogue" class="carousel-item ai"> 
                             <img src="./resources/images/AI/AI_20-voguealien.webp" id="ai-Vogue" class="d-block" data-index="3" data-hover="ai-Vogue" alt="..."> 
@@ -424,6 +427,7 @@
         <script src="./clist.js"></script>       
         <script src="./mobile-nav-button.js"></script>  
         <script src="./mobile_settings.js" ></script>  
-        <script src="./mobile_ref_visualiser.js" ></script>          
+        <script src="./mobile_ref_visualiser.js" ></script>
+        <script src="./references-visualiser.js" ></script>          
     </body>
 </html>
