@@ -376,3 +376,23 @@ li#head-list {
     height: 100%;
 }
 
+/*! blurring reference button */
+
+#blurringLayer {
+    opacity: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(0px) sepia(0%);
+    position: absolute;
+    z-index: 6;
+    transition: 
+        backdrop-filter 0.6s cubic-bezier(0.4,0,0.2,1),
+        opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+
+#blurringLayer.active {
+    opacity: 1;
+    pointer-events: auto;
+    backdrop-filter: blur(25px) sepia(10%);
+}
