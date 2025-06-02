@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"name": "Nick_Website_Mfisrt",
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5501,
+		"liveServer.settings.multiRootWorkspaceName": "Nick_Website_Mfisrt"
+	}
+}
