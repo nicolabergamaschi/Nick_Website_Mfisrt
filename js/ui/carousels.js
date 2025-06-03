@@ -1,3 +1,5 @@
+import { PROJECTDESCRIPTIONS } from "../core/dom-utilities.js";
+import { TOGGLEELEMENTS } from "../core/dom-utilities.js"
 import { isElementInViewport } from "../core/dom-utilities.js"
 import { turnDescriptionsOff } from "./project-description.js";
 import { turnDescriptionsOn } from "./project-description.js";
@@ -9,49 +11,52 @@ import { changeHighligthedPrjOnScroll } from "../ui/highlighted-menu.js"
 import { visualiseReferences } from "./references.js";
 
 export function initMainScrollLogic() {
-window.addEventListener('scroll', scrollLogic());
+window.addEventListener('scroll', scrollLogic);
 };
 
 function scrollLogic() {
+
+  console.log('scrollLogic running');
+
   const homeCarousel = document.querySelector('div#page-home'); 
   const aiCarousel = document.querySelector('div#carouselExampleDarkAi div.carousel-inner');
   const cgiCarousel = document.querySelector('div#carouselExampleDarkCgi div.carousel-inner');
   const phtCarousel = document.querySelector('div#carouselExampleDarkPhoto div.carousel-inner');
   const aboutCarousel = document.querySelector('div#page-about');
 
-  if (isElementInViewport(homeCarousel)) {
+  if (homeCarousel && isElementInViewport(homeCarousel)) {
     /*console.log('Home carousel is in the viewport');*/
     turnDescriptionsOff(PROJECTDESCRIPTIONS);
-    closeCategoryMenus(toggleElements);
+    closeCategoryMenus(TOGGLEELEMENTS);
     removeImageCount();
     turnOffMobileArrows();
 
-  } else if (isElementInViewport(aiCarousel)) {
+  } else if (aiCarousel && isElementInViewport(aiCarousel)) {
     /*console.log('Ai carousel is in the viewport')*/
     turnDescriptionsOn(PROJECTDESCRIPTIONS, aiCarousel)
-    openCategoryMenus(toggleElements)
+    openCategoryMenus(TOGGLEELEMENTS)
     changeHighligthedPrjOnScroll(aiCarousel)
     // console.log('AI')
     visualiseReferences(aiCarousel)
 
-  } else if (isElementInViewport(cgiCarousel)) {
+  } else if (cgiCarousel && isElementInViewport(cgiCarousel)) {
     /*console.log('Cgi carousel is in the viewport')*/
     turnDescriptionsOn(PROJECTDESCRIPTIONS, cgiCarousel)
-    openCategoryMenus(toggleElements)
+    openCategoryMenus(TOGGLEELEMENTS)
     changeHighligthedPrjOnScroll(cgiCarousel)
     // console.log('CGI')
 
-  } else if (isElementInViewport(phtCarousel)) {
+  } else if (phtCarousel && isElementInViewport(phtCarousel)) {
     /*console.log('Photo carousel is in the viewport');*/
     turnDescriptionsOn(PROJECTDESCRIPTIONS, phtCarousel)
-    openCategoryMenus(toggleElements)
+    openCategoryMenus(TOGGLEELEMENTS)
     changeHighligthedPrjOnScroll(phtCarousel)
     // console.log('photo')
 
-  } else if (isElementInViewport(aboutCarousel)) {
+  } else if (aboutCarousel && isElementInViewport(aboutCarousel)) {
     /*console.log('About carousel is in the viewport');*/
     turnDescriptionsOff(PROJECTDESCRIPTIONS);
-    closeCategoryMenus(toggleElements);
+    closeCategoryMenus(TOGGLEELEMENTS);
 
   } else {
     // console.log('Unusual carousel in the viewport!!');

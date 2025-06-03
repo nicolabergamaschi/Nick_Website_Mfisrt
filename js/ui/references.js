@@ -8,11 +8,11 @@ export function visualiseReferences(carousel) {
   // 4. when clicking visualise overlay ref images on screen preferably using 'div.carousel-inner'
 
   const activeImage = carousel.querySelector('.active').children[0]
-  console.log(activeImage)
+  //console.log(activeImage)
   if (activeImage.className.includes('ref')) {
-    console.log('this image has a reference attribute.')
+    //console.log('this image has a reference attribute.')
   } else {
-    console.log('This image has no ref attribute')
+    //console.log('This image has no ref attribute')
   }
 }
 

@@ -82,7 +82,7 @@
 
 }
 
-@media (min-width: 768px) and (max-width: 2500px) {
+@media (min-width: 768px) and (max-width: 2600px) {
     .mobile-nav-buttons {
         display: none;
     }
@@ -109,6 +109,7 @@
         align-items: end;
         justify-items: center;
         height: 12rem;
+        padding: 0px 16px 50px;
     }
 
     .collapsible {
@@ -147,6 +148,7 @@
         max-width: 650px;
         max-height: 5.8rem;
         align-self: flex-end;
+        margin-bottom: 0rem;
     }
 
     .carousel-inner {
@@ -154,7 +156,7 @@
         grid-column-end: 3;
         grid-row-start: 1;
         grid-row-end: 2;
-        height: 70vh;
+        height: 74vh;
         justify-content: center;
     }
 

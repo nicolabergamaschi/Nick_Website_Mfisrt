@@ -1,10 +1,10 @@
 import { PROJECTCAROUSELS } from "../core/dom-utilities.js"
 import { activeImageFromCarousel } from "../core/dom-utilities.js"
 
+const cursorTag = document.querySelector("div.cursors");
 const ball = cursorTag.querySelector("div");
 const cursorProject = cursorTag.querySelector("span#cursor-text");
 const cursorCount = cursorTag.querySelector("span#image-count");
-const cursorTag = document.querySelector("div.cursors");
 const navBtnsContainers = document.querySelectorAll('.carousel-button-container-prev, .carousel-button-container-next');
 
 export function initCursors() {

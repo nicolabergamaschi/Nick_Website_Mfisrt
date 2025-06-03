@@ -1,6 +1,7 @@
 // const containing an Array of project carousels (no-home carousel)
 export const PROJECTCAROUSELS = document.querySelectorAll("div#carouselExampleDarkAi, div#carouselExampleDarkCgi, div#carouselExampleDarkPhoto");
 export const PROJECTDESCRIPTIONS = document.querySelectorAll('div.prj-description');
+export const TOGGLEELEMENTS = document.querySelectorAll('div.toggle');
 // Helper: get the visible carousel
 export function getActiveCarousel() {
   // All carousels
@@ -27,7 +28,7 @@ export function turnOffmultiple(elements) {
 };
 // Helper: selects the active image given a project carousel
 export function activeImageFromCarousel(carousel) {
-  carousel.querySelector('div.carousel-dark div.carousel-inner div.active img');
+  return carousel.querySelector('.carousel-item.active img');
 };
 // Helper: returns true if argument element is in viewport
 export function isElementInViewport(element) {
