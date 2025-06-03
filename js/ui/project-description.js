@@ -1,9 +1,9 @@
-import { PROJECTDESCRIPTIONS } from "../core/dom-utilities.js"
-import { updateMobileImageCount } from "../ui/mobile-function.js"
-import { turnOnMobileArrows } from "../ui/mobile-function.js"
+import { PROJECTDESCRIPTIONS } from "../core/dom-utilities.js";
+import { updateMobileImageCount } from "../ui/mobile-function.js";
+import { turnOnMobileArrows } from "../ui/mobile-function.js";
 
 const headList = document.querySelectorAll('ul#sub-list li');
-const toggleElements = document.querySelectorAll('div.toggle');
+const allImages = document.querySelectorAll('.carousel-inner');
 
 export function turnDescriptionsOff(locationDescriptions) {
   locationDescriptions.forEach(project => {
@@ -15,17 +15,24 @@ export function turnDescriptionsOff(locationDescriptions) {
 }
 export function turnDescriptionsOn(locationDescriptions, carousel) {
   const activeElementCarousel = carousel.querySelector('.active');
-  locationDescriptions.forEach(project => {
-    const title = project.querySelector('h4');
-    const paragraph = project.querySelector('p');
-    title.style.display = 'none';
-    paragraph.style.display = 'none';
-    if (project.getAttribute('data-prj') === activeElementCarousel.id) {
-      title.style.display = 'block';
-      paragraph.style.display = 'block';
-      updateMobileImageCount(carousel); // <-- Add this line
-      turnOnMobileArrows();
-    }
+  if (!activeElementCarousel) return;
+
+  // Get all project description elements inside the container(s)
+  locationDescriptions.forEach(container => {
+    const projectDivs = container.querySelectorAll('div[data-prj]');
+    projectDivs.forEach(project => {
+      const title = project.querySelector('h4');
+      const paragraph = project.querySelector('p');
+      title.style.display = 'none';
+      paragraph.style.display = 'none';
+
+      if (project.getAttribute('data-prj') === activeElementCarousel.id) {
+        title.style.display = 'block';
+        paragraph.style.display = 'block';
+        updateMobileImageCount(carousel);
+        turnOnMobileArrows();
+      }
+    });
   });
 }
 
@@ -40,11 +47,12 @@ export function initProjectDescriptions() {
     })
   };
 
-  //! trigger project descriptions using image click
-  images.forEach(image => {
-    image.addEventListener("click", function () {
-      turnDescriptionsOn(PROJECTDESCRIPTIONS, image)
-    })
+  // Update descriptions when carousel slides (navigation buttons, swipe, etc.)
+  document.querySelectorAll('.carousel').forEach(carousel => {
+    carousel.addEventListener('slid.bs.carousel', function () {
+      const carouselInner = carousel.querySelector('.carousel-inner');
+      turnDescriptionsOn(PROJECTDESCRIPTIONS, carouselInner);
+    });
   });
 
   //! trigger project descriptions using sub-list button prj click
@@ -65,4 +73,4 @@ export function initProjectDescriptions() {
       });
     });
   });
-}  
+}

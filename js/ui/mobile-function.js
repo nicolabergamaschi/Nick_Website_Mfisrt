@@ -1,5 +1,5 @@
 export function updateMobileImageCount(carousel) {
-  if (!window.matchMedia('(max-width: 414px)').matches) return;
+  if (!window.matchMedia('(max-width: 768px)').matches) return;
 
   // Remove any previous injected count
   document.querySelectorAll('.mobile-image-count').forEach(el => el.remove());
@@ -8,8 +8,8 @@ export function updateMobileImageCount(carousel) {
   const items = Array.from(carousel.querySelectorAll('.carousel-item'));
   const activeIndex = items.findIndex(item => item.classList.contains('active'));
 
-  // Find the visible project title
-  const visibleTitle = Array.from(document.querySelectorAll('h4.title#title'))
+  // Find the visible project title (use class, not id)
+  const visibleTitle = Array.from(document.querySelectorAll('h4.title'))
     .find(title => title.style.display !== 'none');
 
   if (visibleTitle && items.length > 0 && activeIndex !== -1) {
@@ -23,16 +23,12 @@ export function updateMobileImageCount(carousel) {
     visibleTitle.parentNode.insertBefore(countDiv, visibleTitle);
 
     // --- Inline project image count ---
-    // Get the project id of the active item
     const activeProjectId = items[activeIndex].id;
-    // Get all items with the same project id (i.e., same project)
     const projectItems = items.filter(item => item.id === activeProjectId);
-    // Find the index of the active item within its project group
     const projectIndex = projectItems.indexOf(items[activeIndex]);
 
     // Remove any previous inline count (split at ' | ')
     visibleTitle.textContent = visibleTitle.textContent.split(' | ')[0];
-    // Add the count inline
     visibleTitle.textContent += ` | ${projectIndex + 1} / ${projectItems.length}`;
   }
 }
