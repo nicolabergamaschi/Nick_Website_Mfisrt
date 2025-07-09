@@ -1,4 +1,4 @@
-## My Website
+## My first website... must be my website.
 This is my very first project developing my personal website as a place where gathering images I made throughout many years of artistic practice.
 
 The webiste has been developed using HTML CSS and Vanilla Java Script while studying full-stack development course at LeWagon.
