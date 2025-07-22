@@ -1,0 +1,15 @@
+# Ensure proper MIME types for video files
+AddType video/mp4 .mp4
+AddType video/webm .webm
+AddType video/ogg .ogv
+
+# Enable CORS for video files
+<FilesMatch "\.(mp4|webm|ogv)$">
+    Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
+
+# Cache video files for better performance
+<FilesMatch "\.(mp4|webm|ogv)$">
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+</FilesMatch>
