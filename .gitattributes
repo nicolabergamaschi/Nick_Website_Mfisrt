@@ -1,2 +1,1 @@
-resources/video/Reel_24-25_NicolaBergamaschi_V3.mp4/ filter=lfs diff=lfs merge=lfs -text
-*.mp4 filter=lfs diff=lfs merge=lfs -text
+
