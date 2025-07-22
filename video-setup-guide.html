@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cloudinary Video Setup Guide</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .step { background: #f0f0f0; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        code { background: #e0e0e0; padding: 2px 5px; border-radius: 3px; }
+        .highlight { background: yellow; }
+    </style>
+</head>
+<body>
+    <h1>🎥 Cloudinary Video Setup for Your Portfolio</h1>
+
+    <div class="step">
+        <h2>Step 1: Create Cloudinary Account</h2>
+        <ol>
+            <li>Go to <a href="https://cloudinary.com" target="_blank">cloudinary.com</a></li>
+            <li>Sign up for a free account</li>
+            <li>Note down your <strong>Cloud Name</strong> from the dashboard</li>
+        </ol>
+    </div>
+
+    <div class="step">
+        <h2>Step 2: Upload Your Video</h2>
+        <ol>
+            <li>In your Cloudinary dashboard, click <strong>"Media Library"</strong></li>
+            <li>Click <strong>"Upload"</strong> → <strong>"Video"</strong></li>
+            <li>Upload your <code>Reel_24-25_NicolaBergamaschi_V3.mp4</code> file</li>
+            <li>Once uploaded, note the <strong>Public ID</strong> (usually the filename without extension)</li>
+        </ol>
+    </div>
+
+    <div class="step">
+        <h2>Step 3: Update Your HTML</h2>
+        <p>In your <code>index.html</code> file, replace:</p>
+        <ul>
+            <li><code class="highlight">your-cloud-name</code> → Your actual Cloudinary cloud name</li>
+            <li><code class="highlight">your-video-public-id</code> → Your video's public ID (e.g., "Reel_24-25_NicolaBergamaschi_V3")</li>
+        </ul>
+
+        <h3>Example:</h3>
+        <p>If your cloud name is <code>myportfolio</code> and public ID is <code>showreel-2024</code>, replace:</p>
+        <code>https://res.cloudinary.com/your-cloud-name/video/upload/f_auto,q_auto/your-video-public-id.mp4</code>
+        <br><br>
+        <strong>With:</strong><br>
+        <code>https://res.cloudinary.com/myportfolio/video/upload/f_auto,q_auto/showreel-2024.mp4</code>
+    </div>
+
+    <div class="step">
+        <h2>Step 4: Benefits You'll Get</h2>
+        <ul>
+            <li>✅ <strong>Automatic optimization</strong> - Different quality/format per device</li>
+            <li>✅ <strong>Global CDN</strong> - Fast loading worldwide</li>
+            <li>✅ <strong>Multiple formats</strong> - MP4, WebM for browser compatibility</li>
+            <li>✅ <strong>Reliable hosting</strong> - No GitHub Pages LFS issues</li>
+            <li>✅ <strong>Same video controls</strong> - Native HTML5 video player</li>
+        </ul>
+    </div>
+
+    <div class="step">
+        <h2>Step 5: Deploy</h2>
+        <ol>
+            <li>Commit and push your changes to GitHub</li>
+            <li>Your video will load reliably on GitHub Pages</li>
+            <li>Test on different devices and browsers</li>
+        </ol>
+    </div>
+
+    <h2>🎯 Current HTML Structure</h2>
+    <p>Your video element will maintain:</p>
+    <ul>
+        <li>Same <code>id="cg-video"</code> for JavaScript compatibility</li>
+        <li>Same <code>controls</code> attribute for native video controls</li>
+        <li>Same <code>data-hover</code> and <code>data-index</code> attributes</li>
+        <li>Multiple source formats for maximum compatibility</li>
+        <li>Fallback download link</li>
+    </ul>
+</body>
+</html>

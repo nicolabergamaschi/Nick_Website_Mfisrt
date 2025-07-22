@@ -197,6 +197,10 @@
         margin-bottom: 0rem;
     }
 
+    .text-description.paragraph {
+      padding-top: 0.3rem;
+    }
+
     .carousel-inner {
         grid-column-start: 1;
         grid-column-end: 3;
@@ -235,9 +239,42 @@
 
     #cg-video {
         align-self: center;
-        max-width: 1920px;
-        max-height: 650px;
+        max-width:fit-content;
+        max-height: fit-content;
       }
 
+    .paragraph {
+      padding: 1rem;
+      font-size: 0.8rem;
+      color: black;
+    }
+
+    #title.title {
+      padding-top: 1rem;
+    }
+
+    /* Smaller cursor arrows for 1920px screens */
+    .carousel-control-prev:hover {
+        cursor: url(../resources/images/cursors/Arrow-30x30-left.png), auto;
+        cursor: -webkit-image-set(url(../resources/images/cursors/Arrow-30x30-left.png) 1x), auto;
+        cursor: image-set(url(../resources/images/cursors/Arrow-30x30-left.png) 1x), auto;
+    }
+
+    .carousel-control-next:hover {
+        cursor: url(../resources/images/cursors/Arrow-30x30-right.png), auto;
+        cursor: -webkit-image-set(url(../resources/images/cursors/Arrow-30x30-right.png) 0.1x), auto;
+        cursor: image-set(url(../resources/images/cursors/Arrow-30x30-right.png) 1x), auto;
+    }
+
+    /* Adjust cursor text and image count positioning */
+    div.cursors div span {
+        font-size: 0.7rem;
+        transform: translate(0%, 120%);
+    }
+
+    div.cursors div span#image-count {
+        transform: translate(0%, 200%);
+        font-size: 0.7rem;
+    }
 
 }
