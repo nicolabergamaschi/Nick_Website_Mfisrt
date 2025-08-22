@@ -56,7 +56,7 @@
 }
 
 @media (min-width: 512px) and (max-width: 768px) {
-    
+
     .overlay {
         width: 100%;
         background: linear-gradient(to bottom, rgba(255,255,255,0.1), rgb(255, 255, 255));
@@ -66,7 +66,7 @@
         display: flex;
         justify-content: center;
     }
-    
+
     .prj-description {
         width: 450px;
     }
@@ -82,12 +82,54 @@
 
 }
 
-@media (min-width: 768px) and (max-width: 2600px) {
+@media (min-width: 768px) and (max-width: 1200px) {
+    #head-list h5{
+        color: #a6a6a6;
+        font-size: small;
+        font-weight: 600;
+        margin-bottom: 0.2rem;
+    }
+
+    #head-list a {
+        color: #b4b4b4;
+        font-size: 0.8rem;
+    }
+
+    .collapsible-text {
+        align-content: center;
+        padding-left: 0.5rem;
+    }
+
+    .prj-description {
+        grid-column: 1;
+        grid-row: 1;
+        max-width: 650px;
+        max-height: 5.8rem;
+        align-self: flex-start;
+    }
+
+    .collapsible-text {
+        align-content: initial;
+        padding-top: 0.3rem;
+    }
+
+    #sub-list {
+        max-width: 220px;
+    }
+
+
+}
+
+@media (min-width: 1200px) and (max-width: 1900px) {
+
+}
+
+@media (min-width: 1920px) and (max-width: 2600px) {
     .mobile-nav-buttons {
         display: none;
     }
 
-    #mobile-prev, 
+    #mobile-prev,
     #mobile-next {
         display: none;
     }
@@ -108,8 +150,12 @@
         z-index: 8;
         align-items: end;
         justify-items: center;
-        height: 12rem;
+        height: 11rem;
         padding: 0px 16px 50px;
+    }
+
+    * {
+      font-size: 0.9rem;
     }
 
     .collapsible {
@@ -126,12 +172,12 @@
         font-weight: 600;
         margin-bottom: 0.2rem;
     }
-    
+
     #head-list a {
         color: #b4b4b4;
         font-size: smaller;
     }
-    
+
     .collapsible-text {
         align-content: center;
         padding-left: 2rem;
@@ -139,16 +185,20 @@
 
 
     .content-container {
-        max-height: 2rem;
+        max-height: 1rem;
     }
 
     .prj-description {
         grid-column: 1;
         grid-row: 1;
-        max-width: 650px;
+        max-width: 900px;
         max-height: 5.8rem;
         align-self: flex-end;
         margin-bottom: 0rem;
+    }
+
+    .text-description.paragraph {
+      padding-top: 0.3rem;
     }
 
     .carousel-inner {
@@ -180,44 +230,51 @@
         font-weight: 400;
         transition: all 1s;
     }
-
-
-}
-
-@media (min-width: 768px) and (max-width: 1200px) {
-    #head-list h5{
-        color: #a6a6a6;
-        font-size: small;
-        font-weight: 600;
-        margin-bottom: 0.2rem;
-    }
-    
-    #head-list a {
-        color: #b4b4b4;
-        font-size: 0.8rem;
-    }
-    
-    .collapsible-text {
-        align-content: center;
-        padding-left: 0.5rem;
+    #cg-ShowReel.carousel-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
     }
 
-    .prj-description {
-        grid-column: 1;
-        grid-row: 1;
-        max-width: 650px;
-        max-height: 5.8rem;
-        align-self: flex-start;
+    #cg-video {
+        align-self: center;
+        max-width:fit-content;
+        max-height: fit-content;
+      }
+
+    .paragraph {
+      padding: 1rem;
+      font-size: 0.8rem;
+      color: black;
     }
 
-    .collapsible-text {
-        align-content: initial;
-        padding-top: 0.3rem;
+    #title.title {
+      padding-top: 1rem;
     }
 
-    #sub-list {
-        max-width: 220px;
+    /* Smaller cursor arrows for 1920px screens */
+    .carousel-control-prev:hover {
+        cursor: url(../resources/images/cursors/Arrow-30x30-left.png), auto;
+        cursor: -webkit-image-set(url(../resources/images/cursors/Arrow-30x30-left.png) 1x), auto;
+        cursor: image-set(url(../resources/images/cursors/Arrow-30x30-left.png) 1x), auto;
     }
 
+    .carousel-control-next:hover {
+        cursor: url(../resources/images/cursors/Arrow-30x30-right.png), auto;
+        cursor: -webkit-image-set(url(../resources/images/cursors/Arrow-30x30-right.png) 0.1x), auto;
+        cursor: image-set(url(../resources/images/cursors/Arrow-30x30-right.png) 1x), auto;
+    }
+
+    /* Adjust cursor text and image count positioning */
+    div.cursors div span {
+        font-size: 0.7rem;
+        transform: translate(0%, 120%);
+    }
+
+    div.cursors div span#image-count {
+        transform: translate(0%, 200%);
+        font-size: 0.7rem;
+    }
 
 }
