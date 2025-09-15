@@ -82,49 +82,13 @@
 
 }
 
-@media (min-width: 768px) and (max-width: 1200px) {
-    #head-list h5{
-        color: #a6a6a6;
-        font-size: small;
-        font-weight: 600;
-        margin-bottom: 0.2rem;
-    }
 
-    #head-list a {
-        color: #b4b4b4;
-        font-size: 0.8rem;
-    }
 
-    .collapsible-text {
-        align-content: center;
-        padding-left: 0.5rem;
-    }
-
-    .prj-description {
-        grid-column: 1;
-        grid-row: 1;
-        max-width: 650px;
-        max-height: 5.8rem;
-        align-self: flex-start;
-    }
-
-    .collapsible-text {
-        align-content: initial;
-        padding-top: 0.3rem;
-    }
-
-    #sub-list {
-        max-width: 220px;
-    }
-
+@media (min-width: 768px) and (max-width: 1920px) {
 
 }
 
-@media (min-width: 1200px) and (max-width: 1900px) {
-
-}
-
-@media (min-width: 1920px) and (max-width: 2600px) {
+@media (min-width: 768px) and (max-width: 2600px) {
     .mobile-nav-buttons {
         display: none;
     }
@@ -150,7 +114,7 @@
         z-index: 8;
         align-items: end;
         justify-items: center;
-        height: 11rem;
+        height: 13rem;
         padding: 0px 16px 50px;
     }
 
@@ -247,10 +211,6 @@
       padding: 1rem;
       font-size: 0.8rem;
       color: black;
-    }
-
-    #title.title {
-      padding-top: 1rem;
     }
 
     /* Smaller cursor arrows for 1920px screens */
