@@ -1,8 +1,8 @@
 
-export function initCategoryMenu() {  
+export function initCategoryMenu() {
   let allSubLists = document.querySelectorAll('.sub-list-link'); // Declare var with all list elements in it
   let selection; // Declare selection in a higher scope as empty
-  
+
   // allows for individual category menus to be toggled
   menuCategoryToggle();
 
@@ -65,7 +65,10 @@ function menuCategoryToggle() {
 }
 // Function to highlight a link from sub-list
 function highlightSelectedLink(projectId) {
-  const activeLink = document.querySelector(`.sub-list-link#${projectId}`);
+  if (!projectId) { // Safety check for empty/undefined projectId
+    return;
+  }
+  const activeLink = document.querySelector(`#${projectId}`);
   if (activeLink) {
     activeLink.style.backgroundColor = 'rgba(125, 233, 152, 0.7)';
     activeLink.style.color = 'white';
@@ -92,8 +95,10 @@ function updateSublistHighlight(carouselId) {
       link.classList.remove('pulse'); // Remove pulsing animation
     });
 
-    // Highlight the corresponding sublist link
-    highlightSelectedLink(activeId)
+    // Highlight the corresponding sublist link only if activeId is valid
+    if (activeId) {
+      highlightSelectedLink(activeId);
+    }
   }
 }
 // Function to update the highlight when clicking on a sub-list link
@@ -114,7 +119,7 @@ function updateSublistHighlightFromClick(subListId) {
 }
 
 // Function to update the highlight when scrolling to a project
-// ! DOESNT SEEM TO HAVE BEEN USED ANYWHERE --- DEAD CODE? --- 
+// ! DOESNT SEEM TO HAVE BEEN USED ANYWHERE --- DEAD CODE? ---
 function updateSublistHighlightFromScroll(projectId) {
   // Remove styles from all sublist links
   document.querySelectorAll('.sub-list-link').forEach(link => {

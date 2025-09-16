@@ -436,3 +436,50 @@ li#head-list {
     pointer-events: auto;
     backdrop-filter: blur(25px) sepia(10%);
 }
+
+/* Social Media Icons */
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.social-icon {
+    width: 32px;
+    height: 32px;
+    color: #666;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 8px;
+}
+
+.social-icon:hover {
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+}
+
+.social-icon:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.social-icon svg {
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s ease;
+}
+
+/* Individual icon hover colors */
+.social-icon:hover:nth-child(1) { color: #E4405F; } /* Instagram */
+.social-icon:hover:nth-child(2) { color: #0077B5; } /* LinkedIn */
+.social-icon:hover:nth-child(3) { color: #333; }    /* GitHub */
+.social-icon:hover:nth-child(4) { color: #EA4335; } /* Email */
