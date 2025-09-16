@@ -12,13 +12,19 @@ import { visualiseReferences } from "./references.js";
 
 export function initMainScrollLogic() {
 window.addEventListener('scroll', scrollLogic);
+
+// Add responsive video handling for window resize
+initVideoResponsiveness();
+
+// Add ShowReel detection for button positioning
+initShowReelDetection();
 };
 
 function scrollLogic() {
 
   console.log('scrollLogic running');
 
-  const homeCarousel = document.querySelector('div#page-home'); 
+  const homeCarousel = document.querySelector('div#page-home');
   const aiCarousel = document.querySelector('div#carouselExampleDarkAi div.carousel-inner');
   const cgiCarousel = document.querySelector('div#carouselExampleDarkCgi div.carousel-inner');
   const phtCarousel = document.querySelector('div#carouselExampleDarkPhoto div.carousel-inner');
@@ -61,4 +67,93 @@ function scrollLogic() {
   } else {
     // console.log('Unusual carousel in the viewport!!');
   }
-};
+}
+
+/**
+ * Initialize video responsiveness for window resize events
+ */
+function initVideoResponsiveness() {
+  // Handle window resize for video responsiveness
+  window.addEventListener('resize', handleVideoResize);
+
+  // Initial setup
+  handleVideoResize();
+}
+
+/**
+ * Handle video sizing on window resize
+ */
+function handleVideoResize() {
+  const video = document.getElementById('cg-video');
+  if (!video) return;
+
+  const windowWidth = window.innerWidth;
+  const windowHeight = window.innerHeight;
+
+  // Responsive sizing based on window dimensions
+  if (windowWidth <= 768) {
+    // Mobile
+    video.style.maxHeight = '50vh';
+    video.style.width = '100%';
+  } else if (windowWidth <= 1024) {
+    // Tablet
+    video.style.maxHeight = '60vh';
+    video.style.width = '100%';
+  } else if (windowWidth <= 1920) {
+    // Desktop
+    video.style.maxHeight = '70vh';
+    video.style.width = '90%';
+  } else {
+    // Large desktop
+    video.style.maxHeight = '75vh';
+    video.style.width = '85%';
+  }
+
+  // Ensure video maintains aspect ratio
+  video.style.height = 'auto';
+  video.style.objectFit = 'contain';
+  video.style.margin = '0 auto';
+  video.style.display = 'block';
+}
+
+/**
+ * Initialize ShowReel detection for button positioning
+ */
+function initShowReelDetection() {
+  // Listen for carousel slide changes
+  const cgiCarousel = document.getElementById('carouselExampleDarkCgi');
+  if (cgiCarousel) {
+    // Listen for Bootstrap carousel slide events
+    cgiCarousel.addEventListener('slid.bs.carousel', handleShowReelDetection);
+    cgiCarousel.addEventListener('slide.bs.carousel', handleShowReelDetection);
+
+    // Check on initial load
+    setTimeout(() => {
+      handleShowReelDetection();
+    }, 500);
+  }
+}
+
+/**
+ * Detect if ShowReel video is active and adjust button positioning
+ */
+function handleShowReelDetection() {
+  const cgiCarousel = document.getElementById('carouselExampleDarkCgi');
+  const activeItem = cgiCarousel?.querySelector('.carousel-item.active');
+  const video = activeItem?.querySelector('video');
+
+  const prevContainer = cgiCarousel?.querySelector('.carousel-button-container-prev');
+  const nextContainer = cgiCarousel?.querySelector('.carousel-button-container-next');
+
+  if (video && prevContainer && nextContainer) {
+    // ShowReel is active - move buttons away from center
+    prevContainer.classList.add('video-active-positioning');
+    nextContainer.classList.add('video-active-positioning');
+    console.log('ShowReel detected - moving buttons away from center');
+  } else {
+    // No video active - restore normal positioning
+    if (prevContainer) prevContainer.classList.remove('video-active-positioning');
+    if (nextContainer) nextContainer.classList.remove('video-active-positioning');
+    console.log('No video active - restoring normal button positioning');
+  }
+}

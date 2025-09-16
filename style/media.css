@@ -53,6 +53,24 @@
         margin-bottom: 0.5em;
     }
 
+    /* Mobile video responsiveness */
+    #cg-video {
+        width: 100%;
+        height: auto;
+        max-height: 50vh; /* Smaller on mobile to leave room for controls */
+        object-fit: contain;
+        margin: 0 auto;
+    }
+
+    /* Mobile video button positioning - wider containers for easier touch */
+    .carousel-button-container-prev.video-active-positioning {
+        width: 30% !important;
+    }
+
+    .carousel-button-container-next.video-active-positioning {
+        width: 30% !important;
+    }
+
 }
 
 @media (min-width: 512px) and (max-width: 768px) {
@@ -78,6 +96,15 @@
         grid-row-end: 2;
         height: 65vh;
         justify-content: center;
+    }
+
+    /* Tablet video responsiveness */
+    #cg-video {
+        width: 100%;
+        height: auto;
+        max-height: 60vh; /* Medium size for tablets */
+        object-fit: contain;
+        margin: 0 auto;
     }
 
 }
@@ -202,10 +229,23 @@
     }
 
     #cg-video {
+        width: 90%; /* Slightly smaller on large screens for better proportions */
+        height: auto;
+        max-height: 75vh; /* Larger max height for desktop */
+        max-width: 90vw; /* Ensure it doesn't exceed viewport width */
+        object-fit: contain;
+        margin: 0 auto;
         align-self: center;
-        max-width:fit-content;
-        max-height: fit-content;
-      }
+    }
+
+    /* Desktop video button positioning - smaller containers for precise access */
+    .carousel-button-container-prev.video-active-positioning {
+        width: 20% !important;
+    }
+
+    .carousel-button-container-next.video-active-positioning {
+        width: 20% !important;
+    }
 
     .paragraph {
       padding: 1rem;
