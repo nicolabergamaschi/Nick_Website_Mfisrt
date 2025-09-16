@@ -41,7 +41,11 @@ function renderCursorInfo(prjCarousel, eventToListen) {
         const activeIndex = Array.from(arrayElements).indexOf(activeImage) + 1; // +1 to make it 1-based
         cursorCount.innerHTML = `${activeIndex}/${elementsCount}`; // Update the cursor with the current index and total count
         const tag = activeImage.getAttribute('data-hover');
-        cursorProject.innerHTML = tag.split('-')[1]  || ""; // Update the tag dynamically
+        if (tag) {
+            cursorProject.innerHTML = tag.split('-')[1] || ""; // Update the tag dynamically
+        } else {
+            cursorProject.innerHTML = ""; // Clear if no tag
+        }
       } else {
         cursorCount.innerHTML = ""; // Clear the count if no activeImage is found
         cursorProject.innerHTML = ""; // Clear the tag if no activeImage is found

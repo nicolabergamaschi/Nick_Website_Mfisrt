@@ -49,19 +49,24 @@ export function initHighligthsMenu() {
         updateSublistHighlightFromClick(activeId); // Update the highlight for the active project in the target category
       }
     });
-  });  
-} 
+  });
+}
 // changing highlighted project based on scrolling
 export function changeHighligthedPrjOnScroll(carousel) {
   const activeItem = carousel.querySelector('.carousel-item.active');
   if (activeItem) {
     const activePrjId = activeItem.id;
-    updateSublistHighlightFromScroll(activePrjId); // Use the new function
+    if (activePrjId) { // Only proceed if we have a valid ID
+      updateSublistHighlightFromScroll(activePrjId); // Use the new function
+    }
   }
 }
 
 function highlightSelectedLink(projectId) {
-  const activeLink = document.querySelector(`.sub-list-link#${projectId}`);
+  if (!projectId) { // Safety check for empty/undefined projectId
+    return;
+  }
+  const activeLink = document.querySelector(`#${projectId}`);
   if (activeLink) {
     activeLink.style.backgroundColor = 'rgba(125, 233, 152, 0.7)';
     activeLink.style.color = 'white';
@@ -110,6 +115,9 @@ function updateSublistHighlightFromClick(subListId) {
 }
 // Function to update the highlight when scrolling to a project
 function updateSublistHighlightFromScroll(projectId) {
+  if (!projectId) { // Safety check for empty/undefined projectId
+    return;
+  }
   // Remove styles from all sublist links
   document.querySelectorAll('.sub-list-link').forEach(link => {
     link.style.backgroundColor = '';
@@ -124,7 +132,3 @@ function updateSublistHighlightFromScroll(projectId) {
   // Highlight the corresponding sublist link
   highlightSelectedLink(projectId)
 }
-
-
-
-

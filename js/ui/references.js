@@ -1,5 +1,6 @@
-// Minimal reference image overlay logic for ai-Vogue, data-index=2
+// Reference image overlay logic - updated for new naming convention
 const referenceImages = {
+  // ai-Vogue project references (new indices after migration)
   'ai-Vogue_2': [
     './resources/images/references/ref_ai-Vogue_2_1.png',
     './resources/images/references/ref_ai-Vogue_2_2.png'
@@ -8,6 +9,9 @@ const referenceImages = {
     './resources/images/references/ref_ai-Vogue_3_1.png',
     './resources/images/references/ref_ai-Vogue_3_2.png'
   ],
+
+  // Add more reference mappings as needed
+  // Example: 'project-name_data-index': ['ref1.png', 'ref2.png']
 };
 
 function getCurrentImageKey() {
@@ -140,7 +144,20 @@ export function visualiseReferences(carousel) {
   // 3. add reference button to active image descriptions
   // 4. when clicking visualise overlay ref images on screen preferably using 'div.carousel-inner'
 
-  const activeImage = carousel.querySelector('.active').children[0]
+  // Guard clause: check if carousel has content
+  const carouselInner = carousel.querySelector('.carousel-inner');
+  if (!carouselInner || !carouselInner.children || carouselInner.children.length === 0) {
+    // Carousel is empty (automation system hasn't loaded content yet)
+    return;
+  }
+
+  const activeItem = carousel.querySelector('.active');
+  if (!activeItem || !activeItem.children[0]) {
+    // No active item found
+    return;
+  }
+
+  const activeImage = activeItem.children[0];
   //console.log(activeImage)
   if (activeImage.className.includes('ref')) {
     //console.log('this image has a reference attribute.')

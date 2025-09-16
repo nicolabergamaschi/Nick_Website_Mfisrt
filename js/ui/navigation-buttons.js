@@ -10,6 +10,11 @@ const nextBtn = nextBtnCgiContainer.querySelector('.carousel-control-next');
 
 // navigation buttons Showreel - Cgi Carousel
 export function adjustBtnWidthShowReel() {
+  // Guard clause: showReelSlide might not exist if content hasn't loaded yet
+  if (!showReelSlide) {
+    return;
+  }
+
   if (showReelSlide.classList.contains('active')) {
     prevBtnCgiContainer.style.width = '10%';
     nextBtnCgiContainer.style.width = '10%';
@@ -86,4 +91,3 @@ function updateImageCountInTitle() {
     imageCount.style.display = 'none';
   }
 }
-
