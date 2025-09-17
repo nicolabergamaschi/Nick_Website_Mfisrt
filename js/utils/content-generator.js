@@ -91,45 +91,39 @@ export function generateCategoryCarouselItems(categoryProjects, categoryClass) {
     let html = '';
     let isFirstItem = true;
 
-    // Collect all images from all projects with their global data-index
+    // Collect all images maintaining their array position order from file-scanner
     const allImages = [];
 
     Object.keys(categoryProjects).forEach(projectId => {
         const project = categoryProjects[projectId];
         if (project.images && project.images.length > 0) {
-            project.images.forEach(image => {
-                // Special case: ShowReel should appear first (use index 0)
-                let sortIndex = parseInt(image.dataIndex) || 0;
-                if (projectId.toLowerCase().includes('showreel')) {
-                    sortIndex = 0; // Force ShowReel to appear first
-                } else if (sortIndex === 0) {
-                    // If another image has index 0, bump it to prevent conflicts
-                    sortIndex = parseInt(image.dataIndex) + 0.1;
-                }
-
+            project.images.forEach((image, arrayIndex) => {
+                // Use array position as sort key instead of dataIndex
+                // This maintains the exact order from file-scanner.js arrays
                 allImages.push({
                     projectId,
                     image,
-                    dataIndex: sortIndex,
+                    arrayPosition: allImages.length, // Incremental position based on discovery order
+                    dataIndex: parseInt(image.dataIndex) || 0, // Keep original for reference system
                     originalIndex: parseInt(image.dataIndex) || 0 // Keep original for display
                 });
             });
         }
     });
 
-    // Sort ONLY by global data-index (pure index-based ordering)
-    allImages.sort((a, b) => a.dataIndex - b.dataIndex);
+    // Sort by array position (discovery order) instead of dataIndex
+    // This maintains the exact order from file-scanner.js getKnownFiles arrays
+    allImages.sort((a, b) => a.arrayPosition - b.arrayPosition);
 
-    // Debug: Log the pure index-based ordering
-    console.log(`🔢 Pure index-based order for ${categoryClass}:`);
+    // Debug: Log the array position-based ordering
+    console.log(`� Array position-based order for ${categoryClass} (as defined in file-scanner.js):`);
     allImages.forEach((item, index) => {
         const displayIndex = item.originalIndex || item.dataIndex;
-        const sortNote = item.projectId.toLowerCase().includes('showreel') ? ' (ShowReel - forced to position 1)' : '';
-        console.log(`  ${index + 1}. [${displayIndex}] ${item.image.filename} (project: ${item.projectId})${sortNote}`);
+        console.log(`  ${index + 1}. [index:${displayIndex}] ${item.image.filename} (project: ${item.projectId})`);
         console.log(`      → src: ${item.image.src}`);
     });
 
-    // Generate carousel items in pure index order
+    // Generate carousel items in array position order
     allImages.forEach(item => {
         const isActive = isFirstItem;
         html += generateCarouselItem(item.projectId, item.image, categoryClass, isActive);

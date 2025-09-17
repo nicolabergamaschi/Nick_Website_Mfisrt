@@ -7,8 +7,7 @@ import { closeCategoryMenus } from "../ui/category-menu.js"
 import { removeImageCount } from "./mobile-function.js";
 import { turnOffMobileArrows } from "../ui/mobile-function.js"
 import { openCategoryMenus } from "../ui/category-menu.js"
-import { changeHighligthedPrjOnScroll } from "../ui/highlighted-menu.js"
-import { visualiseReferences } from "./references.js";
+import { changeHighligthedPrjOnScroll } from "../ui/highlighted-menu.js";
 
 export function initMainScrollLogic() {
 window.addEventListener('scroll', scrollLogic);
@@ -43,7 +42,7 @@ function scrollLogic() {
     openCategoryMenus(TOGGLEELEMENTS)
     changeHighligthedPrjOnScroll(aiCarousel)
     // console.log('AI')
-    visualiseReferences(aiCarousel)
+    // Reference system now handled by event listeners in references.js
 
   } else if (cgiCarousel && isElementInViewport(cgiCarousel)) {
     /*console.log('Cgi carousel is in the viewport')*/

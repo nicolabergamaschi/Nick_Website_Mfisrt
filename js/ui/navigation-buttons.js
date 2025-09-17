@@ -1,17 +1,27 @@
 import { getActiveCarousel } from "../core/dom-utilities.js"
 
-// Shrinks navigation buttons when on CGI Carousel - Showreel in order to allow interaction with Vimeo media player
-const carouselCgi = document.getElementById('carouselExampleDarkCgi');
-const showReelSlide = document.querySelector('#cg-ShowReel.carousel-item');
-const prevBtnCgiContainer = carouselCgi.querySelector('.carousel-button-container-prev');
-const nextBtnCgiContainer = carouselCgi.querySelector('.carousel-button-container-next');
-const prevBtn = prevBtnCgiContainer.querySelector('.carousel-control-prev');
-const nextBtn = nextBtnCgiContainer.querySelector('.carousel-control-next');
-
 // navigation buttons Showreel - Cgi Carousel
 export function adjustBtnWidthShowReel() {
-  // Guard clause: showReelSlide might not exist if content hasn't loaded yet
-  if (!showReelSlide) {
+  // Get DOM elements when function is called, not at module load time
+  const carouselCgi = document.getElementById('carouselExampleDarkCgi');
+  const showReelSlide = document.querySelector('#cg-ShowReel.carousel-item');
+
+  // Guard clause: check if elements exist
+  if (!carouselCgi || !showReelSlide) {
+    return;
+  }
+
+  const prevBtnCgiContainer = carouselCgi.querySelector('.carousel-button-container-prev');
+  const nextBtnCgiContainer = carouselCgi.querySelector('.carousel-button-container-next');
+
+  if (!prevBtnCgiContainer || !nextBtnCgiContainer) {
+    return;
+  }
+
+  const prevBtn = prevBtnCgiContainer.querySelector('.carousel-control-prev');
+  const nextBtn = nextBtnCgiContainer.querySelector('.carousel-control-next');
+
+  if (!prevBtn || !nextBtn) {
     return;
   }
 
@@ -46,19 +56,27 @@ export function adjustBtnWidthShowReel() {
 }
 
 export function initNavigationBtnShowReel() {
+  // Get DOM elements when function is called, not at module load time
+  const carouselCgi = document.getElementById('carouselExampleDarkCgi');
+
   if (!carouselCgi) return;
-    // On slide change
+
+  // On slide change
   carouselCgi.addEventListener('slid.bs.carousel', adjustBtnWidthShowReel);
   // On page load
   adjustBtnWidthShowReel();
 }
 
-const prevBtnMobile = document.getElementById('mobile-prev');
-const nextBtnMobile = document.getElementById('mobile-next');
-const descriptionTitle = document.getElementById('title');
-
 // navigation buttons for mobile
 export function initNavigationBtnMobile() {
+  // Get DOM elements when function is called, not at module load time
+  const prevBtnMobile = document.getElementById('mobile-prev');
+  const nextBtnMobile = document.getElementById('mobile-next');
+
+  if (!prevBtnMobile || !nextBtnMobile) {
+    return; // Elements don't exist yet
+  }
+
   if (window.matchMedia('(max-width: 768px)').matches) {
 
     prevBtnMobile.addEventListener('click', function () {

@@ -7,6 +7,7 @@ import { initMainScrollLogic } from "./ui/carousels.js";
 import { initMobileImageCount } from "./ui/mobile-function.js";
 import { initHighligthsMenu } from "./ui/highlighted-menu.js";
 import { initContentManager } from "./content-manager.js";
+import "./ui/references.js"; // Import references module to initialize event listeners
 
 
 // initialise automated content management system (FIRST - populate carousels)

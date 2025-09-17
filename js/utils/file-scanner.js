@@ -165,9 +165,11 @@ function getKnownFiles(directoryPath) {
     } else if (directoryPath.includes('/PHOTO')) {
         return [
             // VitalSigns project (indices 1-11)
-            'ph-VitalSigns-1.webp', 'ph-VitalSigns-2.webp', 'ph-VitalSigns-3.webp', 'ph-VitalSigns-4.webp',
-            'ph-VitalSigns-5.webp', 'ph-VitalSigns-6.webp', 'ph-VitalSigns-7.webp', 'ph-VitalSigns-8.webp',
-            'ph-VitalSigns-9.webp', 'ph-VitalSigns-10.webp', 'ph-VitalSigns-11.webp',
+            'ph-VitalSigns-1.webp', 'ph-VitalSigns-2.webp', 'ph-VitalSigns-3.webp', 'ph-VitalSigns-36.webp',
+            'ph-VitalSigns-37.webp', 'ph-VitalSigns-38.webp', 'ph-VitalSigns-39.webp', 'ph-VitalSigns-40.webp',
+            'ph-VitalSigns-4.webp','ph-VitalSigns-5.webp', 'ph-VitalSigns-6.webp', 'ph-VitalSigns-7.webp',
+            'ph-VitalSigns-8.webp','ph-VitalSigns-9.webp', 'ph-VitalSigns-10.webp', 'ph-VitalSigns-11.webp',
+            'ph-VitalSigns-34.webp',
             // Personal project (indices 12-33)
             'ph-Personal-12.webp', 'ph-Personal-13.webp', 'ph-Personal-14.webp', 'ph-Personal-15.webp',
             'ph-Personal-16.webp', 'ph-Personal-17.webp', 'ph-Personal-18.webp', 'ph-Personal-19.webp',
@@ -178,93 +180,6 @@ function getKnownFiles(directoryPath) {
         ];
     }
     return [];
-}
-
-/**
- * Mock directory listing for development/testing
- * In production, this would be replaced with actual file system scanning
- */
-async function getMockDirectoryFiles(category) {
-    const mockFiles = {
-        'AI': [
-            'ai-Vogue-1.webp',
-            'ai-Vogue-2.webp',
-            'ai-Vogue-3.webp',
-            'ai-VogueBES-60.webp',
-            'ai-VogueBES-61.webp',
-            'ai-VogueBES-62.webp',
-            'ai-VogueBES-63.webp',
-            'ai-Rombaut-4.webp',
-            'ai-Rombaut-56.webp',
-            'ai-Rombaut-57.webp',
-            'ai-Rombaut-58.webp',
-            'ai-Rombaut-59.webp',
-            'ai-RickOwens-64.webp',
-            'ai-Experiments-6.webp',
-            'ai-Experiments-7.webp',
-            'ai-Experiments-65.webp',
-            'ai-Experiments-66.webp',
-            'ai-Experiments-67.webp',
-            'ai-Experiments-68.webp',
-            'ai-Experiments-69.webp',
-            'ai-Experiments-70.webp'
-        ],
-        'CGI': [
-            'cg-ShowReel-200.mp4',
-            'cg-DMP-8.webp',
-            'cg-DMP-9.webp',
-            'cg-DMP-10.webp',
-            'cg-DMP-11.webp',
-            'cg-LANVIN-12.webp',
-            'cg-Rolex-13.webp',
-            'cg-Salomon-14.webp',
-            'cg-Experiments-15.webp',
-            'cg-Experiments-16.webp',
-            'cg-Experiments-17.webp',
-            'cg-Experiments-18.webp',
-            'cg-Experiments-19.webp',
-            'cg-Experiments-20.webp',
-            'cg-Experiments-21.webp',
-            'cg-Experiments-38.webp'
-        ],
-        'PHOTO': [
-            'ph-VitalSigns-22.webp',
-            'ph-VitalSigns-23.webp',
-            'ph-VitalSigns-24.webp',
-            'ph-VitalSigns-25.webp',
-            'ph-VitalSigns-26.webp',
-            'ph-VitalSigns-27.webp',
-            'ph-VitalSigns-28.webp',
-            'ph-VitalSigns-29.webp',
-            'ph-VitalSigns-30.webp',
-            'ph-VitalSigns-31.webp',
-            'ph-VitalSigns-32.webp',
-            'ph-Personal-33.webp',
-            'ph-Personal-34.webp',
-            'ph-Personal-35.webp',
-            'ph-Personal-36.webp',
-            'ph-Personal-37.webp',
-            'ph-Personal-39.webp',
-            'ph-Personal-40.webp',
-            'ph-Personal-41.webp',
-            'ph-Personal-42.webp',
-            'ph-Personal-43.webp',
-            'ph-Personal-44.webp',
-            'ph-Personal-45.webp',
-            'ph-Personal-46.webp',
-            'ph-Personal-47.webp',
-            'ph-Personal-48.webp',
-            'ph-Personal-49.webp',
-            'ph-Personal-50.webp',
-            'ph-Personal-51.webp',
-            'ph-Personal-52.webp',
-            'ph-Personal-53.webp',
-            'ph-Personal-54.webp',
-            'ph-Personal-55.webp'
-        ]
-    };
-
-    return mockFiles[category] || [];
 }
 
 /**
