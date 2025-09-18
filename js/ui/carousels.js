@@ -22,8 +22,6 @@ initShowReelDetection();
 
 function scrollLogic() {
 
-  console.log('scrollLogic running');
-
   const homeCarousel = document.querySelector('div#page-home');
   const aiCarousel = document.querySelector('div#carouselExampleDarkAi div.carousel-inner');
   const cgiCarousel = document.querySelector('div#carouselExampleDarkCgi div.carousel-inner');
@@ -149,11 +147,9 @@ function handleShowReelDetection() {
     // ShowReel is active - move buttons away from center
     prevContainer.classList.add('video-active-positioning');
     nextContainer.classList.add('video-active-positioning');
-    console.log('ShowReel detected - moving buttons away from center');
   } else {
     // No video active - restore normal positioning
     if (prevContainer) prevContainer.classList.remove('video-active-positioning');
     if (nextContainer) nextContainer.classList.remove('video-active-positioning');
-    console.log('No video active - restoring normal button positioning');
   }
 }

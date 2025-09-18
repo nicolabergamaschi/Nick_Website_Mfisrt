@@ -76,12 +76,11 @@ export function generateCarouselItem(projectId, imageData, category, isActive = 
                  class="d-block${additionalClasses}"
                  data-index="${imageData.dataIndex}"
                  data-hover="${projectId}"
+                 data-has-ref="${imageData.hasRef || false}"
                  alt="${imageData.alt || '...'}">
         </div>`;
     }
-}
-
-/**
+}/**
  * Generates HTML for all carousel items in a category
  * @param {Object} categoryProjects - All projects for a category
  * @param {string} categoryClass - Category CSS class (ai, cg, ph)
@@ -120,15 +119,6 @@ export function generateCategoryCarouselItems(categoryProjects, categoryClass) {
     // Sort ONLY by global data-index (pure index-based ordering)
     allImages.sort((a, b) => a.dataIndex - b.dataIndex);
 
-    // Debug: Log the pure index-based ordering
-    console.log(`🔢 Pure index-based order for ${categoryClass}:`);
-    allImages.forEach((item, index) => {
-        const displayIndex = item.originalIndex || item.dataIndex;
-        const sortNote = item.projectId.toLowerCase().includes('showreel') ? ' (ShowReel - forced to position 1)' : '';
-        console.log(`  ${index + 1}. [${displayIndex}] ${item.image.filename} (project: ${item.projectId})${sortNote}`);
-        console.log(`      → src: ${item.image.src}`);
-    });
-
     // Generate carousel items in pure index order
     allImages.forEach(item => {
         const isActive = isFirstItem;
@@ -146,12 +136,9 @@ export function generateCategoryCarouselItems(categoryProjects, categoryClass) {
  * @returns {string} HTML string for project description
  */
 export function generateProjectDescription(projectId, projectData) {
-    const referenceButton = projectData.hasReferences ?
-        `<button id="references" style="border: 0px solid rgb(196, 196, 196); box-shadow: 3px 5px 5px rgb(181, 181, 181); margin-bottom: 1rem; padding: 0.2rem 1rem; border-radius: 25px; background-color: rgb(220, 220, 220); color: rgb(147, 147, 147); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 400; cursor: pointer; transition: all 0.2s ease;">${projectData.referenceButtonText || 'references'}</button>` : '';
-
     return `
     <div data-prj="${projectId}">
-        <h4 class="title" id="title" style="display: none;">${projectData.title}${referenceButton ? ' - ' + referenceButton : ''}</h4>
+        <h4 class="title" id="title" style="display: none;">${projectData.title}</h4>
         <p class="text-description paragraph" style="display: none;">${projectData.description}</p>
     </div>`;
 }
