@@ -54,7 +54,7 @@ export const projectMetadata = {
     "cg-DMP": {
         title: "Digital Matte Painting",
         description: "A series of digital matte paintings developed to concept personal ideas, primarily inspired by original photographs. The works combine 3D and compositing tools—including Blender, 3ds Max, Maya, Redshift, Nuke, and Photoshop—to build layered, atmospheric visuals.",
-        hasReferences: false,
+        hasReferences: true,
         menuDisplayName: "Digital Matte"
     },
 

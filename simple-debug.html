@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Simple Debug - Import Test</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .debug { background: #f0f0f0; padding: 10px; margin: 10px 0; }
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+    <h1>Simple Import Test</h1>
+    <div id="debug-output"></div>
+
+    <script type="module">
+        const debugOutput = document.getElementById('debug-output');
+
+        function log(message, type = 'info') {
+            console.log(message);
+            const div = document.createElement('div');
+            div.className = `debug ${type}`;
+            div.textContent = message;
+            debugOutput.appendChild(div);
+        }
+
+        log('🚀 Starting simple import test...');
+
+        try {
+            // Test each import one by one
+            log('Testing navigation-buttons.js import...');
+            import('./js/ui/navigation-buttons.js').then(module => {
+                log('✅ navigation-buttons.js imported successfully', 'success');
+
+                log('Testing carousels.js import...');
+                return import('./js/ui/carousels.js');
+            }).then(module => {
+                log('✅ carousels.js imported successfully', 'success');
+
+                log('Testing content-manager.js import...');
+                return import('./js/content-manager.js');
+            }).then(module => {
+                log('✅ content-manager.js imported successfully', 'success');
+                log('Available exports: ' + Object.keys(module).join(', '));
+
+                // Try to run content manager
+                if (module.initContentManager) {
+                    log('🚀 Running content manager...');
+                    return module.initContentManager();
+                }
+            }).then(() => {
+                log('✅ All imports and content manager completed successfully', 'success');
+            }).catch(err => {
+                log('❌ Error: ' + err.message, 'error');
+                console.error('Full error:', err);
+            });
+        } catch (err) {
+            log('❌ Critical error: ' + err.message, 'error');
+            console.error('Critical error:', err);
+        }
+    </script>
+</body>
+</html>

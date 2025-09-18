@@ -38,6 +38,56 @@ To create an entirely new project within a category:
 3. **Update file scanner** (`/js/utils/file-scanner.js`):
    - Add all new filenames to the known files array
 
+**📍 EXACT LOCATION FOR FILE ADDITIONS:**
+
+Open `/js/utils/file-scanner.js` and locate the `getKnownFiles()` function (around line 118). This function contains three arrays for different categories:
+
+**For AI Category** (around line 121):
+```javascript
+if (directoryPath.includes('/AI')) {
+    return [
+        // Vogue project (indices 1-3)
+        'ai-Vogue-1.webp', 'ai-Vogue-2.webp', 'ai-Vogue-3.webp',
+        // ADD NEW AI FILES HERE
+        // VogueBES project (indices 4-7)
+        'ai-VogueBES-4.webp', 'ai-VogueBES-5.webp', 'ai-VogueBES-6.webp', 'ai-VogueBES-7.webp',
+        // ... rest of files
+    ];
+}
+```
+
+**For CGI Category** (around line 135):
+```javascript
+} else if (directoryPath.includes('/CGI')) {
+    return [
+        // ShowReel project (index 0 - special position)
+        'cg-ShowReel-0.mp4',
+        // ADD NEW CGI FILES HERE
+        // DMP project
+        'cg-DMP-1.webp', 'cg-DMP-2.webp', 'cg-DMP-3.webp', 'cg-DMP-4.webp',
+        // ... rest of files
+    ];
+}
+```
+
+**For PHOTO Category** (around line 151):
+```javascript
+} else if (directoryPath.includes('/PHOTO')) {
+    return [
+        // VitalSigns project (indices 1-11)
+        'ph-VitalSigns-1.webp', 'ph-VitalSigns-2.webp', 'ph-VitalSigns-3.webp',
+        // ADD NEW PHOTO FILES HERE
+        // ... rest of files
+    ];
+}
+```
+
+**IMPORTANT:**
+- Files MUST follow naming convention: `category-project_name-index.extension`
+- Add files in the logical position based on their index numbers
+- Maintain comments showing project groupings for clarity
+- The system will automatically sort by index, so placement affects carousel order
+
 4. **Add project metadata** in `/js/data/project-metadata.js`:
    ```javascript
    "ai-NewProject": {
@@ -55,20 +105,32 @@ To create an entirely new project within a category:
 
 Reference images appear in overlay popups when users click on main images.
 
-1. **Upload reference images** to `/resources/images/ai-training/` (or appropriate reference directory)
+1. **Upload reference images** to `/resources/images/references/` directory
 
-2. **Set project metadata** `hasReferences: true` in `/js/data/project-metadata.js`
+2. **Follow the reference naming convention**: `ref_project-name_data-index_sequence.extension`
+   - Example: `ref_ai-Vogue_2_1.png` (first reference for ai-Vogue with data-index 2)
+   - Example: `ref_ai-Vogue_2_2.png` (second reference for ai-Vogue with data-index 2)
+   - Example: `ref_cg-DMP_1_1.webp` (first reference for cg-DMP with data-index 1)
 
-3. **Configure reference mapping** in `/js/ui/references.js`:
-   - Map `data-index` values to reference image paths
+3. **Set project metadata** `hasReferences: true` in `/js/data/project-metadata.js`
+
+4. **Configure reference mapping** in `/js/ui/references.js`:
+   - Map `project-name_data-index` keys to reference image paths
    - Example:
    ```javascript
-   if (projectId === "ai-Vogue" && dataIndex === "1") {
-       return "resources/images/ai-training/vogue-reference-1.jpg";
-   }
+   const referenceImages = {
+     'ai-Vogue_2': [
+       './resources/images/references/ref_ai-Vogue_2_1.png',
+       './resources/images/references/ref_ai-Vogue_2_2.png'
+     ],
+     'ai-Vogue_3': [
+       './resources/images/references/ref_ai-Vogue_3_1.png',
+       './resources/images/references/ref_ai-Vogue_3_2.png'
+     ]
+   };
    ```
 
-4. **Test the reference system** - Click on images to verify reference overlays work
+5. **Test the reference system** - Click on images to verify reference overlays work
 
 ## Project Overview
 This is Nicola Bergamaschi's portfolio website - a multidisciplinary artist working across AI, CGI, and photography. The site showcases work through interactive carousels with dynamic content loading.
@@ -205,24 +267,31 @@ const generatedProjectsData = {
 ```
 
 ### Reference Data Structure
-Preserve the existing reference mapping system while making it data-driven:
+The current reference mapping system uses project-based keys:
 
 ```javascript
-// js/data/references.js
-export const referenceImages = {
-  // Maps data-index to reference images (maintains current system)
-  2: [ // ai-Vogue data-index="2"
-    "./resources/images/references/ref_img#ai-Vogue_2_data-index_2_1.webp",
-    "./resources/images/references/ref_img#ai-Vogue_2_data-index_2_2.webp",
-    "./resources/images/references/ref_img#ai-Vogue_2_data-index_2_3.webp"
+// js/ui/references.js
+const referenceImages = {
+  // Maps project-name_data-index to reference image arrays
+  'ai-Vogue_2': [ // ai-Vogue project with data-index="2"
+    './resources/images/references/ref_ai-Vogue_2_1.png',
+    './resources/images/references/ref_ai-Vogue_2_2.png'
   ],
-  3: [ // ai-Vogue data-index="3"
-    "./resources/images/references/ref_img#ai-Vogue_3_data-index_3_1.webp",
-    "./resources/images/references/ref_img#ai-Vogue_3_data-index_3_2.webp"
+  'ai-Vogue_3': [ // ai-Vogue project with data-index="3"
+    './resources/images/references/ref_ai-Vogue_3_1.png',
+    './resources/images/references/ref_ai-Vogue_3_2.png'
+  ],
+  'cg-DMP_1': [ // cg-DMP project with data-index="1"
+    './resources/images/references/ref_cg-DMP_1_1.webp'
   ]
   // ... more reference mappings
 };
 ```
+
+**Reference File Naming Convention:**
+- Pattern: `ref_project-name_data-index_sequence.extension`
+- Example: `ref_ai-Vogue_2_1.png` = Reference #1 for ai-Vogue project, data-index 2
+- Example: `ref_cg-DMP_1_1.webp` = Reference #1 for cg-DMP project, data-index 1
 
 ### Key Preservation Requirements
 - **ID Consistency**: Maintain `category-project_name` format for all projects

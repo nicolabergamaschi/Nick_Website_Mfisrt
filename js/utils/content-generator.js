@@ -3,7 +3,12 @@
  * Combines scanned file data with project metadata to generate HTML content
  */
 
-import { generateProjectsData } from './file-scanner.js';
+impor    // Sort by array position (discovery order) instead of dataIndex
+    // This maintains the exact order from file-scanner.js getKnownFiles arrays
+    allImages.sort((a, b) => a.arrayPosition - b.arrayPosition);
+
+    // Generate carousel items in array position order
+    allImages.forEach(item => {tsData } from './file-scanner.js';
 import { projectMetadata, categoryConfig } from '../data/project-metadata.js';
 
 /**
@@ -90,36 +95,31 @@ export function generateCategoryCarouselItems(categoryProjects, categoryClass) {
     let html = '';
     let isFirstItem = true;
 
-    // Collect all images from all projects with their global data-index
+    // Collect all images maintaining their array position order from file-scanner
     const allImages = [];
 
     Object.keys(categoryProjects).forEach(projectId => {
         const project = categoryProjects[projectId];
         if (project.images && project.images.length > 0) {
-            project.images.forEach(image => {
-                // Special case: ShowReel should appear first (use index 0)
-                let sortIndex = parseInt(image.dataIndex) || 0;
-                if (projectId.toLowerCase().includes('showreel')) {
-                    sortIndex = 0; // Force ShowReel to appear first
-                } else if (sortIndex === 0) {
-                    // If another image has index 0, bump it to prevent conflicts
-                    sortIndex = parseInt(image.dataIndex) + 0.1;
-                }
-
+            project.images.forEach((image, arrayIndex) => {
+                // Use array position as sort key instead of dataIndex
+                // This maintains the exact order from file-scanner.js arrays
                 allImages.push({
                     projectId,
                     image,
-                    dataIndex: sortIndex,
+                    arrayPosition: allImages.length, // Incremental position based on discovery order
+                    dataIndex: parseInt(image.dataIndex) || 0, // Keep original for reference system
                     originalIndex: parseInt(image.dataIndex) || 0 // Keep original for display
                 });
             });
         }
     });
 
-    // Sort ONLY by global data-index (pure index-based ordering)
-    allImages.sort((a, b) => a.dataIndex - b.dataIndex);
+    // Sort by array position (discovery order) instead of dataIndex
+    // This maintains the exact order from file-scanner.js getKnownFiles arrays
+    allImages.sort((a, b) => a.arrayPosition - b.arrayPosition);
 
-    // Generate carousel items in pure index order
+    // Generate carousel items in array position order
     allImages.forEach(item => {
         const isActive = isFirstItem;
         html += generateCarouselItem(item.projectId, item.image, categoryClass, isActive);

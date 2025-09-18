@@ -10,20 +10,36 @@ const referenceImages = {
     './resources/images/references/ref_ai-Vogue_3_2.png'
   ],
 
+  'cg-DMP_2': [
+    './resources/images/references/ref_cg-DMP_2_1.webp'
+
+  ],
+
   // Add more reference mappings as needed
   // Example: 'project-name_data-index': ['ref1.png', 'ref2.png']
 };
 
 function getCurrentImageKey() {
-  const activeImg = document.querySelector('.carousel-item.ai.active img');
-  if (!activeImg) return null;
-  return `${activeImg.id}_${activeImg.getAttribute('data-index')}`;
+  // Find the active image from any carousel
+  const activeImg = document.querySelector('.carousel-item.active img');
+
+  if (!activeImg) {
+    return null;
+  }
+
+  const imgId = activeImg.id;
+  const dataIndex = activeImg.getAttribute('data-index');
+
+  // Generate key in format: category-projectname_index (e.g., "ai-Vogue_2")
+  const key = `${imgId}_${dataIndex}`;
+
+  return key;
 }
 
 function showReferenceOverlay() {
   const blurringLayer = document.getElementById('blurringLayer');
   const mainContainer = document.querySelector('.main-container');
-  const activeImg = document.querySelector('.carousel-item.ai.active img');
+  const activeImg = document.querySelector('.carousel-item.active img');
 
   if (!blurringLayer || !mainContainer || !activeImg) return;
 
@@ -90,42 +106,85 @@ function showReferenceOverlay() {
   }
 }
 
-// Check if current active image has references available and show/hide button accordingly
+// Check if current active image has references and inject button accordingly
 function toggleReferenceButton() {
-  const activeImg = document.querySelector('.carousel-item.ai.active img');
-  const referenceButton = document.getElementById('references');
+  const activeImg = document.querySelector('.carousel-item.active img');
+  const titleElement = document.querySelector('#title');
 
-  if (!activeImg || !referenceButton) return;
+  if (!activeImg || !titleElement) {
+    return;
+  }
 
   // Get the key for the current image
   const key = getCurrentImageKey();
 
-  // Check if references exist for this image in the referenceImages object
-  if (referenceImages[key] && referenceImages[key].length > 0) {
-    referenceButton.style.display = 'inline-block';
-  } else {
-    referenceButton.style.display = 'none';
+  // Store the original title text (without any reference buttons or separators)
+  const originalTitle = titleElement.textContent.split(' - ')[0].trim();
+
+  // Remove any existing reference button and clean the title
+  const existingButton = titleElement.querySelector('#references');
+  if (existingButton) {
+    existingButton.remove();
   }
-}
 
-// Only declare referencesButton once and attach event if not already
-let referencesButton = document.getElementById('references');
-if (referencesButton) {
-  referencesButton.addEventListener('click', showReferenceOverlay);
-}
+  // Reset title to original text only
+  titleElement.textContent = originalTitle;
 
-// Initialize button visibility on page load
+  // Check if references exist for this image
+  if (referenceImages[key] && referenceImages[key].length > 0) {
+    // Create the reference button
+    const referenceButton = document.createElement('button');
+    referenceButton.id = 'references';
+    referenceButton.textContent = 'references';
+    referenceButton.style.cssText = `
+      border: 0px solid rgb(196, 196, 196);
+      box-shadow: 3px 5px 5px rgb(181, 181, 181);
+      margin-left: 0.5rem;
+      margin-bottom: 1rem;
+      padding: 0.2rem 1rem;
+      border-radius: 25px;
+      background-color: rgb(220, 220, 220);
+      color: rgb(147, 147, 147);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-block;
+    `;
+
+    // Add click event listener
+    referenceButton.addEventListener('click', showReferenceOverlay);
+
+    // Add separator text and button
+    const separatorText = document.createTextNode(' - ');
+    titleElement.appendChild(separatorText);
+    titleElement.appendChild(referenceButton);
+  }
+
+  // Always ensure title element is visible
+  titleElement.style.display = 'block';
+}// Initialize button visibility on page load
 document.addEventListener('DOMContentLoaded', toggleReferenceButton);
 
-// Listen for carousel slide events to update button visibility
-document.addEventListener('DOMContentLoaded', () => {
-  const carousel = document.getElementById('carouselExampleDarkAi');
-  if (carousel) {
-    carousel.addEventListener('slid.bs.carousel', toggleReferenceButton);
-  }
+// Listen for content management system ready event
+document.addEventListener('contentManagerReady', () => {
+  setTimeout(toggleReferenceButton, 100);
 });
 
-// Deactivate blurring overlay and remove reference overlays on scroll
+// Listen for carousel slide events
+document.addEventListener('DOMContentLoaded', () => {
+  const carousels = ['carouselExampleDarkAi', 'carouselExampleDarkCgi', 'carouselExampleDarkPhoto'];
+
+  carousels.forEach(carouselId => {
+    const carousel = document.getElementById(carouselId);
+    if (carousel) {
+      carousel.addEventListener('slid.bs.carousel', toggleReferenceButton);
+    }
+  });
+});
+
+// Remove reference overlays on scroll
 window.addEventListener('wheel', () => {
   const blurringLayer = document.getElementById('blurringLayer');
   if (blurringLayer) {
@@ -135,38 +194,3 @@ window.addEventListener('wheel', () => {
     if (oldContainer) oldContainer.remove();
   }
 });
-//! visualise references logic ---- TO BE TRIGGERED BY CLICKS ON NAV ARROWS RATHER THAN PAGE SCROLL -- as page scroll triggers functions just when scrolled and it is usefull in order to understand the active carousel but for active element/image we will need to eventListener for clicks of nav buttons
-
-export function visualiseReferences(carousel) {
-  // I should divide it in 4 steps
-  // 1. select active CAROUSEL
-  // 2. select img through active DIV
-  // 3. add reference button to active image descriptions
-  // 4. when clicking visualise overlay ref images on screen preferably using 'div.carousel-inner'
-
-  // Guard clause: check if carousel has content
-  const carouselInner = carousel.querySelector('.carousel-inner');
-  if (!carouselInner || !carouselInner.children || carouselInner.children.length === 0) {
-    // Carousel is empty (automation system hasn't loaded content yet)
-    return;
-  }
-
-  const activeItem = carousel.querySelector('.active');
-  if (!activeItem || !activeItem.children[0]) {
-    // No active item found
-    return;
-  }
-
-  const activeImage = activeItem.children[0];
-  //console.log(activeImage)
-  if (activeImage.className.includes('ref')) {
-    //console.log('this image has a reference attribute.')
-  } else {
-    //console.log('This image has no ref attribute')
-  }
-}
-
-
-//! -------------------- WIP ------------------------------
-// ...existing code...
-// ...existing code...
