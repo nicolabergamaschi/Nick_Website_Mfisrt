@@ -1,9 +1,16 @@
 // Reference image overlay logic - updated for new naming convention
 const referenceImages = {
   // ai-Vogue project references (new indices after migration)
+  // Example of new structure with folders:
   'ai-Vogue_2': [
-    './resources/images/references/ref_ai-Vogue_2_1.png',
-    './resources/images/references/ref_ai-Vogue_2_2.png'
+    './resources/images/references/ai-Vogue_2/ref_ai-Vogue_2_1.png',
+    './resources/images/references/ai-Vogue_2/ref_ai-Vogue_2_2.png',
+    {
+      'data-set': [
+        './resources/images/references/ai-Vogue_2/data-set/image1.webp',
+        './resources/images/references/ai-Vogue_2/data-set/image2.webp'
+      ]
+    }
   ],
   'ai-Vogue_3': [
     './resources/images/references/ref_ai-Vogue_3_1.png',
@@ -39,20 +46,22 @@ const referenceImages = {
   ],
 
   'cg-DMP_1': [
-    './resources/images/references/ref_cg-DMP_1_1.webp',
-    './resources/images/references/ref_cg-DMP_1_2.webp',
-    './resources/images/references/ref_cg-DMP_1_3.webp',
-    './resources/images/references/ref_cg-DMP_1_4.webp',
-    './resources/images/references/ref_cg-DMP_1_5.webp',
-    './resources/images/references/ref_cg-DMP_1_6.webp',
-    './resources/images/references/ref_cg-DMP_1_7.webp',
-    './resources/images/references/ref_cg-DMP_1_8.webp',
-    './resources/images/references/ref_cg-DMP_1_9.webp',
-    './resources/images/references/ref_cg-DMP_1_10.webp',
-    './resources/images/references/ref_cg-DMP_1_11.webp',
-    './resources/images/references/ref_cg-DMP_1_12.webp',
-    './resources/images/references/ref_cg-DMP_1_13.webp',
-    './resources/images/references/ref_cg-DMP_1_14.webp',
+    './resources/images/references/cg-DMP_1/image1.webp',
+    './resources/images/references/cg-DMP_1/image2.webp',
+    './resources/images/references/cg-DMP_1/image3.webp',
+    {
+      'process': [
+        './resources/images/references/cg-DMP_1/process/step1.webp',
+        './resources/images/references/cg-DMP_1/process/step2.webp',
+        './resources/images/references/cg-DMP_1/process/step3.webp'
+      ]
+    },
+    {
+      'sketches': [
+        './resources/images/references/cg-DMP_1/sketches/sketch1.webp',
+        './resources/images/references/cg-DMP_1/sketches/sketch2.webp'
+      ]
+    }
   ],
 
   'cg-DMP_2': [
@@ -69,6 +78,39 @@ const CATEGORY_POSITIONS = {
   'cg': { top: '12vh' },         // CGI section - middle third
   'ph': { top: '70vh' }       // PHOTO section - bottom third
 };
+
+// Utility functions for handling mixed file/folder arrays
+function isFolder(item) {
+  return typeof item === 'object' && item !== null && !Array.isArray(item);
+}
+
+function isImageFile(item) {
+  return typeof item === 'string';
+}
+
+function getFolderName(folderObj) {
+  return Object.keys(folderObj)[0];
+}
+
+function getFolderContents(folderObj) {
+  const folderName = getFolderName(folderObj);
+  return folderObj[folderName];
+}
+
+function separateFilesAndFolders(items) {
+  const files = [];
+  const folders = [];
+
+  items.forEach(item => {
+    if (isImageFile(item)) {
+      files.push(item);
+    } else if (isFolder(item)) {
+      folders.push(item);
+    }
+  });
+
+  return { files, folders };
+}
 
 // COMMENTED OUT - This function was causing issues by detecting wrong active image
 function getCurrentImageKey() {
@@ -88,7 +130,7 @@ function getCurrentImageKey() {
   return key;
 }
 
-function showReferenceOverlay(imageId, dataIndex) {
+function showReferenceOverlay(imageId, dataIndex, folderContext = null) {
   const blurringLayer = document.getElementById('blurringLayer');
   const mainContainer = document.querySelector('.main-container');
   const activeImg = document.querySelector('.carousel-item.active img');
@@ -146,23 +188,28 @@ function showReferenceOverlay(imageId, dataIndex) {
       flexContainer.style.transition = 'opacity 0.5s ease';
       flexContainer.style.padding = '1rem'; // Add padding for better spacing
 
-      refs.forEach(src => {
+      // Separate files and folders
+      const { files, folders } = separateFilesAndFolders(refs);
+
+      // Calculate responsive sizing based on total number of items
+      const totalItems = files.length + folders.length;
+      let maxWidth, maxHeight;
+      if (totalItems <= 2) {
+        maxWidth = '45%';  // 2 items per row max
+        maxHeight = '60vh';
+      } else if (totalItems <= 4) {
+        maxWidth = '40%';  // 2-3 items per row
+        maxHeight = '35vh';
+      } else {
+        maxWidth = '28%';  // 3-4 items per row for many items
+        maxHeight = '25vh';
+      }
+
+      // Render image files
+      files.forEach(src => {
         const img = document.createElement('img');
         img.src = src;
         img.className = 'reference-overlay-img';
-
-        // Responsive sizing based on number of images
-        let maxWidth, maxHeight;
-        if (refs.length <= 2) {
-          maxWidth = '45%';  // 2 images per row max
-          maxHeight = '60vh';
-        } else if (refs.length <= 4) {
-          maxWidth = '40%';  // 2-3 images per row
-          maxHeight = '35vh';
-        } else {
-          maxWidth = '28%';  // 3-4 images per row for many images
-          maxHeight = '25vh';
-        }
 
         img.style.maxWidth = maxWidth;
         img.style.maxHeight = maxHeight;
@@ -188,12 +235,158 @@ function showReferenceOverlay(imageId, dataIndex) {
         // Add click event for slideshow
         img.addEventListener('click', (e) => {
           e.stopPropagation();
-          const imageIndex = refs.indexOf(src);
-          startSlideshow(refs, imageIndex, flexContainer);
+          const imageIndex = files.indexOf(src);
+          startSlideshow(files, imageIndex, flexContainer, folderContext);
         });
 
         flexContainer.appendChild(img);
       });
+
+      // Render folder items
+      folders.forEach(folderObj => {
+        const folderName = getFolderName(folderObj);
+        const folderDiv = document.createElement('div');
+        folderDiv.className = 'reference-folder-item';
+
+        folderDiv.style.cssText = `
+          max-width: ${maxWidth};
+          max-height: ${maxHeight};
+          min-width: 200px;
+          min-height: 150px;
+          background: linear-gradient(135deg, rgba(200, 200, 200, 0.8), rgba(170, 170, 170, 0.8));
+          border: 2px solid rgba(150, 150, 150, 0.8);
+          border-radius: 12px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        `;
+
+        // Folder icon (simple black and white)
+        const folderIcon = document.createElement('div');
+        folderIcon.innerHTML = '�';
+        folderIcon.style.cssText = `
+          font-size: 3rem;
+          margin-bottom: 0.5rem;
+          filter: grayscale(100%) contrast(150%);
+        `;
+
+        // Folder name
+        const folderLabel = document.createElement('div');
+        folderLabel.textContent = folderName;
+        folderLabel.style.cssText = `
+          font-family: 'DM Sans', sans-serif;
+          font-size: 1rem;
+          font-weight: 600;
+          color: rgb(80, 80, 80);
+          text-align: center;
+          padding: 0 0.5rem;
+        `;
+
+        // Folder item count
+        const folderContents = getFolderContents(folderObj);
+        const itemCount = document.createElement('div');
+        itemCount.textContent = `${folderContents.length} items`;
+        itemCount.style.cssText = `
+          font-family: 'DM Sans', sans-serif;
+          font-size: 0.8rem;
+          font-weight: 400;
+          color: rgb(120, 120, 120);
+          margin-top: 0.25rem;
+        `;
+
+        // Add hover effect
+        folderDiv.addEventListener('mouseenter', () => {
+          folderDiv.style.transform = 'scale(1.05)';
+          folderDiv.style.background = 'linear-gradient(135deg, rgba(220, 220, 220, 0.9), rgba(190, 190, 190, 0.9))';
+        });
+
+        folderDiv.addEventListener('mouseleave', () => {
+          folderDiv.style.transform = 'scale(1)';
+          folderDiv.style.background = 'linear-gradient(135deg, rgba(200, 200, 200, 0.8), rgba(170, 170, 170, 0.8))';
+        });
+
+        // Add click event to open folder
+        folderDiv.addEventListener('click', (e) => {
+          e.stopPropagation();
+          showFolderOverlay(imageId, dataIndex, folderName, folderContents);
+        });
+
+        folderDiv.appendChild(folderIcon);
+        folderDiv.appendChild(folderLabel);
+        folderDiv.appendChild(itemCount);
+        flexContainer.appendChild(folderDiv);
+      });
+
+      // Create controls container for folder navigation (similar to slideshow controls)
+      if (folderContext) {
+        const controlsContainer = document.createElement('div');
+        controlsContainer.style.cssText = `
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 1rem;
+          margin-top: 1rem;
+        `;
+
+        // Folder label
+        const folderLabel = document.createElement('span');
+        folderLabel.textContent = `Folder: ${folderContext}`;
+        folderLabel.style.cssText = `
+          color: white;
+          font-family: 'DM Sans', sans-serif;
+          font-size: 1rem;
+          font-weight: 500;
+          background: rgba(0, 0, 0, 0.5);
+          padding: 0.5rem 1rem;
+          border-radius: 20px;
+        `;
+
+        // Back button (matching "Back to Grid" style exactly)
+        const backButton = document.createElement('button');
+        backButton.textContent = '← Back';
+        backButton.style.cssText = `
+          background: rgba(220, 220, 220, 0.9);
+          border: none;
+          border-radius: 20px;
+          padding: 0.5rem 1rem;
+          font-family: 'DM Sans', sans-serif;
+          font-size: 0.9rem;
+          font-weight: 500;
+          color: rgb(147, 147, 147);
+          cursor: pointer;
+          transition: all 0.2s ease;
+        `;
+
+        backButton.addEventListener('click', () => {
+          // Go back to main reference view
+          const blurringLayer = document.getElementById('blurringLayer');
+          if (blurringLayer) {
+            blurringLayer.classList.remove('active');
+            blurringLayer.style.filter = '';
+            flexContainer.remove();
+            // Reopen main reference overlay
+            setTimeout(() => showReferenceOverlay(imageId, dataIndex), 100);
+          }
+        });
+
+        backButton.addEventListener('mouseenter', () => {
+          backButton.style.background = 'rgba(200, 200, 200, 0.9)';
+          backButton.style.transform = 'scale(1.05)';
+        });
+
+        backButton.addEventListener('mouseleave', () => {
+          backButton.style.background = 'rgba(220, 220, 220, 0.9)';
+          backButton.style.transform = 'scale(1)';
+        });
+
+        controlsContainer.appendChild(folderLabel);
+        controlsContainer.appendChild(backButton);
+        flexContainer.appendChild(controlsContainer);
+      }
 
       // Append to main container
       mainContainer.appendChild(flexContainer);
@@ -219,8 +412,31 @@ function showReferenceOverlay(imageId, dataIndex) {
   }
 }
 
+// Function to display folder contents
+function showFolderOverlay(imageId, dataIndex, folderName, folderContents) {
+  // Close current overlay first
+  const blurringLayer = document.getElementById('blurringLayer');
+  const oldContainer = document.getElementById('reference-flex-container');
+  if (oldContainer) {
+    oldContainer.remove();
+  }
+
+  // Reopen with folder context
+  setTimeout(() => {
+    // Create a temporary refs array with just folder contents
+    const originalRefs = referenceImages[`${imageId}_${dataIndex}`];
+    referenceImages[`${imageId}_${dataIndex}`] = folderContents;
+
+    // Show overlay with folder context
+    showReferenceOverlay(imageId, dataIndex, folderName);
+
+    // Restore original refs
+    referenceImages[`${imageId}_${dataIndex}`] = originalRefs;
+  }, 100);
+}
+
 // Slideshow functionality
-function startSlideshow(imageUrls, startIndex, container) {
+function startSlideshow(imageUrls, startIndex, container, folderContext = null) {
   let currentIndex = startIndex;
 
   // Clear container and set up slideshow layout
@@ -400,11 +616,30 @@ function startSlideshow(imageUrls, startIndex, container) {
 
   function exitSlideshow() {
     document.removeEventListener('keydown', handleKeyPress);
-    // Recreate the original overlay
-    const imageId = getCurrentImageKey()?.split('_')[0];
-    const dataIndex = getCurrentImageKey()?.split('_')[1];
-    if (imageId && dataIndex) {
-      showReferenceOverlay(imageId, dataIndex);
+    // Recreate the appropriate overlay based on context
+    if (folderContext) {
+      // We're in a folder, so recreate folder overlay
+      const imageId = getCurrentImageKey()?.split('_')[0];
+      const dataIndex = getCurrentImageKey()?.split('_')[1];
+      if (imageId && dataIndex) {
+        const key = `${imageId}_${dataIndex}`;
+        const refs = referenceImages[key] || [];
+        const { folders } = separateFilesAndFolders(refs);
+
+        // Find the folder object with our context name
+        const targetFolder = folders.find(folder => getFolderName(folder) === folderContext);
+        if (targetFolder) {
+          const folderContents = getFolderContents(targetFolder);
+          showFolderOverlay(imageId, dataIndex, folderContext, folderContents);
+        }
+      }
+    } else {
+      // We're in main reference view
+      const imageId = getCurrentImageKey()?.split('_')[0];
+      const dataIndex = getCurrentImageKey()?.split('_')[1];
+      if (imageId && dataIndex) {
+        showReferenceOverlay(imageId, dataIndex);
+      }
     }
   }
 
