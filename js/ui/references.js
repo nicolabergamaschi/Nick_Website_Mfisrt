@@ -11,7 +11,7 @@ const referenceImages = {
   ],
 
   'cg-DMP_2': [
-    './resources/images/references/ref_cg-DMP_2_1.webp'
+    './resources/images/references/ref_cg-DMP_2_1.png'
 
   ],
 
@@ -19,24 +19,32 @@ const referenceImages = {
   // Example: 'project-name_data-index': ['ref1.png', 'ref2.png']
 };
 
-function getCurrentImageKey() {
-  // Find the active image from any carousel
-  const activeImg = document.querySelector('.carousel-item.active img');
+// Position constants for each category based on vertical carousel layout
+const CATEGORY_POSITIONS = {
+  'ai': { top: '15vh' },      // AI section - top third
+  'cg': { top: '12vh' },         // CGI section - middle third
+  'ph': { top: '70vh' }       // PHOTO section - bottom third
+};
 
-  if (!activeImg) {
-    return null;
-  }
+// COMMENTED OUT - This function was causing issues by detecting wrong active image
+// function getCurrentImageKey() {
+//   // Find the active image from any carousel
+//   const activeImg = document.querySelector('.carousel-item.active img');
 
-  const imgId = activeImg.id;
-  const dataIndex = activeImg.getAttribute('data-index');
+//   if (!activeImg) {
+//     return null;
+//   }
 
-  // Generate key in format: category-projectname_index (e.g., "ai-Vogue_2")
-  const key = `${imgId}_${dataIndex}`;
+//   const imgId = activeImg.id;
+//   const dataIndex = activeImg.getAttribute('data-index');
 
-  return key;
-}
+//   // Generate key in format: category-projectname_index (e.g., "ai-Vogue_2")
+//   const key = `${imgId}_${dataIndex}`;
 
-function showReferenceOverlay() {
+//   return key;
+// }
+
+function showReferenceOverlay(imageId, dataIndex) {
   const blurringLayer = document.getElementById('blurringLayer');
   const mainContainer = document.querySelector('.main-container');
   const activeImg = document.querySelector('.carousel-item.active img');
@@ -54,8 +62,14 @@ function showReferenceOverlay() {
   }
   if (oldContainer) oldContainer.remove();
 
-  const key = getCurrentImageKey();
+  // Generate key directly from passed parameters instead of DOM searching
+  const key = `${imageId}_${dataIndex}`;
   const refs = referenceImages[key] || [];
+
+  // Extract category from imageId (e.g., "ai-Vogue" -> "ai", "cg-DMP" -> "cg")
+  const category = imageId.split('-')[0];
+  const categoryPosition = CATEGORY_POSITIONS[category] || CATEGORY_POSITIONS['cg']; // Default to CGI position
+
   if (refs.length > 0) {
     // Apply blur to the background first
     blurringLayer.classList.add('active');
@@ -73,24 +87,27 @@ function showReferenceOverlay() {
       flexContainer.style.alignItems = 'center';
       flexContainer.style.gap = '2vw';
       flexContainer.style.position = 'fixed';
-      flexContainer.style.top = imageRect.top + 'px';
-      flexContainer.style.left = imageRect.left + 'px';
-      flexContainer.style.width = imageRect.width + 'px';
-      flexContainer.style.height = imageRect.height + 'px';
+      // Category-based positioning: horizontal center, vertical based on category
+      //flexContainer.style.top = categoryPosition.top;
+      flexContainer.style.top = '12rem';
+      flexContainer.style.left = '50%';
+      flexContainer.style.transform = 'translateX(-50%)';
+      flexContainer.style.width = '95vw';  // Maximized container width
+      flexContainer.style.height = '50vh'; // Maximized container height
       flexContainer.style.zIndex = '9999';
       flexContainer.style.pointerEvents = 'none';
       flexContainer.style.opacity = '0';
-      flexContainer.style.transform = 'scale(0.8)';
-      flexContainer.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      flexContainer.style.transition = 'opacity 0.5s ease';
 
       refs.forEach(src => {
         const img = document.createElement('img');
         img.src = src;
         img.className = 'reference-overlay-img';
-        img.style.maxWidth = '40%';
-        img.style.maxHeight = '80%';
+        img.style.maxWidth = '90%';  // Significantly increased from 60% for much better visibility
+        img.style.maxHeight = '90%'; // Increased from 70% to use more screen space
         img.style.objectFit = 'contain';
         img.style.filter = 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))';
+
         flexContainer.appendChild(img);
       });
 
@@ -100,7 +117,6 @@ function showReferenceOverlay() {
       // Trigger animation after a brief delay
       setTimeout(() => {
         flexContainer.style.opacity = '1';
-        flexContainer.style.transform = 'scale(1)';
       }, 50);
     }, 300); // 300ms delay after blur starts
   }
@@ -164,25 +180,30 @@ function toggleReferenceButton() {
 
   // Always ensure title element is visible
   titleElement.style.display = 'block';
-}// Initialize button visibility on page load
-document.addEventListener('DOMContentLoaded', toggleReferenceButton);
+}
+
+// OLD SYSTEM - Commented out to prevent conflicts with new dynamic system
+// The new system in project-description.js handles button creation based on hasRef property
+
+// Initialize button visibility on page load
+// document.addEventListener('DOMContentLoaded', toggleReferenceButton);
 
 // Listen for content management system ready event
-document.addEventListener('contentManagerReady', () => {
-  setTimeout(toggleReferenceButton, 100);
-});
+// document.addEventListener('contentManagerReady', () => {
+//   setTimeout(toggleReferenceButton, 100);
+// });
 
 // Listen for carousel slide events
-document.addEventListener('DOMContentLoaded', () => {
-  const carousels = ['carouselExampleDarkAi', 'carouselExampleDarkCgi', 'carouselExampleDarkPhoto'];
+// document.addEventListener('DOMContentLoaded', () => {
+//   const carousels = ['carouselExampleDarkAi', 'carouselExampleDarkCgi', 'carouselExampleDarkPhoto'];
 
-  carousels.forEach(carouselId => {
-    const carousel = document.getElementById(carouselId);
-    if (carousel) {
-      carousel.addEventListener('slid.bs.carousel', toggleReferenceButton);
-    }
-  });
-});
+//   carousels.forEach(carouselId => {
+//     const carousel = document.getElementById(carouselId);
+//     if (carousel) {
+//       carousel.addEventListener('slid.bs.carousel', toggleReferenceButton);
+//     }
+//   });
+// });
 
 // Remove reference overlays on scroll
 window.addEventListener('wheel', () => {
@@ -194,3 +215,6 @@ window.addEventListener('wheel', () => {
     if (oldContainer) oldContainer.remove();
   }
 });
+
+// Make showReferenceOverlay globally accessible for the new dynamic button system
+window.showReferenceOverlay = showReferenceOverlay;

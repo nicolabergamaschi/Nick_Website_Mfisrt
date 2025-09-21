@@ -24,6 +24,15 @@ export async function scanImageDirectory(directoryPath) {
             const filename = fileData.image;
             const hasRef = fileData.has_ref;
 
+            // Debug logging for CGI DMP images
+            if (filename.includes('cg-DMP')) {
+                console.log('=== File Scanner Debug ===');
+                console.log('File data:', fileData);
+                console.log('Filename:', filename);
+                console.log('hasRef:', hasRef);
+                console.log('===========================');
+            }
+
             const parsedFile = parseFilename(filename);
             if (parsedFile) {
                 const { categoryShort, projectName, index, extension } = parsedFile;

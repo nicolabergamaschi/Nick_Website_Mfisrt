@@ -10,7 +10,7 @@ export const projectMetadata = {
         title: "VOGUE Polska - July August 2023",
         description: "A 13-image series and cover for Vogue Polska's AI-themed issue, blending real photos from a dedicated shoot (by photographer Mati Grzelak) with tools like Midjourney, Stable Diffusion, and ComfyUI to explore the creative fusion of human photography and generative AI.",
         hasReferences: true,
-        referenceButtonText: "images from shoot",
+        // referenceButtonText: "images from shoot",
         menuDisplayName: "Vogue"
     },
 
@@ -23,7 +23,7 @@ export const projectMetadata = {
 
     "ai-Rombaut": {
         title: "Rombaut Case Study",
-        description: "A self-initiated AI-generated image series pitched to footwear brand Rombaut, using custom-trained models from online product images. The project explores the brand's aesthetic through humor, material play, and abstraction, blending product and style with a contemporary AI reinterpretation.",
+        description: "A self-initiated AI-generated image series pitched to footwear brand Rombaut, using custom-trained models (LORA) from online product images. The project explores the brand's aesthetic through humor, material play, and abstraction, blending product and style with a contemporary AI reinterpretation.",
         hasReferences: false,
         menuDisplayName: "Rombaut"
     },

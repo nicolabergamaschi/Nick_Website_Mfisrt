@@ -3,12 +3,7 @@
  * Combines scanned file data with project metadata to generate HTML content
  */
 
-impor    // Sort by array position (discovery order) instead of dataIndex
-    // This maintains the exact order from file-scanner.js getKnownFiles arrays
-    allImages.sort((a, b) => a.arrayPosition - b.arrayPosition);
-
-    // Generate carousel items in array position order
-    allImages.forEach(item => {tsData } from './file-scanner.js';
+import { generateProjectsData } from './file-scanner.js';
 import { projectMetadata, categoryConfig } from '../data/project-metadata.js';
 
 /**
@@ -64,6 +59,15 @@ export async function generateCompleteProjectData() {
 export function generateCarouselItem(projectId, imageData, category, isActive = false) {
     const activeClass = isActive ? ' active' : '';
     const additionalClasses = imageData.additionalClasses ? ` ${imageData.additionalClasses.join(' ')}` : '';
+
+    // Debug logging for hasRef
+    if (projectId.includes('cg-DMP-2')) {
+        console.log('=== CGI DMP-2 Debug ===');
+        console.log('Project ID:', projectId);
+        console.log('Image Data:', imageData);
+        console.log('hasRef property:', imageData.hasRef);
+        console.log('=======================');
+    }
 
     if (imageData.isVideo) {
         return `
