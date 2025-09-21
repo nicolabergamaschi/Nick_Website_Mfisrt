@@ -147,7 +147,7 @@ function getKnownFiles(directoryPath) {
             // Rombaut project (indices 8-12)
             { image: 'ai-Rombaut-8.webp', has_ref: true },
             { image: 'ai-Rombaut-9.webp', has_ref: true },
-            { image: 'ai-Rombaut-10.webp', has_ref: false },
+            { image: 'ai-Rombaut-10.webp', has_ref: true },
             { image: 'ai-Rombaut-11.webp', has_ref: false },
             { image: 'ai-Rombaut-12.webp', has_ref: false },
             // RickOwens project (index 13)
@@ -169,7 +169,7 @@ function getKnownFiles(directoryPath) {
             // DMP project
             { image: 'cg-DMP-1.webp', has_ref: true },
             { image: 'cg-DMP-2.webp', has_ref: true },      // Index 2 - has reference
-            { image: 'cg-DMP-3.webp', has_ref: false },
+            { image: 'cg-DMP-3.webp', has_ref: true },
             { image: 'cg-DMP-4.webp', has_ref: false },
             // LANVIN project
             { image: 'cg-LANVIN-5.webp', has_ref: false },

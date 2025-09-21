@@ -1,63 +1,107 @@
 // Reference image overlay logic - updated for new naming convention
 const referenceImages = {
   // ai-Vogue project references (new indices after migration)
+  // Example of new structure with folders:
   'ai-Vogue_2': [
-    './resources/images/references/ref_ai-Vogue_2_1.png',
-    './resources/images/references/ref_ai-Vogue_2_2.png'
+    './resources/images/references/ai-Vogue_2/ref_ai-Vogue_2_1.png',
+    './resources/images/references/ai-Vogue_2/ref_ai-Vogue_2_2.png',
   ],
   'ai-Vogue_3': [
-    './resources/images/references/ref_ai-Vogue_3_1.png',
-    './resources/images/references/ref_ai-Vogue_3_2.png'
+    './resources/images/references/ai-Vogue_3/ref_ai-Vogue_3_1.png',
+    './resources/images/references/ai-Vogue_3/ref_ai-Vogue_3_2.png'
   ],
 
   'ai-VogueBES_4': [
-    './resources/images/references/ref_ai_VogueBES_4_1.webp',
-    './resources/images/references/ref_ai_VogueBES_4_2.webp',
-    './resources/images/references/ref_ai_VogueBES_4_3.webp',
-    './resources/images/references/ref_ai_VogueBES_4_4.webp',
-    './resources/images/references/ref_ai_VogueBES_4_5.webp',
-    './resources/images/references/ref_ai_VogueBES_4_6.webp',
+    './resources/images/references/ai-VogueBES_4/ref_ai_VogueBES_4_1.webp',
+    './resources/images/references/ai-VogueBES_4/ref_ai_VogueBES_4_2.webp',
+    './resources/images/references/ai-VogueBES_4/ref_ai_VogueBES_4_3.webp',
+    './resources/images/references/ai-VogueBES_4/ref_ai_VogueBES_4_4.webp',
+    './resources/images/references/ai-VogueBES_4/ref_ai_VogueBES_4_5.webp',
+    './resources/images/references/ai-VogueBES_4/ref_ai_VogueBES_4_6.webp',
   ],
 
   'ai-Rombaut_8': [
-    './resources/images/references/ref_ai-Rombaut_8_1.webp',
-    './resources/images/references/ref_ai-Rombaut_8_2.webp',
-    './resources/images/references/ref_ai-Rombaut_8_3.webp',
-    './resources/images/references/ref_ai-Rombaut_8_4.webp',
-    './resources/images/references/ref_ai-Rombaut_8_5.webp',
-    './resources/images/references/ref_ai-Rombaut_8_6.webp',
+    './resources/images/references/ai-Rombaut_8/ref_ai-Rombaut_8_1.webp',
+    './resources/images/references/ai-Rombaut_8/ref_ai-Rombaut_8_2.webp',
+    './resources/images/references/ai-Rombaut_8/ref_ai-Rombaut_8_3.webp',
+    './resources/images/references/ai-Rombaut_8/ref_ai-Rombaut_8_4.webp',
+    './resources/images/references/ai-Rombaut_8/ref_ai-Rombaut_8_5.webp',
+    './resources/images/references/ai-Rombaut_8/ref_ai-Rombaut_8_6.webp',
+    {
+      'data-set': [
+        './resources/images/references/ai-Rombaut_8/data-set/1.jpg',
+        './resources/images/references/ai-Rombaut_8/data-set/2.jpg',
+        './resources/images/references/ai-Rombaut_8/data-set/3.jpg',
+        './resources/images/references/ai-Rombaut_8/data-set/4.jpg',
+        './resources/images/references/ai-Rombaut_8/data-set/5.jpg',
+        './resources/images/references/ai-Rombaut_8/data-set/6.jpg',
+        './resources/images/references/ai-Rombaut_8/data-set/7.jpg',
+        './resources/images/references/ai-Rombaut_8/data-set/8.jpg',
+        './resources/images/references/ai-Rombaut_8/data-set/9.jpg',
+      ]
+    },
   ],
 
   'ai-Rombaut_9': [
-    './resources/images/references/ref_ai-Rombaut_9_1.webp',
-    './resources/images/references/ref_ai-Rombaut_9_2.webp',
-    './resources/images/references/ref_ai-Rombaut_9_3.webp',
-    './resources/images/references/ref_ai-Rombaut_9_4.webp',
-    './resources/images/references/ref_ai-Rombaut_9_5.webp',
-    './resources/images/references/ref_ai-Rombaut_9_6.webp',
-    './resources/images/references/ref_ai-Rombaut_9_7.webp',
+    './resources/images/references/ai-Rombaut_9/ref_ai-Rombaut_9_1.webp',
+    './resources/images/references/ai-Rombaut_9/ref_ai-Rombaut_9_2.webp',
+    './resources/images/references/ai-Rombaut_9/ref_ai-Rombaut_9_3.webp',
+    './resources/images/references/ai-Rombaut_9/ref_ai-Rombaut_9_4.webp',
+    './resources/images/references/ai-Rombaut_9/ref_ai-Rombaut_9_5.webp',
+    './resources/images/references/ai-Rombaut_9/ref_ai-Rombaut_9_6.webp',
+    './resources/images/references/ai-Rombaut_9/ref_ai-Rombaut_9_7.webp',
+  ],
+
+  'ai-Rombaut_10': [
+    './resources/images/references/ai-Rombaut_10/ref_ai-Rombaut_10_1.webp',
+    './resources/images/references/ai-Rombaut_10/ref_ai-Rombaut_10_2.webp',
+    './resources/images/references/ai-Rombaut_10/ref_ai-Rombaut_10_3.webp',
+    './resources/images/references/ai-Rombaut_10/ref_ai-Rombaut_10_4.webp',
+    './resources/images/references/ai-Rombaut_10/ref_ai-Rombaut_10_5.webp',
+    {
+      'data-set': [
+        './resources/images/references/ai-Rombaut_10/data-set/image1.webp',
+        './resources/images/references/ai-Rombaut_10/data-set/image2.webp',
+        './resources/images/references/ai-Rombaut_10/data-set/image3.webp',
+        './resources/images/references/ai-Rombaut_10/data-set/image4.webp',
+        './resources/images/references/ai-Rombaut_10/data-set/image5.webp',
+        './resources/images/references/ai-Rombaut_10/data-set/image6.webp',
+        './resources/images/references/ai-Rombaut_10/data-set/image7.webp',
+        './resources/images/references/ai-Rombaut_10/data-set/image8.webp',
+        './resources/images/references/ai-Rombaut_10/data-set/image9.webp',
+        './resources/images/references/ai-Rombaut_10/data-set/image10.webp',
+        './resources/images/references/ai-Rombaut_10/data-set/image11.webp',
+        './resources/images/references/ai-Rombaut_10/data-set/image12.webp',
+        './resources/images/references/ai-Rombaut_10/data-set/image13.webp',
+        './resources/images/references/ai-Rombaut_10/data-set/image14.webp',
+        './resources/images/references/ai-Rombaut_10/data-set/image15.webp',
+        './resources/images/references/ai-Rombaut_10/data-set/image16.webp',
+      ]
+    },
+
   ],
 
   'cg-DMP_1': [
-    './resources/images/references/ref_cg-DMP_1_1.webp',
-    './resources/images/references/ref_cg-DMP_1_2.webp',
-    './resources/images/references/ref_cg-DMP_1_3.webp',
-    './resources/images/references/ref_cg-DMP_1_4.webp',
-    './resources/images/references/ref_cg-DMP_1_5.webp',
-    './resources/images/references/ref_cg-DMP_1_6.webp',
-    './resources/images/references/ref_cg-DMP_1_7.webp',
-    './resources/images/references/ref_cg-DMP_1_8.webp',
-    './resources/images/references/ref_cg-DMP_1_9.webp',
-    './resources/images/references/ref_cg-DMP_1_10.webp',
-    './resources/images/references/ref_cg-DMP_1_11.webp',
-    './resources/images/references/ref_cg-DMP_1_12.webp',
-    './resources/images/references/ref_cg-DMP_1_13.webp',
-    './resources/images/references/ref_cg-DMP_1_14.webp',
+    './resources/images/references/cg-DMP_1/ref_cg-DMP_1_1.webp',
+    './resources/images/references/cg-DMP_1/ref_cg-DMP_1_2.webp',
+    './resources/images/references/cg-DMP_1/ref_cg-DMP_1_3.webp',
+    './resources/images/references/cg-DMP_1/ref_cg-DMP_1_4.webp',
+    './resources/images/references/cg-DMP_1/ref_cg-DMP_1_5.webp',
+    './resources/images/references/cg-DMP_1/ref_cg-DMP_1_6.webp',
+    './resources/images/references/cg-DMP_1/ref_cg-DMP_1_7.webp',
+    './resources/images/references/cg-DMP_1/ref_cg-DMP_1_8.webp',
+    './resources/images/references/cg-DMP_1/ref_cg-DMP_1_9.webp',
   ],
 
   'cg-DMP_2': [
-    './resources/images/references/ref_cg-DMP_2_1.png'
+    './resources/images/references/cg-DMP_2/ref_cg-DMP_2_1.png'
   ],
+
+  'cg-DMP_3': [
+    './resources/images/references/cg-DMP_3/ref_cg-DMP_3_1.webp',
+    './resources/images/references/cg-DMP_3/ref_cg-DMP_3_2.webp',
+  ],
+
 
   // Add more reference mappings as needed
   // Example: 'project-name_data-index': ['ref1.png', 'ref2.png']
@@ -69,6 +113,39 @@ const CATEGORY_POSITIONS = {
   'cg': { top: '12vh' },         // CGI section - middle third
   'ph': { top: '70vh' }       // PHOTO section - bottom third
 };
+
+// Utility functions for handling mixed file/folder arrays
+function isFolder(item) {
+  return typeof item === 'object' && item !== null && !Array.isArray(item);
+}
+
+function isImageFile(item) {
+  return typeof item === 'string';
+}
+
+function getFolderName(folderObj) {
+  return Object.keys(folderObj)[0];
+}
+
+function getFolderContents(folderObj) {
+  const folderName = getFolderName(folderObj);
+  return folderObj[folderName];
+}
+
+function separateFilesAndFolders(items) {
+  const files = [];
+  const folders = [];
+
+  items.forEach(item => {
+    if (isImageFile(item)) {
+      files.push(item);
+    } else if (isFolder(item)) {
+      folders.push(item);
+    }
+  });
+
+  return { files, folders };
+}
 
 // COMMENTED OUT - This function was causing issues by detecting wrong active image
 function getCurrentImageKey() {
@@ -88,7 +165,7 @@ function getCurrentImageKey() {
   return key;
 }
 
-function showReferenceOverlay(imageId, dataIndex) {
+function showReferenceOverlay(imageId, dataIndex, folderContext = null) {
   const blurringLayer = document.getElementById('blurringLayer');
   const mainContainer = document.querySelector('.main-container');
   const activeImg = document.querySelector('.carousel-item.active img');
@@ -121,58 +198,63 @@ function showReferenceOverlay(imageId, dataIndex) {
     // Get active image position and dimensions to center reference images on it
     const imageRect = activeImg.getBoundingClientRect();
 
-    // Create flex container with delay and animation
+    // Create grid container with delay and animation
     setTimeout(() => {
       const flexContainer = document.createElement('div');
       flexContainer.id = 'reference-flex-container';
-      flexContainer.style.display = 'flex';
-      flexContainer.style.flexWrap = 'wrap';  // Enable wrapping
-      flexContainer.style.justifyContent = 'center';
-      flexContainer.style.alignItems = 'center';
-      flexContainer.style.gap = '1.5vw';  // Slightly reduced gap for better fit
+
+      // Separate files and folders to calculate total items
+      const { files, folders } = separateFilesAndFolders(refs);
+      const totalItems = files.length + folders.length;
+
+      // Calculate optimal grid layout
+      let columns;
+      if (totalItems <= 1) {
+        columns = 1;
+      } else if (totalItems <= 4) {
+        columns = 2;
+      } else if (totalItems <= 9) {
+        columns = 3;
+      } else if (totalItems <= 16) {
+        columns = 4;
+      } else {
+        columns = 5;
+      }
+
+      flexContainer.style.display = 'grid';
+      flexContainer.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
+      flexContainer.style.gridAutoRows = 'minmax(0, 1fr)'; // Equal height rows
+      flexContainer.style.gap = '1rem';
       flexContainer.style.position = 'fixed';
-      // Category-based positioning: horizontal center, vertical based on category
-      //flexContainer.style.top = categoryPosition.top;
-      flexContainer.style.top = '8rem';  // Moved up slightly to allow more space
+      flexContainer.style.top = '4rem';
       flexContainer.style.left = '50%';
       flexContainer.style.transform = 'translateX(-50%)';
-      flexContainer.style.width = '70vw';  // Maximized container width
-      flexContainer.style.height = '70vh'; // Increased height to accommodate wrapping
-      flexContainer.style.maxHeight = '80vh'; // Maximum height limit
-      flexContainer.style.overflowY = 'auto'; // Allow scrolling if needed
+      flexContainer.style.width = '50vw';
+      flexContainer.style.height = '80vh';
+      flexContainer.style.maxHeight = '80vh';
+      flexContainer.style.overflow = 'hidden';
       flexContainer.style.zIndex = '9999';
-      flexContainer.style.pointerEvents = 'all'; // Enable interaction for slideshow
+      flexContainer.style.pointerEvents = 'all';
       flexContainer.style.opacity = '0';
       flexContainer.style.transition = 'opacity 0.5s ease';
-      flexContainer.style.padding = '1rem'; // Add padding for better spacing
+      flexContainer.style.padding = '1rem';
+      flexContainer.style.boxSizing = 'border-box';
+      flexContainer.style.justifyItems = 'center';
 
-      refs.forEach(src => {
+      // Render image files
+      files.forEach(src => {
         const img = document.createElement('img');
         img.src = src;
         img.className = 'reference-overlay-img';
 
-        // Responsive sizing based on number of images
-        let maxWidth, maxHeight;
-        if (refs.length <= 2) {
-          maxWidth = '45%';  // 2 images per row max
-          maxHeight = '60vh';
-        } else if (refs.length <= 4) {
-          maxWidth = '40%';  // 2-3 images per row
-          maxHeight = '35vh';
-        } else {
-          maxWidth = '28%';  // 3-4 images per row for many images
-          maxHeight = '25vh';
-        }
-
-        img.style.maxWidth = maxWidth;
-        img.style.maxHeight = maxHeight;
-        img.style.minWidth = '200px';  // Minimum width for readability
-        img.style.minHeight = '150px'; // Minimum height for readability
+        img.style.width = '75%';
+        img.style.height = '100%';
         img.style.objectFit = 'contain';
         img.style.filter = 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))';
-        img.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'; // Subtle background
-        img.style.cursor = 'pointer'; // Indicate clickable
+        //img.style.backgroundColor = 'rgba(255, 255, 255, 0.37)';
+        img.style.cursor = 'pointer';
         img.style.transition = 'transform 0.2s ease, opacity 0.2s ease';
+        img.style.borderRadius = '4px';
 
         // Add hover effect
         img.addEventListener('mouseenter', () => {
@@ -188,12 +270,211 @@ function showReferenceOverlay(imageId, dataIndex) {
         // Add click event for slideshow
         img.addEventListener('click', (e) => {
           e.stopPropagation();
-          const imageIndex = refs.indexOf(src);
-          startSlideshow(refs, imageIndex, flexContainer);
+          const imageIndex = files.indexOf(src);
+          startSlideshow(files, imageIndex, flexContainer, folderContext, imageId, dataIndex);
         });
 
         flexContainer.appendChild(img);
       });
+
+      // Render folder items
+      folders.forEach(folderObj => {
+        const folderName = getFolderName(folderObj);
+
+        // Create wrapper div for grid cell
+        const gridCell = document.createElement('div');
+        gridCell.style.cssText = `
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+        `;
+
+        const folderDiv = document.createElement('div');
+        folderDiv.className = 'reference-folder-item';
+
+        folderDiv.style.cssText = `
+          width: auto;
+          height: auto;
+          max-width: 80%;
+          max-height: 80%;
+          background: rgba(200, 200, 200, 0.8);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+          border-radius: 8px;
+          box-sizing: border-box;
+          padding: 1.5rem;
+        `;
+
+        // Folder icon (responsive based on grid)
+        const folderIcon = document.createElement('div');
+        folderIcon.innerHTML = '<i class="fa-solid fa-folder"></i>';
+
+        // Scale icon based on number of columns
+        let iconSize;
+        if (columns <= 2) {
+          iconSize = '3rem';
+        } else if (columns <= 3) {
+          iconSize = '2.5rem';
+        } else if (columns <= 4) {
+          iconSize = '2rem';
+        } else {
+          iconSize = '1.5rem';
+        }
+
+        folderIcon.style.cssText = `
+          font-size: ${iconSize};
+          margin-bottom: 0.5rem;
+          color: #666;
+          filter: grayscale(50%) contrast(45%);
+        `;
+
+        // Folder name
+        const folderLabel = document.createElement('div');
+        folderLabel.textContent = folderName;
+
+        // Scale label based on number of columns
+        let labelSize;
+        if (columns <= 2) {
+          labelSize = '1.1rem';
+        } else if (columns <= 3) {
+          labelSize = '1rem';
+        } else if (columns <= 4) {
+          labelSize = '0.9rem';
+        } else {
+          labelSize = '0.8rem';
+        }
+
+        folderLabel.style.cssText = `
+          font-family: 'DM Sans', sans-serif;
+          font-size: ${labelSize};
+          font-weight: 600;
+          color: rgb(80, 80, 80);
+          text-align: center;
+          padding: 0 0.5rem;
+        `;
+
+        // Folder item count
+        const folderContents = getFolderContents(folderObj);
+        const itemCount = document.createElement('div');
+        itemCount.textContent = `${folderContents.length} items`;
+
+        // Scale item count based on number of columns
+        let countSize;
+        if (columns <= 2) {
+          countSize = '0.9rem';
+        } else if (columns <= 3) {
+          countSize = '0.8rem';
+        } else if (columns <= 4) {
+          countSize = '0.7rem';
+        } else {
+          countSize = '0.6rem';
+        }
+
+        itemCount.style.cssText = `
+          font-family: 'DM Sans', sans-serif;
+          font-size: ${countSize};
+          font-weight: 400;
+          color: rgb(120, 120, 120);
+          margin-top: 0.25rem;
+        `;
+
+        // Add hover effect
+        folderDiv.addEventListener('mouseenter', () => {
+          folderDiv.style.transform = 'scale(1.05)';
+          folderDiv.style.background = 'linear-gradient(135deg, rgba(220, 220, 220, 0.9), rgba(190, 190, 190, 0.9))';
+        });
+
+        folderDiv.addEventListener('mouseleave', () => {
+          folderDiv.style.transform = 'scale(1)';
+          folderDiv.style.background = 'linear-gradient(135deg, rgba(200, 200, 200, 0.8), rgba(170, 170, 170, 0.8))';
+        });
+
+        // Add click event to open folder
+        folderDiv.addEventListener('click', (e) => {
+          e.stopPropagation();
+          showFolderOverlay(imageId, dataIndex, folderName, folderContents);
+        });
+
+        folderDiv.appendChild(folderIcon);
+        folderDiv.appendChild(folderLabel);
+        folderDiv.appendChild(itemCount);
+        gridCell.appendChild(folderDiv);
+        flexContainer.appendChild(gridCell);
+      });
+
+      // Create controls container for folder navigation (similar to slideshow controls)
+      if (folderContext) {
+        const controlsContainer = document.createElement('div');
+        controlsContainer.style.cssText = `
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 1rem;
+          margin-top: 1rem;
+        `;
+
+        // Folder label
+        const folderLabel = document.createElement('span');
+        folderLabel.textContent = `Folder: ${folderContext}`;
+        folderLabel.style.cssText = `
+          color: white;
+          font-family: 'DM Sans', sans-serif;
+          font-size: 1rem;
+          font-weight: 500;
+          background: rgba(0, 0, 0, 0.5);
+          padding: 0.5rem 1rem;
+          border-radius: 20px;
+        `;
+
+        // Back button (matching "Back to Grid" style exactly)
+        const backButton = document.createElement('button');
+        backButton.textContent = '← Back';
+        backButton.style.cssText = `
+          background: rgba(220, 220, 220, 0.9);
+          border: none;
+          border-radius: 20px;
+          padding: 0.5rem 1rem;
+          font-family: 'DM Sans', sans-serif;
+          font-size: 0.9rem;
+          font-weight: 500;
+          color: rgb(147, 147, 147);
+          cursor: pointer;
+          transition: all 0.2s ease;
+        `;
+
+        backButton.addEventListener('click', () => {
+          // Go back to main reference view
+          const blurringLayer = document.getElementById('blurringLayer');
+          if (blurringLayer) {
+            blurringLayer.classList.remove('active');
+            blurringLayer.style.filter = '';
+            flexContainer.remove();
+            // Reopen main reference overlay
+            setTimeout(() => showReferenceOverlay(imageId, dataIndex), 100);
+          }
+        });
+
+        backButton.addEventListener('mouseenter', () => {
+          backButton.style.background = 'rgba(200, 200, 200, 0.9)';
+          backButton.style.transform = 'scale(1.05)';
+        });
+
+        backButton.addEventListener('mouseleave', () => {
+          backButton.style.background = 'rgba(220, 220, 220, 0.9)';
+          backButton.style.transform = 'scale(1)';
+        });
+
+        controlsContainer.appendChild(folderLabel);
+        controlsContainer.appendChild(backButton);
+        flexContainer.appendChild(controlsContainer);
+      }
 
       // Append to main container
       mainContainer.appendChild(flexContainer);
@@ -219,8 +500,31 @@ function showReferenceOverlay(imageId, dataIndex) {
   }
 }
 
+// Function to display folder contents
+function showFolderOverlay(imageId, dataIndex, folderName, folderContents) {
+  // Close current overlay first
+  const blurringLayer = document.getElementById('blurringLayer');
+  const oldContainer = document.getElementById('reference-flex-container');
+  if (oldContainer) {
+    oldContainer.remove();
+  }
+
+  // Reopen with folder context
+  setTimeout(() => {
+    // Create a temporary refs array with just folder contents
+    const originalRefs = referenceImages[`${imageId}_${dataIndex}`];
+    referenceImages[`${imageId}_${dataIndex}`] = folderContents;
+
+    // Show overlay with folder context
+    showReferenceOverlay(imageId, dataIndex, folderName);
+
+    // Restore original refs
+    referenceImages[`${imageId}_${dataIndex}`] = originalRefs;
+  }, 100);
+}
+
 // Slideshow functionality
-function startSlideshow(imageUrls, startIndex, container) {
+function startSlideshow(imageUrls, startIndex, container, folderContext = null, imageId = null, dataIndex = null) {
   let currentIndex = startIndex;
 
   // Clear container and set up slideshow layout
@@ -400,11 +704,40 @@ function startSlideshow(imageUrls, startIndex, container) {
 
   function exitSlideshow() {
     document.removeEventListener('keydown', handleKeyPress);
-    // Recreate the original overlay
-    const imageId = getCurrentImageKey()?.split('_')[0];
-    const dataIndex = getCurrentImageKey()?.split('_')[1];
-    if (imageId && dataIndex) {
-      showReferenceOverlay(imageId, dataIndex);
+
+    // Debug logging
+    console.log('exitSlideshow called with:', { imageId, dataIndex, folderContext });
+
+    // First, remove the current slideshow container
+    const currentContainer = document.getElementById('reference-flex-container');
+    if (currentContainer) {
+      currentContainer.remove();
+    }
+
+    // Recreate the appropriate overlay based on context
+    if (folderContext) {
+      // We're in a folder, so recreate folder overlay
+      if (imageId && dataIndex) {
+        console.log('Returning to folder overlay:', folderContext);
+        const key = `${imageId}_${dataIndex}`;
+        const refs = referenceImages[key] || [];
+        const { folders } = separateFilesAndFolders(refs);
+
+        // Find the folder object with our context name
+        const targetFolder = folders.find(folder => getFolderName(folder) === folderContext);
+        if (targetFolder) {
+          const folderContents = getFolderContents(targetFolder);
+          showFolderOverlay(imageId, dataIndex, folderContext, folderContents);
+        }
+      }
+    } else {
+      // We're in main reference view
+      if (imageId && dataIndex) {
+        console.log('Returning to main reference overlay for:', imageId, dataIndex);
+        showReferenceOverlay(imageId, dataIndex);
+      } else {
+        console.log('Missing imageId or dataIndex:', { imageId, dataIndex });
+      }
     }
   }
 
