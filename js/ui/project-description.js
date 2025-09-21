@@ -85,7 +85,7 @@ function updateTitleWithReferenceButton(titleElement, activeCarouselItem) {
         pointer-events: none;
         animation: flashLeftToRight 1.5s ease-out;
       `;
-      
+
       // Add keyframes for the flash animation
       if (!document.querySelector('#flash-animation-style')) {
         const style = document.createElement('style');
@@ -98,9 +98,9 @@ function updateTitleWithReferenceButton(titleElement, activeCarouselItem) {
         `;
         document.head.appendChild(style);
       }
-      
+
       referenceButton.appendChild(flash);
-      
+
       // Remove flash element after animation
       setTimeout(() => {
         if (flash.parentNode) {
@@ -132,7 +132,7 @@ function updateTitleWithReferenceButton(titleElement, activeCarouselItem) {
 
     titleElement.innerHTML = `${originalTitle} - `;
     titleElement.appendChild(referenceButton);
-    
+
     // Trigger the flash animation after a brief delay
     setTimeout(() => {
       createFlashEffect();

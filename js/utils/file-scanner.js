@@ -140,13 +140,13 @@ function getKnownFiles(directoryPath) {
             { image: 'ai-Vogue-2.webp', has_ref: true },   // 2nd image - has reference
             { image: 'ai-Vogue-3.webp', has_ref: true },   // 3rd image - has reference
             // VogueBES project (indices 4-7)
-            { image: 'ai-VogueBES-4.webp', has_ref: false },
+            { image: 'ai-VogueBES-4.webp', has_ref: true },
             { image: 'ai-VogueBES-5.webp', has_ref: false },
             { image: 'ai-VogueBES-6.webp', has_ref: false },
             { image: 'ai-VogueBES-7.webp', has_ref: false },
             // Rombaut project (indices 8-12)
-            { image: 'ai-Rombaut-8.webp', has_ref: false },
-            { image: 'ai-Rombaut-9.webp', has_ref: false },
+            { image: 'ai-Rombaut-8.webp', has_ref: true },
+            { image: 'ai-Rombaut-9.webp', has_ref: true },
             { image: 'ai-Rombaut-10.webp', has_ref: false },
             { image: 'ai-Rombaut-11.webp', has_ref: false },
             { image: 'ai-Rombaut-12.webp', has_ref: false },
@@ -167,7 +167,7 @@ function getKnownFiles(directoryPath) {
             // ShowReel project (index 0 - will be sorted to position 1 automatically by special logic)
             { image: 'cg-ShowReel-0.mp4', has_ref: false },
             // DMP project
-            { image: 'cg-DMP-1.webp', has_ref: false },
+            { image: 'cg-DMP-1.webp', has_ref: true },
             { image: 'cg-DMP-2.webp', has_ref: true },      // Index 2 - has reference
             { image: 'cg-DMP-3.webp', has_ref: false },
             { image: 'cg-DMP-4.webp', has_ref: false },
