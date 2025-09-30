@@ -81,6 +81,77 @@ const referenceImages = {
 
   ],
 
+  'ai-Experiments_17': [
+    {
+      'data-set': [
+        './resources/images/references/ai-Experiments_17/data-set/image_1.webp',
+        './resources/images/references/ai-Experiments_17/data-set/image_2.webp',
+        './resources/images/references/ai-Experiments_17/data-set/image_3.webp',
+        './resources/images/references/ai-Experiments_17/data-set/image_4.webp',
+        './resources/images/references/ai-Experiments_17/data-set/image_5.webp',
+        './resources/images/references/ai-Experiments_17/data-set/image_6.webp',
+        './resources/images/references/ai-Experiments_17/data-set/image_7.webp',
+        './resources/images/references/ai-Experiments_17/data-set/image_8.webp',
+        './resources/images/references/ai-Experiments_17/data-set/image_9.webp',
+        './resources/images/references/ai-Experiments_17/data-set/image_10.webp',
+        './resources/images/references/ai-Experiments_17/data-set/image_11.webp',
+        './resources/images/references/ai-Experiments_17/data-set/image_12.webp',
+        './resources/images/references/ai-Experiments_17/data-set/image_13.webp',
+      ]
+    }
+  ],
+
+  'ai-Experiments_18': [
+    {
+      'data-set': [
+        './resources/images/references/ai-Experiments_18/data-set/image_1.webp',
+        './resources/images/references/ai-Experiments_18/data-set/image_2.webp',
+        './resources/images/references/ai-Experiments_18/data-set/image_3.webp',
+        './resources/images/references/ai-Experiments_18/data-set/image_4.webp',
+        './resources/images/references/ai-Experiments_18/data-set/image_5.webp',
+        './resources/images/references/ai-Experiments_18/data-set/image_6.webp',
+        './resources/images/references/ai-Experiments_18/data-set/image_7.webp',
+        './resources/images/references/ai-Experiments_18/data-set/image_8.webp',
+        './resources/images/references/ai-Experiments_18/data-set/image_9.webp',
+        './resources/images/references/ai-Experiments_18/data-set/image_10.webp',
+        './resources/images/references/ai-Experiments_18/data-set/image_11.webp',
+        './resources/images/references/ai-Experiments_18/data-set/image_12.webp',
+        './resources/images/references/ai-Experiments_18/data-set/image_13.webp',
+      ]
+    }
+  ],
+
+  'ai-Experiments_19': [
+    {
+      'data-set': [
+        './resources/images/references/ai-Experiments_19/data-set/image_1.webp',
+        './resources/images/references/ai-Experiments_19/data-set/image_2.webp',
+        './resources/images/references/ai-Experiments_19/data-set/image_3.webp',
+        './resources/images/references/ai-Experiments_19/data-set/image_4.webp',
+        './resources/images/references/ai-Experiments_19/data-set/image_5.webp',
+        './resources/images/references/ai-Experiments_19/data-set/image_6.webp',
+        './resources/images/references/ai-Experiments_19/data-set/image_7.webp',
+        './resources/images/references/ai-Experiments_19/data-set/image_8.webp',
+        './resources/images/references/ai-Experiments_19/data-set/image_9.webp',
+        './resources/images/references/ai-Experiments_19/data-set/image_10.webp',
+        './resources/images/references/ai-Experiments_19/data-set/image_11.webp',
+        './resources/images/references/ai-Experiments_19/data-set/image_12.webp',
+        './resources/images/references/ai-Experiments_19/data-set/image_13.webp',
+        './resources/images/references/ai-Experiments_19/data-set/image_14.webp',
+        './resources/images/references/ai-Experiments_19/data-set/image_15.webp',
+        './resources/images/references/ai-Experiments_19/data-set/image_16.webp',
+        './resources/images/references/ai-Experiments_19/data-set/image_17.webp',
+        './resources/images/references/ai-Experiments_19/data-set/image_18.webp',
+        './resources/images/references/ai-Experiments_19/data-set/image_19.webp',
+        './resources/images/references/ai-Experiments_19/data-set/image_20.webp',
+        './resources/images/references/ai-Experiments_19/data-set/image_21.webp',
+        './resources/images/references/ai-Experiments_19/data-set/image_22.webp',
+        './resources/images/references/ai-Experiments_19/data-set/image_23.webp',
+        './resources/images/references/ai-Experiments_19/data-set/image_24.webp',
+      ]
+    }
+  ],
+
   'cg-DMP_1': [
     './resources/images/references/cg-DMP_1/ref_cg-DMP_1_1.webp',
     './resources/images/references/cg-DMP_1/ref_cg-DMP_1_2.webp',

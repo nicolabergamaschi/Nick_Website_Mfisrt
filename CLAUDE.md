@@ -602,3 +602,8 @@ function generateCarouselItem(projectId, itemData, category, isFirst = false) {
 - Modern browsers (Chrome, Firefox, Safari, Edge)
 - Mobile browsers (iOS Safari, Chrome Mobile)
 - Progressive enhancement for older browsers
+
+
+## Script for batch image export in Win terminal
+
+for %i in (*.jpg *.jpeg *.png) do magick "%i" -quality 100 "%~ni.webp"

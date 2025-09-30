@@ -150,15 +150,17 @@ function getKnownFiles(directoryPath) {
             { image: 'ai-Rombaut-10.webp', has_ref: true },
             { image: 'ai-Rombaut-11.webp', has_ref: false },
             { image: 'ai-Rombaut-12.webp', has_ref: false },
+            // Kraut project (index 22)
+            { image: 'ai-Kraut-22.webp', has_ref: true},
             // RickOwens project (index 13)
             { image: 'ai-RickOwens-13.webp', has_ref: false },
             // Experiments project (indices 14-21)
             { image: 'ai-Experiments-14.webp', has_ref: false },
             { image: 'ai-Experiments-15.webp', has_ref: false },
             { image: 'ai-Experiments-16.webp', has_ref: false },
-            { image: 'ai-Experiments-17.webp', has_ref: false },
-            { image: 'ai-Experiments-18.webp', has_ref: false },
-            { image: 'ai-Experiments-19.webp', has_ref: false },
+            { image: 'ai-Experiments-17.webp', has_ref: true },
+            { image: 'ai-Experiments-18.webp', has_ref: true },
+            { image: 'ai-Experiments-19.webp', has_ref: true },
             { image: 'ai-Experiments-20.webp', has_ref: false },
             { image: 'ai-Experiments-21.webp', has_ref: false }
         ];
