@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Scanner Debug</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .debug { background: #f0f0f0; padding: 10px; margin: 10px 0; border-radius: 4px; }
+        .error { background: #ffeeee; color: #cc0000; }
+        .success { background: #eeffee; color: #006600; }
+        pre { background: #f8f8f8; padding: 10px; border-radius: 4px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>File Scanner Debug</h1>
+    <div id="debug-output"></div>
+
+    <script type="module">
+        import { scanImageDirectory } from './js/utils/file-scanner.js';
+
+        const debugOutput = document.getElementById('debug-output');
+
+        function log(message, type = 'debug') {
+            const div = document.createElement('div');
+            div.className = `debug ${type}`;
+            if (typeof message === 'object') {
+                const pre = document.createElement('pre');
+                pre.textContent = JSON.stringify(message, null, 2);
+                div.appendChild(pre);
+            } else {
+                div.textContent = `${new Date().toLocaleTimeString()}: ${message}`;
+            }
+            debugOutput.appendChild(div);
+            console.log(message);
+        }
+
+        async function debugFileScanner() {
+            try {
+                log('Scanning AI directory...', 'success');
+
+                const aiProjects = await scanImageDirectory('resources/images/AI');
+                log('AI Projects scanned:');
+                log(aiProjects);
+
+                // Check specifically for Kraut
+                if (aiProjects['ai-Kraut']) {
+                    log('✅ Kraut project found in file scanner!', 'success');
+                    log('Kraut project data:');
+                    log(aiProjects['ai-Kraut']);
+                } else {
+                    log('❌ Kraut project NOT found in file scanner', 'error');
+                    log('Available projects:');
+                    log(Object.keys(aiProjects));
+                }
+
+            } catch (error) {
+                log(`❌ Error: ${error.message}`, 'error');
+                console.error(error);
+            }
+        }
+
+        // Run debug
+        debugFileScanner();
+    </script>
+</body>
+</html>

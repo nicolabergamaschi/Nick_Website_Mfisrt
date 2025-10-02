@@ -150,7 +150,9 @@ function getKnownFiles(directoryPath) {
             // Rombaut project (indices 8-12)
             { image: 'ai-Rombaut-8-1.mp4', has_ref: false },
             { image: 'ai-Rombaut-8-2.mp4', has_ref: false },
+            { image: 'ai-Rombaut-8-3.mp4', has_ref: false },
             { image: 'ai-Rombaut-8.webp', has_ref: true },
+            { image: 'ai-Rombaut-8a.webp', has_ref: true },
             { image: 'ai-Rombaut-9-1.mp4', has_ref: false },
             { image: 'ai-Rombaut-9.webp', has_ref: true },
             { image: 'ai-Rombaut-10.webp', has_ref: true },
@@ -177,8 +179,10 @@ function getKnownFiles(directoryPath) {
             // DMP project
             { image: 'cg-DMP-1.webp', has_ref: true },
             { image: 'cg-DMP-2.webp', has_ref: true },      // Index 2 - has reference
+            { image: 'cg-DMP-3a.mp4', has_ref: true },
             { image: 'cg-DMP-3.webp', has_ref: true },
             { image: 'cg-DMP-4.webp', has_ref: false },
+            { image: 'cg-DMP-5.mp4', has_ref: false },
             // LANVIN project
             { image: 'cg-LANVIN-5.webp', has_ref: false },
             // Rolex project

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kraut Reference Test</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .debug { background: #f0f0f0; padding: 10px; margin: 10px 0; border-radius: 4px; }
+        .error { background: #ffeeee; color: #cc0000; }
+        .success { background: #eeffee; color: #006600; }
+        .test-container { margin: 20px 0; padding: 20px; border: 2px solid #ddd; border-radius: 8px; }
+        video { max-width: 300px; max-height: 200px; }
+    </style>
+</head>
+<body>
+    <h1>Kraut Reference Button Test</h1>
+    <div id="debug-output"></div>
+
+    <!-- Test carousel structure with Kraut video -->
+    <div class="test-container">
+        <h3>Test Carousel Item</h3>
+        <div class="carousel-item active">
+            <video src="./resources/images/AI/ai-Kraut-22.mp4"
+                   id="ai-Kraut"
+                   class="d-block w-100"
+                   data-index="22"
+                   data-hover="ai-Kraut"
+                   data-has-ref="true"
+                   autoplay
+                   loop
+                   muted>
+            </video>
+        </div>
+
+        <!-- Test title element -->
+        <div data-prj="ai-Kraut">
+            <h4 class="title" id="title">Kraut 2024</h4>
+            <p class="text-description paragraph">Test description</p>
+        </div>
+    </div>
+
+    <script type="module">
+        import './js/ui/references.js';
+        import { updateProjectDescription } from './js/ui/project-description.js';
+
+        const debugOutput = document.getElementById('debug-output');
+
+        function log(message, type = 'debug') {
+            const div = document.createElement('div');
+            div.className = `debug ${type}`;
+            if (typeof message === 'object') {
+                const pre = document.createElement('pre');
+                pre.textContent = JSON.stringify(message, null, 2);
+                div.appendChild(pre);
+            } else {
+                div.textContent = `${new Date().toLocaleTimeString()}: ${message}`;
+            }
+            debugOutput.appendChild(div);
+            console.log(message);
+        }
+
+        function testKrautReference() {
+            log('Testing Kraut reference button...', 'success');
+
+            // Get the test video element
+            const testVideo = document.querySelector('video[id="ai-Kraut"]');
+            if (testVideo) {
+                log('✅ Test video found');
+                log('Video attributes:');
+                const attrs = {};
+                for (let attr of testVideo.attributes) {
+                    attrs[attr.name] = attr.value;
+                }
+                log(attrs);
+
+                // Get the carousel item
+                const carouselItem = testVideo.closest('.carousel-item');
+                if (carouselItem) {
+                    log('✅ Carousel item found');
+                    log('Is active: ' + carouselItem.classList.contains('active'));
+
+                    // Test the project description system
+                    try {
+                        updateProjectDescription();
+                        log('✅ Project description updated');
+
+                        // Check if reference button was created
+                        setTimeout(() => {
+                            const refButton = document.querySelector('#references');
+                            if (refButton) {
+                                log('✅ Reference button created!', 'success');
+
+                                // Test the button click
+                                refButton.addEventListener('click', () => {
+                                    log('Reference button clicked!', 'success');
+                                });
+
+                            } else {
+                                log('❌ Reference button NOT created', 'error');
+
+                                // Check the title element
+                                const titleEl = document.querySelector('.title');
+                                if (titleEl) {
+                                    log('Title element content: ' + titleEl.innerHTML);
+                                } else {
+                                    log('❌ Title element not found', 'error');
+                                }
+                            }
+                        }, 500);
+
+                    } catch (error) {
+                        log(`❌ Error updating project description: ${error.message}`, 'error');
+                    }
+                } else {
+                    log('❌ Carousel item not found', 'error');
+                }
+            } else {
+                log('❌ Test video not found', 'error');
+            }
+        }
+
+        // Run test when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(testKrautReference, 1000);
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

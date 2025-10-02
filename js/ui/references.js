@@ -42,6 +42,28 @@ const referenceImages = {
     },
   ],
 
+  'ai-Rombaut_8a': [
+    './resources/images/references/ai-Rombaut_8/ref_ai-Rombaut_8_1.webp',
+    './resources/images/references/ai-Rombaut_8/ref_ai-Rombaut_8_2.webp',
+    './resources/images/references/ai-Rombaut_8/ref_ai-Rombaut_8_3.webp',
+    './resources/images/references/ai-Rombaut_8/ref_ai-Rombaut_8_4.webp',
+    './resources/images/references/ai-Rombaut_8/ref_ai-Rombaut_8_5.webp',
+    './resources/images/references/ai-Rombaut_8/ref_ai-Rombaut_8_6.webp',
+    {
+      'data-set': [
+        './resources/images/references/ai-Rombaut_8/data-set/1.jpg',
+        './resources/images/references/ai-Rombaut_8/data-set/2.jpg',
+        './resources/images/references/ai-Rombaut_8/data-set/3.jpg',
+        './resources/images/references/ai-Rombaut_8/data-set/4.jpg',
+        './resources/images/references/ai-Rombaut_8/data-set/5.jpg',
+        './resources/images/references/ai-Rombaut_8/data-set/6.jpg',
+        './resources/images/references/ai-Rombaut_8/data-set/7.jpg',
+        './resources/images/references/ai-Rombaut_8/data-set/8.jpg',
+        './resources/images/references/ai-Rombaut_8/data-set/9.jpg',
+      ]
+    },
+  ],
+
   'ai-Rombaut_9': [
     './resources/images/references/ai-Rombaut_9/ref_ai-Rombaut_9_1.webp',
     './resources/images/references/ai-Rombaut_9/ref_ai-Rombaut_9_2.webp',
