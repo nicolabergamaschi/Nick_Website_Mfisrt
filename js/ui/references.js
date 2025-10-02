@@ -52,6 +52,16 @@ const referenceImages = {
     './resources/images/references/ai-Rombaut_9/ref_ai-Rombaut_9_7.webp',
   ],
 
+  'ai-Rombaut-9-1': [
+    './resources/images/references/ai-Rombaut_9/ref_ai-Rombaut_9_1.webp',
+    './resources/images/references/ai-Rombaut_9/ref_ai-Rombaut_9_2.webp',
+    './resources/images/references/ai-Rombaut_9/ref_ai-Rombaut_9_3.webp',
+    './resources/images/references/ai-Rombaut_9/ref_ai-Rombaut_9_4.webp',
+    './resources/images/references/ai-Rombaut_9/ref_ai-Rombaut_9_5.webp',
+    './resources/images/references/ai-Rombaut_9/ref_ai-Rombaut_9_6.webp',
+    './resources/images/references/ai-Rombaut_9/ref_ai-Rombaut_9_7.webp',
+  ],
+
   'ai-Rombaut_10': [
     './resources/images/references/ai-Rombaut_10/ref_ai-Rombaut_10_1.webp',
     './resources/images/references/ai-Rombaut_10/ref_ai-Rombaut_10_2.webp',
@@ -79,6 +89,11 @@ const referenceImages = {
       ]
     },
 
+  ],
+
+  'ai-Kraut_22': [
+    './resources/images/references/ai-Kraut_22/ref_ai-Kraut_22_1.webp',
+    './resources/images/references/ai-Kraut_22/ref_ai-Kraut_22_2.webp',
   ],
 
   'ai-Experiments_17': [
@@ -122,6 +137,14 @@ const referenceImages = {
   ],
 
   'ai-Experiments_19': [
+    './resources/images/references/ai-Experiments_19/ref_ai-Experiments_19_1.webp',
+    './resources/images/references/ai-Experiments_19/ref_ai-Experiments_19_2.webp',
+    './resources/images/references/ai-Experiments_19/ref_ai-Experiments_19_3.webp',
+    './resources/images/references/ai-Experiments_19/ref_ai-Experiments_19_4.webp',
+    './resources/images/references/ai-Experiments_19/ref_ai-Experiments_19_5.webp',
+    './resources/images/references/ai-Experiments_19/ref_ai-Experiments_19_6.webp',
+    './resources/images/references/ai-Experiments_19/ref_ai-Experiments_19_7.webp',
+    './resources/images/references/ai-Experiments_19/ref_ai-Experiments_19_8.webp',
     {
       'data-set': [
         './resources/images/references/ai-Experiments_19/data-set/image_1.webp',
@@ -300,7 +323,7 @@ function showReferenceOverlay(imageId, dataIndex, folderContext = null) {
       flexContainer.style.top = '4rem';
       flexContainer.style.left = '50%';
       flexContainer.style.transform = 'translateX(-50%)';
-      flexContainer.style.width = '50vw';
+      flexContainer.style.width = '60vw';
       flexContainer.style.height = '80vh';
       flexContainer.style.maxHeight = '80vh';
       flexContainer.style.overflow = 'hidden';
@@ -979,20 +1002,21 @@ function toggleReferenceButton() {
     referenceButton.id = 'references';
     referenceButton.textContent = 'references';
     referenceButton.style.cssText = `
-      border: 0px solid rgb(196, 196, 196);
-      box-shadow: 3px 5px 5px rgb(181, 181, 181);
+      border: 1px solid rgba(220, 140, 140, 0.4);
+      box-shadow: 3px 5px 8px rgba(200, 120, 120, 0.3);
       margin-left: 0.5rem;
       margin-bottom: 1rem;
       padding: 0.2rem 1rem;
       border-radius: 25px;
-      background-color: rgb(220, 220, 220);
-      color: rgb(147, 147, 147);
+      background-color: rgba(255, 180, 180, 1);
+      color: rgb(140, 60, 60);
       font-family: 'DM Sans', sans-serif;
       font-size: 0.9rem;
-      font-weight: 400;
+      font-weight: 500;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       display: inline-block;
+      backdrop-filter: blur(2px);
     `;
 
     // Add click event listener

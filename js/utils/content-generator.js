@@ -70,9 +70,20 @@ export function generateCarouselItem(projectId, imageData, category, isActive = 
     }
 
     if (imageData.isVideo) {
+        // Determine if this should be a controlled video (ShowReel) or auto-loop video (others)
+        const isShowReel = projectId.includes('ShowReel');
+        const videoAttributes = isShowReel
+            ? 'controls preload="metadata"'
+            : 'autoplay muted loop playsinline preload="metadata"';
+
         return `
         <div id="${projectId}" class="carousel-item ${category}${activeClass}">
-            <video id="${category}-video" data-hover="${projectId}" data-index="${imageData.dataIndex}" controls preload="metadata">
+            <video id="${projectId}"
+                   class="d-block${additionalClasses}"
+                   data-hover="${projectId}"
+                   data-index="${imageData.dataIndex}"
+                   data-has-ref="${imageData.hasRef || false}"
+                   ${videoAttributes}>
                 <source src="${imageData.src}" type="video/mp4">
                 <p>Your browser doesn't support HTML video. <a href="${imageData.src}">Download the video</a> instead.</p>
             </video>

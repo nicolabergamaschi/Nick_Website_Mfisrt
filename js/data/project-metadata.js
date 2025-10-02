@@ -35,6 +35,13 @@ export const projectMetadata = {
         menuDisplayName: "RickOwens"
     },
 
+    "ai-Kraut": {
+        title: "Kraut 2024",
+        description: "An AI-generated video using AnimatedIff in ComfyUI, the video uses an animated cloth simulation from Houdini to drive the animation. The project was inspired by macro photography of flowers and it was used to generate both printed and digital assets for event promotion.",
+        hasReferences: true,
+        menuDisplayName: "Kraut"
+    },
+
     "ai-Experiments": {
         title: "Experiments",
         description: "Experimental series combining model training and visual abstraction—using ComfyUI and various datasets. These images explore themes of memory, digital archiving, mutation, and the body's transformative potential reimagined through macro-inspired imagery.",

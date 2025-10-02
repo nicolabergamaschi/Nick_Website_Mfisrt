@@ -72,15 +72,18 @@ export async function scanImageDirectory(directoryPath) {
  * @returns {Object|null} Parsed components or null if invalid
  */
 export function parseFilename(filename) {
-    // Match pattern: category-project_name-index.extension
-    const match = filename.match(/^([a-z]+)-([^-]+)-(\d+)\.(webp|mp4)$/i);
+    // Match pattern: category-project_name-index.extension or category-project_name-index-subindex.extension
+    const match = filename.match(/^([a-z]+)-([^-]+)-(\d+)(?:-(\d+))?\.(webp|mp4)$/i);
 
     if (match) {
-        const [, categoryShort, projectName, index, extension] = match;
+        const [, categoryShort, projectName, index, subIndex, extension] = match;
+        // If there's a subIndex, combine it with the main index for the final index
+        const finalIndex = subIndex ? `${index}-${subIndex}` : index;
+
         return {
             categoryShort: categoryShort.toLowerCase(),
             projectName,
-            index,
+            index: finalIndex,
             extension: extension.toLowerCase()
         };
     }
@@ -145,15 +148,18 @@ function getKnownFiles(directoryPath) {
             { image: 'ai-VogueBES-6.webp', has_ref: false },
             { image: 'ai-VogueBES-7.webp', has_ref: false },
             // Rombaut project (indices 8-12)
+            { image: 'ai-Rombaut-8-1.mp4', has_ref: false },
+            { image: 'ai-Rombaut-8-2.mp4', has_ref: false },
             { image: 'ai-Rombaut-8.webp', has_ref: true },
+            { image: 'ai-Rombaut-9-1.mp4', has_ref: false },
             { image: 'ai-Rombaut-9.webp', has_ref: true },
             { image: 'ai-Rombaut-10.webp', has_ref: true },
             { image: 'ai-Rombaut-11.webp', has_ref: false },
             { image: 'ai-Rombaut-12.webp', has_ref: false },
-            // Kraut project (index 22)
-            { image: 'ai-Kraut-22.webp', has_ref: true},
             // RickOwens project (index 13)
             { image: 'ai-RickOwens-13.webp', has_ref: false },
+            // Kraut project (index 22)
+            { image: 'ai-Kraut-22.mp4', has_ref: true},
             // Experiments project (indices 14-21)
             { image: 'ai-Experiments-14.webp', has_ref: false },
             { image: 'ai-Experiments-15.webp', has_ref: false },
