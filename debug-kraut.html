@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kraut Debug</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .debug { background: #f0f0f0; padding: 10px; margin: 10px 0; border-radius: 4px; }
+        .error { background: #ffeeee; color: #cc0000; }
+        .success { background: #eeffee; color: #006600; }
+        pre { background: #f8f8f8; padding: 10px; border-radius: 4px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>Kraut Project Debug</h1>
+    <div id="debug-output"></div>
+
+    <script type="module">
+        import { initContentManager } from './js/content-manager.js';
+        import { scanImageDirectory } from './js/utils/file-scanner.js';
+
+        const debugOutput = document.getElementById('debug-output');
+
+        function log(message, type = 'debug') {
+            const div = document.createElement('div');
+            div.className = `debug ${type}`;
+            if (typeof message === 'object') {
+                const pre = document.createElement('pre');
+                pre.textContent = JSON.stringify(message, null, 2);
+                div.appendChild(pre);
+            } else {
+                div.textContent = `${new Date().toLocaleTimeString()}: ${message}`;
+            }
+            debugOutput.appendChild(div);
+            console.log(message);
+        }
+
+        async function debugKraut() {
+            try {
+                log('Starting Kraut debug...', 'success');
+
+                // First, initialize content manager to generate the carousel
+                await initContentManager();
+                log('Content manager initialized', 'success');
+
+                // Wait a bit for content to be generated
+                setTimeout(() => {
+                    // Find the Kraut video element
+                    const krautVideo = document.querySelector('video[id*="Kraut"]');
+                    if (krautVideo) {
+                        log('✅ Kraut video found!', 'success');
+                        log('Video ID: ' + krautVideo.id);
+                        log('Video data-index: ' + krautVideo.getAttribute('data-index'));
+                        log('Video data-has-ref: ' + krautVideo.getAttribute('data-has-ref'));
+
+                        // Get all attributes
+                        const attrs = {};
+                        for (let attr of krautVideo.attributes) {
+                            attrs[attr.name] = attr.value;
+                        }
+                        log('All video attributes:', 'debug');
+                        log(attrs);
+
+                        // Check parent carousel item
+                        const carouselItem = krautVideo.closest('.carousel-item');
+                        if (carouselItem) {
+                            log('✅ Carousel item found');
+                            log('Carousel item classes: ' + carouselItem.className);
+                            log('Is active: ' + carouselItem.classList.contains('active'));
+                        } else {
+                            log('❌ No carousel item found', 'error');
+                        }
+
+                    } else {
+                        log('❌ Kraut video NOT found', 'error');
+
+                        // List all videos
+                        const allVideos = document.querySelectorAll('video');
+                        log(`Found ${allVideos.length} videos total`);
+                        allVideos.forEach((video, index) => {
+                            log(`Video ${index + 1}: id=${video.id}, data-index=${video.getAttribute('data-index')}`);
+                        });
+                    }
+
+                    // Check if reference system exists
+                    if (typeof window.showReferenceOverlay === 'function') {
+                        log('✅ Reference system loaded', 'success');
+                    } else {
+                        log('❌ Reference system NOT loaded', 'error');
+                    }
+
+                }, 2000);
+
+            } catch (error) {
+                log(`❌ Error: ${error.message}`, 'error');
+                console.error(error);
+            }
+        }
+
+        // Run debug
+        debugKraut();
+    </script>
+</body>
+</html>
