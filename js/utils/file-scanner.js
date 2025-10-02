@@ -190,6 +190,7 @@ function getKnownFiles(directoryPath) {
             { image: 'cg-Rolex-6.webp', has_ref: false },
             // Salomon project
             { image: 'cg-Salomon-7.webp', has_ref: false },
+            { image: 'cg-Salomon-7-1.webp', has_ref: false },
             // Experiments project
             { image: 'cg-Experiments-8.webp', has_ref: false },
             { image: 'cg-Experiments-9.webp', has_ref: false },
