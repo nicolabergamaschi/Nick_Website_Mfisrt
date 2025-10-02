@@ -73,7 +73,8 @@ export async function scanImageDirectory(directoryPath) {
  */
 export function parseFilename(filename) {
     // Match pattern: category-project_name-index.extension or category-project_name-index-subindex.extension
-    const match = filename.match(/^([a-z]+)-([^-]+)-(\d+)(?:-(\d+))?\.(webp|mp4)$/i);
+    // Updated to support alphanumeric indices like "3a", "8-1", etc.
+    const match = filename.match(/^([a-z]+)-([^-]+)-(\d+[a-z]?|\d+)(?:-(\d+))?\.(webp|mp4)$/i);
 
     if (match) {
         const [, categoryShort, projectName, index, subIndex, extension] = match;
@@ -179,7 +180,7 @@ function getKnownFiles(directoryPath) {
             // DMP project
             { image: 'cg-DMP-1.webp', has_ref: true },
             { image: 'cg-DMP-2.webp', has_ref: true },      // Index 2 - has reference
-            { image: 'cg-DMP-3a.mp4', has_ref: true },
+            { image: 'cg-DMP-3a.mp4', has_ref: false },
             { image: 'cg-DMP-3.webp', has_ref: true },
             { image: 'cg-DMP-4.webp', has_ref: false },
             { image: 'cg-DMP-5.mp4', has_ref: false },
