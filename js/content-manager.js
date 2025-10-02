@@ -4,7 +4,7 @@
  */
 
 import { scanImageDirectory } from './utils/file-scanner.js';
-import { generateCategoryCarouselItems } from './utils/content-generator.js';
+import { generateCategoryCarouselItems, generateCompleteProjectData, generateAllProjectDescriptions } from './utils/content-generator.js';
 import { projectMetadata, categoryConfig } from './data/project-metadata.js';
 
 /**
@@ -29,6 +29,9 @@ export async function initContentManager() {
         await generateCategoryContent('cg', cgiProjects);
         await generateCategoryContent('ph', photoProjects);
         await generateCategoryContent('ai', aiProjects);
+
+        // Generate and inject project descriptions
+        await generateProjectDescriptions(allProjects);
 
         // Fire custom event to notify other systems that content is ready
         const contentReadyEvent = new CustomEvent('contentManagerReady', {
@@ -83,7 +86,33 @@ async function generateCategoryContent(category, projects) {
     } else {
         console.warn(`⚠️ No content generated for ${category} category`);
     }
-}/**
+}
+
+/**
+ * Generate and inject project descriptions from metadata
+ */
+async function generateProjectDescriptions(allProjects) {
+    const descriptionContainer = document.querySelector('.content-container.prj-description');
+    if (!descriptionContainer) {
+        console.warn(`⚠️ Project description container not found`);
+        return;
+    }
+
+    // Generate complete project data with metadata
+    const completeData = await generateCompleteProjectData();
+
+    // Generate all project descriptions HTML
+    const descriptionsHTML = generateAllProjectDescriptions(completeData);
+
+    if (descriptionsHTML) {
+        descriptionContainer.innerHTML = descriptionsHTML;
+        console.log(`✅ Generated project descriptions for all categories`);
+    } else {
+        console.warn(`⚠️ No project descriptions generated`);
+    }
+}
+
+/**
  * Development mode: Log discovered content without replacing HTML
  * This allows testing the system while keeping existing functionality
  */
