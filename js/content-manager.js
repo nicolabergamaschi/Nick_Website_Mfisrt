@@ -1,6 +1,10 @@
 /**
  * Content Manager Integration
- * Initializes the automated content management system
+ * Initializes t    const carouselSelectors = {
+        'ai': '#Ai .carousel-inner',
+        'cg': '#Cgi .carousel-inner',
+        'ph': '#Photo .carousel-inner'
+    };tomated content management system
  */
 
 import { scanImageDirectory } from './utils/file-scanner.js';
@@ -50,9 +54,9 @@ export async function initContentManager() {
  */
 async function generateCategoryContent(category, projects) {
     const categorySelectors = {
-        'ai': '#carouselExampleDarkAi .carousel-inner',
-        'cg': '#carouselExampleDarkCgi .carousel-inner',
-        'ph': '#carouselExampleDarkPhoto .carousel-inner'
+        'ai': '#Ai .carousel-inner',
+        'cg': '#Cgi .carousel-inner',
+        'ph': '#Photo .carousel-inner'
     };
 
     const container = document.querySelector(categorySelectors[category]);

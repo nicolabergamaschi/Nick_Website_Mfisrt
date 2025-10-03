@@ -175,8 +175,6 @@ function getKnownFiles(directoryPath) {
         ];
     } else if (directoryPath.includes('/CGI')) {
         return [
-            // ShowReel project (index 0 - will be sorted to position 1 automatically by special logic)
-            { image: 'cg-ShowReel-0.mp4', has_ref: false },
             // DMP project
             { image: 'cg-DMP-1.webp', has_ref: true },
             { image: 'cg-DMP-3a.mp4', has_ref: false },
@@ -205,7 +203,9 @@ function getKnownFiles(directoryPath) {
             { image: 'cg-Experiments-13.webp', has_ref: false },
             { image: 'cg-Experiments-14.webp', has_ref: false },
             { image: 'cg-Experiments-15.webp', has_ref: false },
-            { image: 'cg-Experiments-16.webp', has_ref: false }
+            { image: 'cg-Experiments-16.webp', has_ref: false },
+            // ShowReel project (moved to end)
+            { image: 'cg-ShowReel-0.mp4', has_ref: false }
         ];
     } else if (directoryPath.includes('/PHOTO')) {
         return [

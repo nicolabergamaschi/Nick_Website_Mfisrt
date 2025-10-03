@@ -189,7 +189,7 @@ p {
 }
 
 .carousel-item video {
-    position: absolute;
+    position: relative; /* Changed from absolute to relative */
     top: 0;
     left: 0;
     width: 100%;
@@ -266,9 +266,11 @@ div.prj-description .text-description p {
     left: 0 !important;
     width: 25% !important;
     height: 100% !important;
-    z-index: 10;
+    z-index: 5; /* Lower z-index to not cover content */
     grid-column-start: unset;
     grid-column-end: unset;
+    pointer-events: auto;
+    background: transparent; /* Ensure no background blocks content */
 }
 
 .carousel-button-container-next.video-active-positioning {
@@ -276,9 +278,11 @@ div.prj-description .text-description p {
     right: 0 !important;
     width: 25% !important;
     height: 100% !important;
-    z-index: 10;
+    z-index: 5; /* Lower z-index to not cover content */
     grid-column-start: unset;
     grid-column-end: unset;
+    pointer-events: auto;
+    background: transparent; /* Ensure no background blocks content */
 }
 
 /* Adjust button sizes within containers for video mode */
@@ -526,6 +530,42 @@ li#head-list {
 .social-icon:hover:nth-child(2) { color: #0077B5; } /* LinkedIn */
 .social-icon:hover:nth-child(3) { color: #333; }    /* GitHub */
 .social-icon:hover:nth-child(4) { color: #EA4335; } /* Email */
+
+/* About Page Links (ShowReel & Portfolio) */
+.about-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    margin-right: 3rem;
+}
+
+.about-link {
+    color: #333;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid #333;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.about-link:hover {
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.about-link:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
 
 
 .slideshow-nav-button {

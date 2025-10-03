@@ -1,6 +1,6 @@
 import { initNavigationBtnShowReel } from "./ui/navigation-buttons.js";
 import { initNavigationBtnMobile } from "./ui/navigation-buttons.js";
-import { initCategoryMenu } from "./ui/category-menu.js";
+import { initCategoryMenu, initAboutShowReelLink } from "./ui/category-menu.js";
 import { initCursors } from "./ui/cursors.js";
 import { initProjectDescriptions } from "./ui/project-description.js";
 import { initMainScrollLogic } from "./ui/carousels.js";
@@ -21,6 +21,8 @@ document.addEventListener('contentManagerReady', () => {
     initNavigationBtnMobile();
     // initialise category menu
     initCategoryMenu();
+    // initialise About ShowReel link
+    initAboutShowReelLink();
     // initialise cursors and cursor count
     initCursors();
     // initialise project descriptions
