@@ -179,23 +179,28 @@ function getKnownFiles(directoryPath) {
             { image: 'cg-ShowReel-0.mp4', has_ref: false },
             // DMP project
             { image: 'cg-DMP-1.webp', has_ref: true },
-            { image: 'cg-DMP-2.webp', has_ref: true },      // Index 2 - has reference
             { image: 'cg-DMP-3a.mp4', has_ref: false },
             { image: 'cg-DMP-3.webp', has_ref: true },
+            { image: 'cg-DMP-4a.mp4', has_ref: false },
             { image: 'cg-DMP-4.webp', has_ref: false },
             { image: 'cg-DMP-5.mp4', has_ref: false },
+            { image: 'cg-DMP-2.webp', has_ref: true },      // Index 2 - has reference
             // LANVIN project
             { image: 'cg-LANVIN-5.webp', has_ref: false },
             // Rolex project
+            { image: 'cg-Rolex-6a.mp4', has_ref: false },
             { image: 'cg-Rolex-6.webp', has_ref: false },
             // Salomon project
             { image: 'cg-Salomon-7.webp', has_ref: false },
             { image: 'cg-Salomon-7-1.webp', has_ref: false },
             // Experiments project
+            { image: 'cg-Experiments-8a.mp4', has_ref: false },
             { image: 'cg-Experiments-8.webp', has_ref: false },
             { image: 'cg-Experiments-9.webp', has_ref: false },
+            { image: 'cg-Experiments-10a.mp4', has_ref: false },
             { image: 'cg-Experiments-10.webp', has_ref: false },
             { image: 'cg-Experiments-11.webp', has_ref: false },
+            { image: 'cg-Experiments-12a.mp4', has_ref: false },
             { image: 'cg-Experiments-12.webp', has_ref: false },
             { image: 'cg-Experiments-13.webp', has_ref: false },
             { image: 'cg-Experiments-14.webp', has_ref: false },
