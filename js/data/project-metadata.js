@@ -115,17 +115,17 @@ export const projectMetadata = {
 export const categoryConfig = {
     AI: {
         displayName: "Ai",
-        carouselId: "carouselExampleDarkAi",
+        carouselId: "Ai",
         className: "ai"
     },
     CGI: {
         displayName: "Cgi",
-        carouselId: "carouselExampleDarkCgi",
+        carouselId: "Cgi",
         className: "cg"
     },
     PHOTO: {
         displayName: "Photo",
-        carouselId: "carouselExampleDarkPhoto",
+        carouselId: "Photo",
         className: "ph"
     }
 };

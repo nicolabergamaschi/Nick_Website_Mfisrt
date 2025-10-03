@@ -22,9 +22,9 @@ initShowReelDetection();
 function scrollLogic() {
 
   const homeCarousel = document.querySelector('div#page-home');
-  const aiCarousel = document.querySelector('div#carouselExampleDarkAi div.carousel-inner');
-  const cgiCarousel = document.querySelector('div#carouselExampleDarkCgi div.carousel-inner');
-  const phtCarousel = document.querySelector('div#carouselExampleDarkPhoto div.carousel-inner');
+  const aiCarousel = document.querySelector('div#Ai div.carousel-inner');
+  const cgiCarousel = document.querySelector('div#Cgi div.carousel-inner');
+  const phtCarousel = document.querySelector('div#Photo div.carousel-inner');
   const aboutCarousel = document.querySelector('div#page-about');
 
   if (homeCarousel && isElementInViewport(homeCarousel)) {
@@ -118,7 +118,7 @@ function handleVideoResize() {
  */
 function initShowReelDetection() {
   // Listen for carousel slide changes
-  const cgiCarousel = document.getElementById('carouselExampleDarkCgi');
+  const cgiCarousel = document.getElementById('Cgi');
   if (cgiCarousel) {
     // Listen for Bootstrap carousel slide events
     cgiCarousel.addEventListener('slid.bs.carousel', handleShowReelDetection);
@@ -135,20 +135,40 @@ function initShowReelDetection() {
  * Detect if ShowReel video is active and adjust button positioning
  */
 function handleShowReelDetection() {
-  const cgiCarousel = document.getElementById('carouselExampleDarkCgi');
+  const cgiCarousel = document.getElementById('Cgi');
   const activeItem = cgiCarousel?.querySelector('.carousel-item.active');
   const video = activeItem?.querySelector('video');
 
   const prevContainer = cgiCarousel?.querySelector('.carousel-button-container-prev');
   const nextContainer = cgiCarousel?.querySelector('.carousel-button-container-next');
 
-  if (video && prevContainer && nextContainer) {
+  // Check if video has controls attribute (indicates ShowReel)
+  const isShowReelVideo = video && video.hasAttribute('controls');
+
+  // Debug logging
+  console.log('ShowReel Detection:', {
+    activeItem: activeItem?.id,
+    hasVideo: !!video,
+    hasControls: video?.hasAttribute('controls'),
+    isShowReelVideo: isShowReelVideo
+  });
+
+  // TEMPORARILY DISABLED - testing if this is causing the issue
+  /*
+  if (isShowReelVideo && prevContainer && nextContainer) {
     // ShowReel is active - move buttons away from center
+    console.log('Applying video-active-positioning');
     prevContainer.classList.add('video-active-positioning');
     nextContainer.classList.add('video-active-positioning');
   } else {
-    // No video active - restore normal positioning
+    // No ShowReel video active - restore normal positioning
+    console.log('Removing video-active-positioning');
     if (prevContainer) prevContainer.classList.remove('video-active-positioning');
     if (nextContainer) nextContainer.classList.remove('video-active-positioning');
   }
+  */
+
+  // Force remove video-active-positioning for testing
+  if (prevContainer) prevContainer.classList.remove('video-active-positioning');
+  if (nextContainer) nextContainer.classList.remove('video-active-positioning');
 }

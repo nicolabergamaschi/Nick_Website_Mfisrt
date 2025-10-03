@@ -1,17 +1,19 @@
 // const containing an Array of project carousels (no-home carousel)
-export const PROJECTCAROUSELS = document.querySelectorAll("div#carouselExampleDarkAi, div#carouselExampleDarkCgi, div#carouselExampleDarkPhoto");
+export const PROJECTCAROUSELS = document.querySelectorAll("div#Ai, div#Cgi, div#Photo");
 export const PROJECTDESCRIPTIONS = document.querySelectorAll('div.prj-description');
 export const TOGGLEELEMENTS = document.querySelectorAll('div.toggle');
+
+// All carousels array
+export const CAROUSELS = [
+    document.getElementById('Ai'),
+    document.getElementById('Cgi'),
+    document.getElementById('Photo')
+];
+
 // Helper: get the visible carousel
 export function getActiveCarousel() {
-  // All carousels
-  const carousels = [
-    document.getElementById('carouselExampleDarkAi'),
-    document.getElementById('carouselExampleDarkCgi'),
-    document.getElementById('carouselExampleDarkPhoto')
-  ];
   // Find the one in viewport (or visible)
-  for (const carousel of carousels) {
+  for (const carousel of CAROUSELS) {
     if (!carousel) continue;
     const rect = carousel.getBoundingClientRect();
     if (rect.top < window.innerHeight && rect.bottom > 0) {
@@ -26,9 +28,10 @@ export function turnOffmultiple(elements) {
     el.style.display = 'none';
   });
 };
-// Helper: selects the active image given a project carousel
+// Helper: selects the active image or video given a project carousel
 export function activeImageFromCarousel(carousel) {
-  return carousel.querySelector('.carousel-item.active img');
+  const activeItem = carousel.querySelector('.carousel-item.active');
+  return activeItem?.querySelector('img') || activeItem?.querySelector('video');
 };
 // Helper: returns true if argument element is in viewport
 export function isElementInViewport(element) {

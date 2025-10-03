@@ -149,3 +149,34 @@ export function closeCategoryMenus(elementToClose) {
     element.classList.remove('open');
   })
 }
+
+// Initialize About ShowReel link to behave like sub-list-link
+export function initAboutShowReelLink() {
+  const aboutShowReelLink = document.getElementById('about-showreel-link');
+
+  if (aboutShowReelLink) {
+    aboutShowReelLink.addEventListener('click', function(e) {
+      // Add a delay to allow the page to scroll to CGI carousel first
+      setTimeout(() => {
+        // Simulate the same behavior as clicking cg-ShowReel sub-list-link
+        const selection = 'cg-ShowReel';
+        const categoryClass = selection.slice(0, 2); // 'cg'
+
+        // Remove active class from all CGI items
+        document.querySelectorAll(`.${categoryClass}`).forEach(item => {
+          if (item.classList.contains('active'))
+            item.classList.remove('active');
+        });
+
+        // Add active class to ShowReel
+        const activeElement = document.querySelector(`div#${selection}`);
+        if (activeElement) {
+          activeElement.classList.add('active');
+        }
+
+        // Update the highlight for ShowReel in the menu
+        updateSublistHighlightFromClick(selection);
+      }, 500); // Wait 500ms for navigation to complete
+    });
+  }
+}

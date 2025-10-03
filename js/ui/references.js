@@ -1074,7 +1074,7 @@ function toggleReferenceButton() {
 
 // Listen for carousel slide events
 // document.addEventListener('DOMContentLoaded', () => {
-//   const carousels = ['carouselExampleDarkAi', 'carouselExampleDarkCgi', 'carouselExampleDarkPhoto'];
+//   const carousels = ['Ai', 'Cgi', 'Photo'];
 
 //   carousels.forEach(carouselId => {
 //     const carousel = document.getElementById(carouselId);

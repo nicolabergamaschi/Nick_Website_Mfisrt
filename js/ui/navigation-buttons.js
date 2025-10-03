@@ -3,7 +3,7 @@ import { getActiveCarousel } from "../core/dom-utilities.js"
 // navigation buttons Showreel - Cgi Carousel
 export function adjustBtnWidthShowReel() {
   // Get DOM elements when function is called, not at module load time
-  const carouselCgi = document.getElementById('carouselExampleDarkCgi');
+  const carouselCgi = document.getElementById('Cgi');
   const showReelSlide = document.querySelector('#cg-ShowReel.carousel-item');
 
   // Guard clause: check if elements exist
@@ -57,7 +57,7 @@ export function adjustBtnWidthShowReel() {
 
 export function initNavigationBtnShowReel() {
   // Get DOM elements when function is called, not at module load time
-  const carouselCgi = document.getElementById('carouselExampleDarkCgi');
+  const carouselCgi = document.getElementById('Cgi');
 
   if (!carouselCgi) return;
 
