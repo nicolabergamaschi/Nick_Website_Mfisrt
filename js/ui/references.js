@@ -1023,6 +1023,12 @@ function toggleReferenceButton() {
     const referenceButton = document.createElement('button');
     referenceButton.id = 'references';
     referenceButton.textContent = 'references';
+
+    // Add Bootstrap tooltip attributes
+    referenceButton.setAttribute('data-bs-toggle', 'tooltip');
+    referenceButton.setAttribute('data-bs-placement', 'top');
+    referenceButton.setAttribute('data-bs-title', 'Click to view reference images and/or training data-set');
+
     referenceButton.style.cssText = `
       border: 1px solid rgba(220, 140, 140, 0.4);
       box-shadow: 3px 5px 8px rgba(200, 120, 120, 0.3);
@@ -1201,3 +1207,55 @@ document.addEventListener('keydown', (e) => {
     e.preventDefault();
   }
 });
+
+// DEPRECATED: Auto-tooltip system moved to project-description.js
+// Auto-tooltip for references button using Bootstrap tooltips
+/*
+document.addEventListener('contentManagerReady', () => {
+  setTimeout(() => {
+    initReferencesTooltip();
+  }, 2000); // Wait 2 seconds after content loads
+});
+
+function initReferencesTooltip() {
+  const referencesButtons = document.querySelectorAll('#references');
+
+  referencesButtons.forEach(button => {
+    // Check if Bootstrap tooltip is already initialized
+    if (button.hasAttribute('data-bs-original-title')) return;
+
+    // Check if button is actually visible and properly positioned
+    const rect = button.getBoundingClientRect();
+    if (rect.width === 0 || rect.height === 0 || rect.top === 0) {
+      return; // Skip if button is not properly positioned
+    }
+
+    // Add Bootstrap tooltip attributes
+    button.setAttribute('data-bs-toggle', 'tooltip');
+    button.setAttribute('data-bs-placement', 'top');
+    button.setAttribute('data-bs-title', 'Click to view reference images');
+
+    // Initialize Bootstrap tooltip
+    if (typeof bootstrap !== 'undefined' && bootstrap.Tooltip) {
+      const tooltip = new bootstrap.Tooltip(button);
+
+      // Auto-show tooltip only if we're not on the homepage
+      const homeElement = document.querySelector('#page-home');
+      const homeRect = homeElement ? homeElement.getBoundingClientRect() : null;
+      const isOnHomepage = homeRect && homeRect.top >= -100 && homeRect.top <= window.innerHeight;
+
+      if (!isOnHomepage) {
+        // Auto-show tooltip
+        tooltip.show();
+
+        // Auto-hide after 3 seconds
+        setTimeout(() => {
+          if (tooltip) {
+            tooltip.hide();
+          }
+        }, 3000);
+      }
+    }
+  });
+}
+*/

@@ -34,6 +34,10 @@ p {
 
 /*! References Button */
 
+#references {
+    position: relative;
+}
+
 #references:hover {
     background-color: rgb(230, 150, 150) !important;
     color: rgb(255, 255, 255) !important;
@@ -265,8 +269,8 @@ div.prj-description .text-description p {
     position: absolute !important;
     left: 0 !important;
     width: 25% !important;
-    height: 100% !important;
-    z-index: 5; /* Lower z-index to not cover content */
+    height: 60% !important; /* Reduced height to not obstruct menu */
+    z-index: 2; /* Lower z-index to not cover content */
     grid-column-start: unset;
     grid-column-end: unset;
     pointer-events: auto;
@@ -277,8 +281,8 @@ div.prj-description .text-description p {
     position: absolute !important;
     right: 0 !important;
     width: 25% !important;
-    height: 100% !important;
-    z-index: 5; /* Lower z-index to not cover content */
+    height: 60% !important; /* Reduced height to not obstruct menu */
+    z-index: 2; /* Lower z-index to not cover content */
     grid-column-start: unset;
     grid-column-end: unset;
     pointer-events: auto;
@@ -355,12 +359,14 @@ div.cursors div span {
     z-index: 10000;
     pointer-events: none;
     transform: translate(0%, 100%);
+    background-color: transparent;
 }
 
 div.cursors div span#image-count {
     will-change: transform;
     position: absolute;
     transform: translate(0%, 180%);
+    background-color: transparent;
 }
 
 /*! clist */
