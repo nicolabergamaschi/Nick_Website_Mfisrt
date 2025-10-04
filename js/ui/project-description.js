@@ -133,7 +133,86 @@ function updateTitleWithReferenceButton(titleElement, activeCarouselItem) {
     titleElement.innerHTML = `${originalTitle} - `;
     titleElement.appendChild(referenceButton);
 
-    // Trigger the flash animation after a brief delay
+    // Simple first-time tooltip (no blur, no complex effects)
+    const hasSeenReferenceButton = localStorage.getItem('hasSeenReferenceButton') === 'true';
+
+    console.log('Tooltip check:', hasSeenReferenceButton); // Debug log
+
+    if (!hasSeenReferenceButton) {
+      // Create simple tooltip for first-time visitors
+      setTimeout(() => {
+        if (referenceButton.isConnected) {
+          console.log('Creating tooltip...'); // Debug log
+
+          // Get button position for fixed positioning
+          const buttonRect = referenceButton.getBoundingClientRect();
+
+          // Create simple tooltip element
+          const tooltip = document.createElement('div');
+          tooltip.className = 'simple-reference-tooltip';
+          tooltip.textContent = 'Click to view reference images and/or data-set';
+          tooltip.style.cssText = `
+            position: fixed;
+            top: ${buttonRect.top - 50}px;
+            left: ${buttonRect.left + buttonRect.width / 2}px;
+            transform: translateX(-50%);
+            background: rgba(99, 99, 99, 0.95);
+            color: white;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-family: 'DM Sans', sans-serif;
+            white-space: nowrap;
+            z-index: 999999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(168, 168, 168, 0.56);
+          `;
+
+          // Create arrow pointing down to button
+          const arrow = document.createElement('div');
+          arrow.style.cssText = `
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid rgba(99, 99, 99, 0.95);
+          `;
+          tooltip.appendChild(arrow);
+
+          // Add tooltip to body instead of button (avoids clipping)
+          document.body.appendChild(tooltip);
+
+          console.log('Tooltip added to body at position:', buttonRect.top - 50, buttonRect.left + buttonRect.width / 2); // Debug log
+
+          // Show tooltip
+          setTimeout(() => {
+            tooltip.style.opacity = '1';
+            console.log('Tooltip should be visible now'); // Debug log
+          }, 100);
+
+          // Hide tooltip after 3 seconds and mark as seen
+          setTimeout(() => {
+            tooltip.style.opacity = '0';
+            setTimeout(() => {
+              if (tooltip.parentNode) {
+                tooltip.parentNode.removeChild(tooltip);
+              }
+            }, 300);
+
+            // Mark as seen so it won't show again
+            localStorage.setItem('hasSeenReferenceButton', 'true');
+            console.log('Tooltip marked as seen'); // Debug log
+          }, 3000);
+        }
+      }, 500);
+    }    // Trigger the flash animation after a brief delay
     setTimeout(() => {
       createFlashEffect();
     }, 100);

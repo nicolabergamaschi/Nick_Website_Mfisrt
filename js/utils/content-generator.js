@@ -73,8 +73,8 @@ export function generateCarouselItem(projectId, imageData, category, isActive = 
         // Determine if this should be a controlled video (ShowReel) or auto-loop video (others)
         const isShowReel = projectId.includes('ShowReel');
         const videoAttributes = isShowReel
-            ? 'controls preload="metadata"'
-            : 'autoplay muted loop playsinline preload="metadata"';
+            ? 'controls preload="auto"'
+            : 'autoplay muted loop playsinline preload="auto"';
 
         return `
         <div id="${projectId}" class="carousel-item ${category}${activeClass}">

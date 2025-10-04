@@ -7,8 +7,8 @@ import { initMainScrollLogic } from "./ui/carousels.js";
 import { initMobileImageCount } from "./ui/mobile-function.js";
 import { initHighligthsMenu } from "./ui/highlighted-menu.js";
 import { initContentManager } from "./content-manager.js";
+import "./utils/simple-video-reliability.js"; // Simple video error handling
 import "./ui/references.js"; // Import references module to initialize event listeners
-
 
 // initialise automated content management system (FIRST - populate carousels)
 document.addEventListener('DOMContentLoaded', initContentManager);
@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', initContentManager);
 document.addEventListener('contentManagerReady', () => {
     // initialise Navigation Button ShowReel - CGI Carousel
     initNavigationBtnShowReel();
+    // initialise bottom Navigation Buttons on Mobile
     // initialise bottom Navigation Buttons on Mobile
     initNavigationBtnMobile();
     // initialise category menu
