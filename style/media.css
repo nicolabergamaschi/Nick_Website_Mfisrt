@@ -115,7 +115,7 @@
 
 }
 
-@media (min-width: 768px) and (max-width: 2600px) {
+@media (min-width: 768px) and (max-width: 3840px) {
     .mobile-nav-buttons {
         display: none;
     }
