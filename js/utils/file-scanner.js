@@ -154,6 +154,9 @@ function getKnownFiles(directoryPath) {
             { image: 'ai-RickOwens-13.webp', has_ref: false },
             // Kraut project (index 22)
             { image: 'ai-Kraut-22.mp4', has_ref: true},
+            // Model testing VFX/Compositing  Workflows (index 23-24)
+            { image: 'ai-vfxCompositing-23.mp4', has_ref: false},
+            { image: 'ai-vfxCompositing-24.mp4', has_ref: false},
             // Experiments project (indices 14-21)
             { image: 'ai-Experiments-14.webp', has_ref: false },
             { image: 'ai-Experiments-15.webp', has_ref: false },
@@ -173,6 +176,7 @@ function getKnownFiles(directoryPath) {
             { image: 'cg-DMP-4a.mp4', has_ref: false },
             { image: 'cg-DMP-4.webp', has_ref: false },
             { image: 'cg-DMP-5.mp4', has_ref: false },
+            { image: 'cg-DMP-17.mp4', has_ref: false },
             { image: 'cg-DMP-2.webp', has_ref: true },      // Index 2 - has reference
             // LANVIN project
             { image: 'cg-LANVIN-5.webp', has_ref: false },
