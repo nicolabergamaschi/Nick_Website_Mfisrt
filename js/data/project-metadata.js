@@ -42,6 +42,13 @@ export const projectMetadata = {
         menuDisplayName: "Kraut"
     },
 
+    "ai-vfxCompositing": {
+        title: "VFX - Compositing Workflows 2025",
+        description: "A series of experiments to test current AI models against common vfx and compositing workflows and understand how con be implemented mainly to optimize and expand existing tecniques and perhaps adding new features allowing for more flexibility and quick iterations.",
+        hasReferences: false,
+        menuDisplayName: "vfxCompositing"
+    },
+
     "ai-Experiments": {
         title: "Experiments",
         description: "Experimental series combining model training and visual abstraction—using ComfyUI and various datasets. These images explore themes of memory, digital archiving, mutation, and the body's transformative potential reimagined through macro-inspired imagery.",

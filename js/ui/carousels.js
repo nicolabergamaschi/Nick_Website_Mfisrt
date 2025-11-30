@@ -153,21 +153,6 @@ function handleShowReelDetection() {
     isShowReelVideo: isShowReelVideo
   });
 
-  // TEMPORARILY DISABLED - testing if this is causing the issue
-  /*
-  if (isShowReelVideo && prevContainer && nextContainer) {
-    // ShowReel is active - move buttons away from center
-    console.log('Applying video-active-positioning');
-    prevContainer.classList.add('video-active-positioning');
-    nextContainer.classList.add('video-active-positioning');
-  } else {
-    // No ShowReel video active - restore normal positioning
-    console.log('Removing video-active-positioning');
-    if (prevContainer) prevContainer.classList.remove('video-active-positioning');
-    if (nextContainer) nextContainer.classList.remove('video-active-positioning');
-  }
-  */
-
   // Force remove video-active-positioning for testing
   if (prevContainer) prevContainer.classList.remove('video-active-positioning');
   if (nextContainer) nextContainer.classList.remove('video-active-positioning');
